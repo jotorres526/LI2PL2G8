@@ -1,6 +1,5 @@
 #include "controller.h"
 
-
 /* Função deverá receber o estado atual e uma coordenada e  modificaro estado ao jogar na casa correta
 se a jogada for válida. 
 A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
@@ -15,6 +14,7 @@ int jogar(ESTADO *e, COORDENADA c) {
         return 0;
     }
 }
+
 int main () {
     return 0 ;
 }
