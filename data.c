@@ -8,8 +8,8 @@ ESTADO *inicializar_estado() {
     e -> num_jogadas = 0;
     e -> ultima_jogada.coluna = NULL;
     e -> ultima_jogada.linha = NULL;
-    e -> tab[4][4] = BRANCA ;
     FORI(8) FORJ(8) e -> tab[i][j] = VAZIO;
+    e -> tab[4][4] = BRANCA ;
     return e;
 }
 
@@ -39,11 +39,12 @@ void setCoordenada(COORDENADA cord, int col, int line) {
 }
 
 // Função que cria uma jogada 
-void setJogada(JOGADA jog, COORDENADA c1, COORDENADA c2) {
+JOGADA setJogada(JOGADA jog, COORDENADA c1, COORDENADA c2) {
     jog.jogador1.coluna = c1.coluna;
     jog.jogador1.linha = c1.linha;
     jog.jogador2.coluna = c2.coluna;
     jog.jogador2.linha = c2.linha;
+    return jog;
 }
 
 //Função que adiciona uma jogada ao estado
@@ -57,9 +58,32 @@ void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa) {
 }
 
 // Função que coloca ultima jogada
-void setUltimaJogada(ESTADO *e, COORDENADA c1) {
+COORDENADA setUltimaJogada(ESTADO *e, COORDENADA c1) {
     e->ultima_jogada.coluna = c1.coluna;
     e->ultima_jogada.linha = c1.linha;
+    return e -> ultima_jogada;
 }
 
+void addnum_jogadas(ESTADO *e) {
+    e -> num_jogadas++;
+}
+
+// Função que inicializa uma jogada
+JOGADA inicializa_Jogada () {
+    JOGADA jog;
+    jog.jogador1.coluna = NULL;
+    jog.jogador1.linha = NULL;
+    jog.jogador2.coluna = NULL;
+    jog.jogador2.linha = NULL;
+    return jog;
+}
+
+
+
+
+}
+
+int main () {
+    return 0;
+}
 
