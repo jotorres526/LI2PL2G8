@@ -1,13 +1,10 @@
 #ifndef ___DATA_H___
 #define ___DATA_H___
 
-#include <stdio.h> 
-#include <stdlib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #define BUF_SIZE 1024
-
 
 typedef enum {VAZIO, BRANCA, PRETA} CASA;
 
@@ -25,7 +22,7 @@ typedef JOGADA JOGADAS[32];
 
 typedef struct {
     CASA tab[8][8];
-    COORDENADA ultima_jogada;
+    COORDENADA ultima_jogada; 
     JOGADAS jogadas;
     int num_jogadas;
     int jogador_atual;
