@@ -32,18 +32,23 @@ int obter_estado_casa(ESTADO *e, COORDENADA c) {
 }
 
 // Funções Auxiliares 
-// Função que coloca uma coordenada no tabuleiro
-void setCoordenada(COORDENADA cord, int col, int line) {
-    cord.linha = col;
-    cord.coluna = line;
+// Recebe uma coluna e uma linha e retorna uma coordenada
+COORDENADA setCoordenada(int col, int line) {
+    COORDENADA c;
+    c.linha = col;
+    c.coluna = line;
+    return c;
 }
 
-// Função que cria uma jogada 
-void setJogada(JOGADA jog, COORDENADA c1, COORDENADA c2) {
+//Recebe as coordenadas do jogador1 e do jogador2 respetivamente
+//Retorna uma jogada 
+JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
+    JOGADA jog; 
     jog.jogador1.coluna = c1.coluna;
     jog.jogador1.linha = c1.linha;
     jog.jogador2.coluna = c2.coluna;
     jog.jogador2.linha = c2.linha;
+    return jog;
 }
 
 //Função que adiciona uma jogada ao estado
