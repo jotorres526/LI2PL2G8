@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define BUF_SIZE 1024
+#include "macros/cycle.h"
+#include "macros/boolean.h"
 
 typedef enum {VAZIO, BRANCA, PRETA} CASA;
 
@@ -36,17 +37,17 @@ int obter_jogador_atual(ESTADO *estado);
 int obter_numero_de_jogadas(ESTADO *estado);
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
 int obter_estado_casa(ESTADO *e, COORDENADA c);
-// Função que cria uma jogada 
-JOGADA setJogada(JOGADA jog, COORDENADA c1, COORDENADA c2);
+//Retorna uma coordenada
+COORDENADA setCoordenada(int col, int line);
+//Função obter a ultima jogada 
+COORDENADA obter_ultima_jogada (ESTADO *e);
+//Retorna uma jogada 
+JOGADA setJogada(COORDENADA c1, COORDENADA c2);
 //Função que adiciona uma jogada ao estado
 void addToJogadas(ESTADO *e, JOGADA j);
 // Função que coloca a o peça numa posição
 void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa);
 // Função que coloca ultima jogada
 COORDENADA setUltimaJogada(ESTADO *e, COORDENADA c1);
-//Função que incrementa o número de jogadas
-void addnum_jogadas(ESTADO *e);
-// Função que inicializa uma jogada
-JOGADA inicializa_Jogada ();
 
 #endif
