@@ -14,7 +14,3 @@ int jogar(ESTADO *e, COORDENADA c) {
         return 0;
     }
 }
-
-int main () {
-    return 0 ;
-}
