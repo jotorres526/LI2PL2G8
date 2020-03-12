@@ -6,14 +6,18 @@ A função devolve verdadeiro (valor diferente de zero) se for possível jogar e
 não seja possível.*/
 
 int jogar(ESTADO *e, COORDENADA c) {
-    COORDENADA ultima_jogada = obter_ultima_jogada (e);
-    if(obter_estado_casa (e,c) == VAZIO && (c.coluna < 8 && c.coluna >= 0) && (c.linha < 8 && c.linha >= 0)) {
-        printf("jogar %d %d\n", c.coluna, c.linha);
-        if (obter_jogador_atual(e)) setUltimaJogada (e,c);
-        else {
-            addToJogadas(e, (setJogada(ultima_jogada,c)));
-            setUltimaJogada (e,c);
+    COORDENADA lstJogada = obter_ultima_jogada(e);
+    if((c.coluna < 8 && c.coluna >= 0) && (c.linha < 8 && c.linha >= 0)) {
+        setPosicao(e, lstJogada, PRETA);
+        if(obter_jogador_atual(e) == 1) {
+            setUltimaJogada (e, c);
+            swapJogador(e);
+        } else {
+            addToJogadas(e, setJogada(lstJogada, c));
+            setUltimaJogada (e, c); 
+            swapJogador(e);
         }
+        setPosicao(e, c, BRANCA);
         return 1;
     } else {
         printf("Jogada Inválida.\n");

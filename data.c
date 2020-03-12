@@ -1,5 +1,4 @@
 #include "data.h"
-#include "macros/cycle.h"
 
 //Funções que retornam valores já definidos
 //Retorna qual o numero do jogador atual(1 ou 2)
@@ -27,8 +26,8 @@ COORDENADA obter_ultima_jogada (ESTADO *e) {
 // Recebe uma coluna e uma linha e retorna uma coordenada
 COORDENADA setCoordenada(int col, int line) {
     COORDENADA c;
-    c.linha = col;
-    c.coluna = line;
+    c.coluna = col;
+    c.linha = line;
     return c;
 }
 
@@ -46,8 +45,13 @@ JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
 // Função que coloca ultima jogada
 void setUltimaJogada(ESTADO *e, COORDENADA c1) {
     e -> ultima_jogada = setCoordenada(c1.coluna, c1.linha);
-    if(e -> jogador_atual) e -> jogador_atual = 2;
-    else e -> jogador_atual = 1;
+}
+
+void swapJogador(ESTADO *e) {
+    if(e->jogador_atual == 1) {
+        e->jogador_atual = 2;
+    }
+    else e->jogador_atual = 1;
 }
 
 //Função que adiciona uma jogada ao estado
@@ -65,9 +69,9 @@ ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
-    e -> ultima_jogada.coluna = -1;
-    e -> ultima_jogada.linha  = -1;
-    FORI(8) FORJ(8) e -> tab[i][j] = VAZIO;
-    e -> tab[4][4] = BRANCA ;
+    e -> ultima_jogada.coluna = 4;
+    e -> ultima_jogada.linha  = 3;
+    FORI(8) FORJ(8) e -> tab[i][j] = VAZIO; //i -> Coluna; j -> Linha
+    e -> tab[4][3] = BRANCA ;
     return e;
 }

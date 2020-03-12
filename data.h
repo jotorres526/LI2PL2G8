@@ -49,5 +49,7 @@ void addToJogadas(ESTADO *e, JOGADA j);
 void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa);
 // Função que coloca ultima jogada
 void setUltimaJogada(ESTADO *e, COORDENADA c1);
+//Altera o jogador atual
+void swapJogador(ESTADO *e);
 
 #endif
