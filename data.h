@@ -48,6 +48,6 @@ void addToJogadas(ESTADO *e, JOGADA j);
 // Função que coloca a o peça numa posição
 void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa);
 // Função que coloca ultima jogada
-COORDENADA setUltimaJogada(ESTADO *e, COORDENADA c1);
+void setUltimaJogada(ESTADO *e, COORDENADA c1);
 
 #endif
