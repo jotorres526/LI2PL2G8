@@ -11,17 +11,18 @@ void mostra_casa(CASA c) {
     default:
         putchar('.');
     }
-    putchar(' ');
 }
 
 void mostrar_tabuleiro(ESTADO *e) {
     COORDENADA c;
-    FORI(8) {
-        FORJ(8) {
-            if(i == 0 && j == 7) putchar('2');
-            else if(i == 7 && j == 0) printf("1 ");
+    printf("  abcdefgh\n");
+    REVERSE_FORI(8) { //Percorrer todas as linhas de forma inversa
+        printf("%d ", i + 1);
+        FORJ(8) { //Percorrer todas as colunas de uma linha
+            if(i == 7 && j == 7) putchar('2');
+            else if(i == 0 && j == 0) putchar('1');
             else {
-                c = setCoordenada(i, j);
+                c = setCoordenada(i, j); 
                 CASA c1 = obter_estado_casa(e, c);
                 mostra_casa(c1);
             }

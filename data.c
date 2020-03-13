@@ -13,7 +13,7 @@ int obter_numero_de_jogadas(ESTADO *estado) {
 
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
 int obter_estado_casa(ESTADO *e, COORDENADA c) {
-    return e -> tab[c.coluna][c.linha];
+    return e -> tab[c.linha][c.coluna];
 }
 
 //Função obter a ultima jogada 
@@ -24,7 +24,7 @@ COORDENADA obter_ultima_jogada (ESTADO *e) {
 ////////////////////////////////////////////////////////////////////////
 // Funções que retornam novos valores 
 // Recebe uma coluna e uma linha e retorna uma coordenada
-COORDENADA setCoordenada(int col, int line) {
+COORDENADA setCoordenada(int line, int col) {
     COORDENADA c;
     c.coluna = col;
     c.linha = line;
@@ -44,7 +44,7 @@ JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
 
 // Função que coloca ultima jogada
 void setUltimaJogada(ESTADO *e, COORDENADA c1) {
-    e -> ultima_jogada = setCoordenada(c1.coluna, c1.linha);
+    e -> ultima_jogada = setCoordenada(c1.linha, c1.coluna);
 }
 
 void swapJogador(ESTADO *e) {
@@ -61,17 +61,17 @@ void addToJogadas(ESTADO *e, JOGADA j) {
 
 // Função que coloca a o peça numa posição
 void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa) {
-    e->tab[cord.coluna][cord.linha] = casa;
+    e->tab[cord.linha][cord.coluna] = casa;
 }
 
 //Cria um estado vazio com o tabuleiro inicializado
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
+    COORDENADA pecaBranca = setCoordenada(4, 4);
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
-    e -> ultima_jogada.coluna = 4;
-    e -> ultima_jogada.linha  = 3;
-    FORI(8) FORJ(8) e -> tab[i][j] = VAZIO; //i -> Coluna; j -> Linha
-    e -> tab[4][3] = BRANCA ;
+    setUltimaJogada(e, pecaBranca);
+    FORI(8) FORJ(8) e -> tab[i][j] = VAZIO; //i -> linha; j -> coluna
+    setPosicao(e, pecaBranca, BRANCA);
     return e;
 }
