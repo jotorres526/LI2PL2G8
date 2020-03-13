@@ -3,22 +3,22 @@
 //Funções que retornam valores já definidos
 //Retorna qual o numero do jogador atual(1 ou 2)
 int obter_jogador_atual(ESTADO *estado) {
-    return estado ->  jogador_atual;
+    return estado->jogador_atual;
 }
 
 //Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
 int obter_numero_de_jogadas(ESTADO *estado) {
-    return estado -> num_jogadas;
+    return estado->num_jogadas;
 }
 
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
 CASA obter_estado_casa(ESTADO *e, COORDENADA c) {
-    return e -> tab[c.linha][c.coluna];
+    return e->tab[c.linha][c.coluna];
 }
 
-//Função obter a ultima jogada ´
+//Retorna a ultima jogada ´
 COORDENADA obter_ultima_jogada (ESTADO *e) {
-    return e -> ultima_jogada;
+    return e->ultima_jogada;
 }
 
 ////////////////////////////////////////////////////////////////////////
