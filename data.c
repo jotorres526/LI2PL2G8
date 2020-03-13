@@ -12,11 +12,11 @@ int obter_numero_de_jogadas(ESTADO *estado) {
 }
 
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
-int obter_estado_casa(ESTADO *e, COORDENADA c) {
+CASA obter_estado_casa(ESTADO *e, COORDENADA c) {
     return e -> tab[c.linha][c.coluna];
 }
 
-//Função obter a ultima jogada 
+//Função obter a ultima jogada ´
 COORDENADA obter_ultima_jogada (ESTADO *e) {
     return e -> ultima_jogada;
 }
@@ -42,11 +42,16 @@ JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
     return jog;
 }
 
-// Função que coloca ultima jogada
+//Recebe o estado atual e uma coordenada
+//Altera a ultima_jogada do estado para a nova coordenada
 void setUltimaJogada(ESTADO *e, COORDENADA c1) {
     e -> ultima_jogada = setCoordenada(c1.linha, c1.coluna);
 }
 
+//Recebe o estado atual
+//Troca o jogador atual
+    //Se o jogador atual for o 1 troca para o jogador 2
+    //Caso contrario troca para o jogador 1
 void swapJogador(ESTADO *e) {
     if(e->jogador_atual == 1) {
         e->jogador_atual = 2;
@@ -54,24 +59,39 @@ void swapJogador(ESTADO *e) {
     else e->jogador_atual = 1;
 }
 
-//Função que adiciona uma jogada ao estado
+//Recebe:
+    //O estado atual
+    //Uma jogada
+//Adiciona a jogada a lista de jogadas e incrementa o numero de jogadas
 void addToJogadas(ESTADO *e, JOGADA j) {
     if(e->num_jogadas < 32) e->jogadas[e->num_jogadas++] = j;
 }
 
-// Função que coloca a o peça numa posição
-void setPosicao(ESTADO *e, COORDENADA cord,  CASA casa) {
-    e->tab[cord.linha][cord.coluna] = casa;
+//Recebe:  
+    //O estado atual
+    //1 coordenada do tabuleiro
+    //1 casa que pode ser: {VAZIO, BRANCA, PRETA}
+//Altera o tabuleiro na coordenada 'c' com o valor de 'casa'
+void setPosicao(ESTADO *e, COORDENADA c, CASA casa) {
+    e->tab[c.linha][c.coluna] = casa;
 }
 
-//Cria um estado vazio com o tabuleiro inicializado
+//Inicializa o estado do jogo
+//A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
+//Todo o resto do tabuleiro é inicializado a VAZIO
+//O tabuleiro é representado por um array bidimensional do tipo tab[linha][coluna]
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
     COORDENADA pecaBranca = setCoordenada(4, 4);
+    COORDENADA c;
+    setUltimaJogada(e, pecaBranca);
+    FORI(8) 
+        FORJ(8) {
+            c = setCoordenada(i, j);
+            setPosicao(e, c, VAZIO);
+        }
+    setPosicao(e, pecaBranca, BRANCA);
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
-    setUltimaJogada(e, pecaBranca);
-    FORI(8) FORJ(8) e -> tab[i][j] = VAZIO; //i -> linha; j -> coluna
-    setPosicao(e, pecaBranca, BRANCA);
     return e;
 }

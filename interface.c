@@ -15,7 +15,7 @@ void mostra_casa(CASA c) {
 
 void mostrar_tabuleiro(ESTADO *e) {
     COORDENADA c;
-    printf("  abcdefgh\n");
+    
     REVERSE_FORI(8) { //Percorrer todas as linhas de forma inversa
         printf("%d ", i + 1);
         FORJ(8) { //Percorrer todas as colunas de uma linha
@@ -29,6 +29,7 @@ void mostrar_tabuleiro(ESTADO *e) {
         }
         putchar('\n');
     }
+    printf("  abcdefgh\n");
 }
 
 int interpretador(ESTADO *e) {

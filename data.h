@@ -36,7 +36,7 @@ int obter_jogador_atual(ESTADO *estado);
 //Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
 int obter_numero_de_jogadas(ESTADO *estado);
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
-int obter_estado_casa(ESTADO *e, COORDENADA c);
+CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 //Retorna uma coordenada
 COORDENADA setCoordenada(int line, int col);
 //Função obter a ultima jogada 
