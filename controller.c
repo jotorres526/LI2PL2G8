@@ -7,7 +7,10 @@ não seja possível.*/
 
 int jogar(ESTADO *e, COORDENADA c) {
     COORDENADA lstJogada = obter_ultima_jogada(e);
-    if(c.coluna < 8 && c.coluna >= 0 && c.linha < 8 && c.linha >= 0) {
+    if ( obter_estado_casa(e,c) == VAZIO 
+         && c.coluna < 8 && c.coluna >= 0 && c.linha < 8 && c.linha >= 0
+         && jogada_valida(e,c)) {
+        setPosicao(e, lstJogada, PRETA);
         if(obter_jogador_atual(e) == 1) {
             setUltimaJogada (e, c);
             swapJogador(e);

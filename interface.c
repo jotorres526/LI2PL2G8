@@ -38,7 +38,7 @@ int interpretador(ESTADO *e) {
     int isValid;
     printf("Bem vindo ao Rastros!\n\n");
     mostrar_tabuleiro(e);
-    while(isValid) {
+    while(endGame(e)) {
         printf("Jogada %d -> Para qual casa se vai mover, jogador %d?:", obter_numero_de_jogadas(e), obter_jogador_atual(e));
         if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0;
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
