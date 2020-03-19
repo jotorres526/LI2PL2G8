@@ -41,13 +41,12 @@ int interpretador(ESTADO *e) {
         printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
         if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0; //le o comando e retorna 0 caso nao seja escrito nada
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) { //If que executa a jogada
-            printf("%ld, %ld", strlen(col), strlen(lin));
             COORDENADA coord = {*col - 'a', *lin - '1'};
             if(jogar(e, coord)) mostrar_tabuleiro(e);
         } else if(strlen(linha) == 2 && strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
             printf("Saindo do jogo...\n");
-            return 1;
-        } else if
+           return 1;
+        }
     }
     return 1;
 }
