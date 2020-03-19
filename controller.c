@@ -4,7 +4,6 @@
 se a jogada for válida. 
 A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
 não seja possível.*/
-
 int jogar(ESTADO *e, COORDENADA c) {
     COORDENADA lstJogada = obter_ultima_jogada(e);
     if ( obter_estado_casa(e,c) == VAZIO 
