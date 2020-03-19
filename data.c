@@ -1,6 +1,5 @@
 #include "data.h"
 /*******************Manipulação de COORDENADA******************/
-
 // Recebe uma coluna e uma linha e retorna uma coordenada
 COORDENADA setCoordenada(int line, int col) {
     COORDENADA c;
@@ -58,9 +57,9 @@ int getNumJogadas(ESTADO *e) {
 }
 
 
-/*******************Manipulação de tabuleiro******************/
+/*******************Manipulação de CASA******************/
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
-CASA getEstadoCasa(ESTADO *e, COORDENADA c) {
+CASA getCasa(ESTADO *e, COORDENADA c) {
     return e->tab[c.linha][c.coluna];
 }
 
@@ -69,7 +68,7 @@ CASA getEstadoCasa(ESTADO *e, COORDENADA c) {
     //1 coordenada do tabuleiro
     //1 casa que pode ser: {VAZIO, BRANCA, PRETA}
 //Altera o tabuleiro na coordenada 'c' com o valor de 'casa'
-void setPosicao(ESTADO *e, COORDENADA c, CASA casa) {
+void setCasa(ESTADO *e, COORDENADA c, CASA casa) {
     e->tab[c.linha][c.coluna] = casa;
 }
 
