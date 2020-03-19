@@ -17,9 +17,12 @@ int jogada_valida (ESTADO *e, COORDENADA c) {
 // Função que determina o fim do jogo
 int endGame (ESTADO *e) {
     COORDENADA posAnt = obter_ultima_jogada (e);
-    if((posAnt.linha == 7 && posAnt.coluna == 7 && jogador_anterior(e) == 2) ||
-       (posAnt.linha == 0 && posAnt.coluna == 0 && jogador_anterior(e) == 1)) {
-        printf("Parabéns Jogador %d!!\n\nFim do jogo.\n",jogador_anterior(e));
+    if((posAnt.linha == 7 && posAnt.coluna == 7 ) {
+        printf("Parabéns Jogador 2!!\n\nFim do jogo.\n");
+        return 0;
+    }
+    else if(posAnt.linha == 0 && posAnt.coluna == 0 ) {
+        printf("Parabéns Jogador 1!!\n\nFim do jogo.\n");
         return 0;   
        }
     else return 1;
