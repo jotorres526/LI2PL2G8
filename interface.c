@@ -23,7 +23,7 @@ void mostrar_tabuleiro(ESTADO *e) {
             else if(i == 0 && j == 0) putchar('1');
             else {
                 c = setCoordenada(i, j); 
-                CASA c1 = obter_estado_casa(e, c);
+                CASA c1 = getCasa(e, c);
                 mostra_casa(c1);
             }
         }
@@ -35,15 +35,14 @@ void mostrar_tabuleiro(ESTADO *e) {
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
-    int isValid;
     printf("Bem vindo ao Rastros!\n\n");
     mostrar_tabuleiro(e);
     while(endGame(e)) {
-        printf("Jogada %d -> Para qual casa se vai mover, jogador %d?:", obter_numero_de_jogadas(e), obter_jogador_atual(e));
+        printf("Jogada %d -> Para qual casa se vai mover, jogador %d?:", getNumJogadas(e), getjogador(e));
         if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0;
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
             COORDENADA coord = {*col - 'a', *lin - '1'};
-            isValid = jogar(e, coord);
+            jogar(e, coord);
             mostrar_tabuleiro(e);
         }
     }

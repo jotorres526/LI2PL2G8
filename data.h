@@ -91,9 +91,11 @@ int getNumJogadas(ESTADO *e);
 /*******************Manipulação de CASA******************/
 CASA getCasa(ESTADO *e, COORDENADA c);
 void setCasa(ESTADO *e, COORDENADA c, CASA casa);
+CASA getCasa_parametro(ESTADO *e, int x,int y);
 
 /*******************Manipulação de jogador******************/
 void swapJogador(ESTADO *e);
+int getjogador(ESTADO *e);
 /*******************Inicializacao******************/
 ESTADO *inicializar_estado();
 #endif

@@ -63,6 +63,10 @@ CASA getCasa(ESTADO *e, COORDENADA c) {
     return e->tab[c.linha][c.coluna];
 }
 
+CASA getCasa_parametro(ESTADO *e, int x,int y) {
+    return e->tab[x][y];
+}
+
 //Recebe:  
     //O estado atual
     //1 coordenada do tabuleiro
@@ -83,7 +87,10 @@ void swapJogador(ESTADO *e) {
     }
     else e->jogador_atual = 1;
 }
-
+// Função que retorna o jogador atual que vai jogar
+int getjogador(ESTADO *e) {
+    return e->jogador_atual;
+}
 /*******************Inicializacao******************/
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
@@ -97,9 +104,9 @@ ESTADO *inicializar_estado() {
     FORI(8) 
         FORJ(8) {
             c = setCoordenada(i, j);
-            setPosicao(e, c, VAZIO);
+            setCasa(e, c, VAZIO);
         }
-    setPosicao(e, pecaBranca, BRANCA);
+    setCasa(e, pecaBranca, BRANCA);
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
     return e;
