@@ -37,14 +37,17 @@ int interpretador(ESTADO *e) {
     char col[2], lin[2];
     printf("Bem vindo ao Rastros!\n\n");
     mostrar_tabuleiro(e);
-    while(endGame(e)) {
-        printf("Jogada %d -> Para qual casa se vai mover, jogador %d?:", getNumJogadas(e), getjogador(e));
-        if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0;
-        if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
+    for(int i = 0; endGame(e); i++) {
+        printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
+        if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0; //le o comando e retorna 0 caso nao seja escrito nada
+        if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) { //If que executa a jogada
+            printf("%ld, %ld", strlen(col), strlen(lin));
             COORDENADA coord = {*col - 'a', *lin - '1'};
-            jogar(e, coord);
-            mostrar_tabuleiro(e);
-        }
+            if(jogar(e, coord)) mostrar_tabuleiro(e);
+        } else if(strlen(linha) == 2 && strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
+            printf("Saindo do jogo...\n");
+            return 1;
+        } else if
     }
     return 1;
 }
