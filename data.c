@@ -1,10 +1,5 @@
 #include "data.h"
 /*******************Manipulação de COORDENADA******************/
-//Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
-CASA getEstadoCasa(ESTADO *e, COORDENADA c) {
-    return e->tab[c.linha][c.coluna];
-}
-
 // Recebe uma coluna e uma linha e retorna uma coordenada
 COORDENADA setCoordenada(int line, int col) {
     COORDENADA c;
@@ -22,8 +17,12 @@ int getLinha(COORDENADA c) {
 }
 
 /*******************Manipulação de JOGADA******************/
-//Recebe as coordenadas do jogador1 e do jogador2 respetivamente
-//Retorna uma jogada 
+//Retorna a jogada idx + 1
+JOGADA getJogada(ESTADO *e, int idx) {
+    return e->jogadas[idx];
+}
+
+//Recebe as coordenadas do jogador1 e do jogador2 respetivamente para criar uma nova jogada
 JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
     JOGADA jog; 
     jog.jogador1.coluna = c1.coluna;
@@ -31,30 +30,6 @@ JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
     jog.jogador2.coluna = c2.coluna;
     jog.jogador2.linha = c2.linha;
     return jog;
-}
-
-/*******************Manipulação de ESTADO******************/
-
-//Recebe:  
-    //O estado atual
-    //1 coordenada do tabuleiro
-    //1 casa que pode ser: {VAZIO, BRANCA, PRETA}
-//Altera o tabuleiro na coordenada 'c' com o valor de 'casa'
-void setPosicao(ESTADO *e, COORDENADA c, CASA casa) {
-    e->tab[c.linha][c.coluna] = casa;
-}
-
-//Recebe:
-    //O estado atual
-    //Uma jogada
-//Adiciona a jogada a lista de jogadas e incrementa o numero de jogadas
-void addToJogadas(ESTADO *e, JOGADA j) {
-    if(e->num_jogadas < 32) e->jogadas[e->num_jogadas++] = j;
-}
-
-//Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
-int getNumJogadas(ESTADO *estado) {
-    return estado->num_jogadas;
 }
 
 //Retorna a ultima jogada 
@@ -68,6 +43,36 @@ void setUltimaJogada(ESTADO *e, COORDENADA c1) {
     e -> ultima_jogada = setCoordenada(c1.linha, c1.coluna);
 }
 
+//Recebe:
+    //O estado atual
+    //Uma jogada
+//Adiciona a jogada a lista de jogadas e incrementa o numero de jogadas
+void addToJogadas(ESTADO *e, JOGADA j) {
+    if(e->num_jogadas < 32) e->jogadas[e->num_jogadas++] = j;
+}
+
+//Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
+int getNumJogadas(ESTADO *e) {
+    return e->num_jogadas;
+}
+
+
+/*******************Manipulação de CASA******************/
+//Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
+CASA getCasa(ESTADO *e, COORDENADA c) {
+    return e->tab[c.linha][c.coluna];
+}
+
+//Recebe:  
+    //O estado atual
+    //1 coordenada do tabuleiro
+    //1 casa que pode ser: {VAZIO, BRANCA, PRETA}
+//Altera o tabuleiro na coordenada 'c' com o valor de 'casa'
+void setCasa(ESTADO *e, COORDENADA c, CASA casa) {
+    e->tab[c.linha][c.coluna] = casa;
+}
+
+/*******************Manipulação de jogador******************/
 //Recebe o estado atual
 //Troca o jogador atual
     //Se o jogador atual for o 1 troca para o jogador 2
@@ -79,6 +84,7 @@ void swapJogador(ESTADO *e) {
     else e->jogador_atual = 1;
 }
 
+/*******************Inicializacao******************/
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
 //Todo o resto do tabuleiro é inicializado a VAZIO
