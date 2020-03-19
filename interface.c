@@ -35,7 +35,8 @@ void mostrar_tabuleiro(ESTADO *e) {
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
-    printf("Bem vindo ao Rastros!\n\n");
+    FILE *fp;
+    printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,");
     mostrar_tabuleiro(e);
     for(int i = 0; endGame(e); i++) {
         printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
@@ -43,9 +44,15 @@ int interpretador(ESTADO *e) {
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) { //If que executa a jogada
             COORDENADA coord = {*col - 'a', *lin - '1'};
             if(jogar(e, coord)) mostrar_tabuleiro(e);
-        } else if(strlen(linha) == 2 && strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
+        } else if(strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
             printf("Saindo do jogo...\n");
            return 1;
+        } else if(strcmp(linha, "gr\n") == 0) { //Comando que guarda o tabuleiro atual (cria um "savefile")
+            fp = fopen("rastros_save", "w");
+            fprintf(fp, "Placeholder be like 💩💩💩💩💩💩💩💩💩💩💩💩💩\n");
+            fclose(fp);
+        } else if(strcmp(linha, "ler\n") == 0) { //Comando que le um "savefile"
+            printf("Faz de conta que le\n");
         }
     }
     return 1;
