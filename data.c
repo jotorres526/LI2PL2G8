@@ -85,31 +85,6 @@ void setPosicao(ESTADO *e, COORDENADA c, CASA casa) {
     e->tab[c.linha][c.coluna] = casa;
 }
 
-// Funções que validam parámetros
-// Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
-int jogada_valida (ESTADO *e, COORDENADA c) {
-    COORDENADA posAnt = obter_ultima_jogada (e);
-    if ( posAnt.linha  - 1 <= c.linha  &&  c.linha  <= posAnt.linha  + 1 &&
-         posAnt.coluna - 1 <= c.coluna &&  c.coluna <= posAnt.coluna + 1)
-         return 1;
-    else return 0;
-}
-
-// Função que determina o fim do jogo acaba
-int endGame (ESTADO *e) {
-    COORDENADA posAnt = obter_ultima_jogada (e);
-    if((posAnt.linha == 7 && posAnt.coluna == 7 && jogador_anterior(e) == 2) ||
-       (posAnt.linha == 0 && posAnt.coluna == 0 && jogador_anterior(e) == 1)) {
-        printf("Parabéns Jogador %d!!\n\nFim do jogo.\n",jogador_anterior(e));
-        return 0;   
-       }
-    else return 1;
-}
-
-
-
-
-
 
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
