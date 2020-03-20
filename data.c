@@ -107,9 +107,9 @@ ESTADO *inicializar_estado() {
             setCasa(e, c, VAZIO);
         }
     setCasa(e, pecaBranca, BRANCA);
-    e -> jogador_atual = 1;
-    e -> num_jogadas = 0;
     setCasa(e,setCoordenada(7, 7),DOIS);
     setCasa(e,setCoordenada(0, 0),UM);
+    e -> jogador_atual = 1;
+    e -> num_jogadas = 0;
     return e;
 }

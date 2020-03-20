@@ -11,5 +11,6 @@ int jogada_valida (ESTADO *e, COORDENADA c);
 // Funçao que ve qual o char de uma determinada casa.
 char revelar_casa(ESTADO *e, int linha, int coluna);
 //Função que transforma um tabuleiro num array de strings
-char** tab_to_string(ESTADO *e);
+int tab_to_string(char **str, ESTADO *e);
+ERROS gravar(FILE *fp, ESTADO *e, char *filename);
 #endif

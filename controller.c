@@ -77,17 +77,32 @@ char revelar_casa(ESTADO *e, int linha, int coluna) {
     return c1;
 }
 
-char** tab_to_string(ESTADO *e) {
-    char **c = malloc(80),string[10];
-    FORI(9) {
-        FORJ(9) {
-            string[j] = revelar_casa(e,i,j); 
-        }
-        string[8] = '\n';
-        string[9] = '\0';
-        c[i] = strdup(string) ;
+//Retorna o tamanho do array de strings
+int tab_to_string(char **str, ESTADO *e) {
+    char buff[10];
+    int size = 0;
+    REVERSE_FORI(8) {
+        FORJ(8) buff[j] = revelar_casa(e, size, j); 
+        buff[8] = '\n';
+        buff[9] = '\0';
+        str[i] = strdup(buff);
+        size++;
     }
-    return c;
+    return size;
+}
+
+ERROS gravar(FILE *fp, ESTADO *e, char *filename) {
+    char **tabuleiro = malloc(8 * sizeof(char *));
+    int size = tab_to_string(tabuleiro, e);
+    fp = fopen(filename, "w");
+    if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
+    FORI(size) {
+        fprintf(fp, "%s", tabuleiro[i]);
+        free(tabuleiro[i]);
+    }
+    fclose(fp);
+    free(tabuleiro);
+    return OK;
 }
 
 
