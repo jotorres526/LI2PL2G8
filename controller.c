@@ -83,8 +83,8 @@ char** tab_to_string(ESTADO *e) {
         FORJ(9) {
             string[j] = revelar_casa(e,i,j); 
         }
-        string[9] = '\n';
-        string[10] = '\0';
+        string[8] = '\n';
+        string[9] = '\0';
         c[i] = strdup(string) ;
     }
     return c;
