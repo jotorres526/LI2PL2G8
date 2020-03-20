@@ -98,21 +98,6 @@ int string_to_tab (char **str,ESTADO *e) {
 return size;
 }
 
-
-int tab_to_string(char **str, ESTADO *e) {
-    char buff[10];
-    int linha = 0;
-    REVERSE_FORI(8) {
-        FORJ(8) buff[j] = coordToChar(e, linha, j); 
-        buff[8] = '\n';
-        buff[9] = '\0';
-        str[i] = strdup(buff);
-        linha++;
-    }
-    return linha;
-}
-
-
 ERROS gravar(FILE *fp, ESTADO *e, char *filename) {
     char **tabuleiro = malloc(8 * sizeof(char *));
     int size = tabuleiroToString(tabuleiro, e);
