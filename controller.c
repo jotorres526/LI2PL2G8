@@ -70,3 +70,26 @@ int jogar(ESTADO *e, COORDENADA c) {
         return 0;
     }
 }
+
+char revelar_casa(ESTADO *e, int linha, int coluna) {
+    COORDENADA c = setCoordenada(linha, coluna); 
+    CASA c1 = getCasa(e, c);
+    return c1;
+}
+
+char** tab_to_string(ESTADO *e) {
+    char **c = malloc(80),string[10];
+    FORI(9) {
+        FORJ(9) {
+            string[j] = revelar_casa(e,i,j); 
+        }
+        string[9] = '\n';
+        string[10] = '\0';
+        c[i] = strdup(string) ;
+    }
+    return c;
+}
+
+
+
+

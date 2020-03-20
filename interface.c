@@ -14,21 +14,14 @@ void mostra_casa(CASA c) {
 }
 
 void mostrar_tabuleiro(ESTADO *e) {
-    COORDENADA c;
-    
+    char **c = tab_to_string(e);
     REVERSE_FORI(8) { //Percorrer todas as linhas de forma inversa
         printf("%d ", i + 1);
-        FORJ(8) { //Percorrer todas as colunas de uma linha
-            if(i == 7 && j == 7) putchar('2');
-            else if(i == 0 && j == 0) putchar('1');
-            else {
-                c = setCoordenada(i, j); 
-                CASA c1 = getCasa(e, c);
-                mostra_casa(c1);
+        FORJ(10) { //Percorrer todas as colunas de uma linha
+                putchar(c[i][j]);
             }
-        }
-        putchar('\n');
     }
+    putchar('\n');
     printf("  abcdefgh\n");
 }
 
@@ -36,7 +29,7 @@ int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
     FILE *fp;
-    printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,");
+    printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,\n");
     mostrar_tabuleiro(e);
     for(int i = 0; endGame(e); i++) {
         printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
