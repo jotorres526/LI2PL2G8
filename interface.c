@@ -35,6 +35,7 @@ void mostrar_tabuleiro(ESTADO *e) {
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
+    char filename[BUF_SIZE];
     FILE *fp;
     printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,");
     mostrar_tabuleiro(e);
@@ -46,9 +47,9 @@ int interpretador(ESTADO *e) {
             if(jogar(e, coord)) mostrar_tabuleiro(e);
         } else if(strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
             printf("Saindo do jogo...\n");
-           return 1;
-        } else if(strcmp(linha, "gr\n") == 0) { //Comando que guarda o tabuleiro atual (cria um "savefile")
-            fp = fopen("rastros_save", "w");
+            return 0;
+        } else if(sscanf(linha, "gr %s", filename) == 1) { //Comando que guarda o tabuleiro atual (cria um "savefile")
+            fp = fopen(filename, "w");
             fprintf(fp, "Placeholder be like 💩💩💩💩💩💩💩💩💩💩💩💩💩\n");
             fclose(fp);
         } else if(strcmp(linha, "ler\n") == 0) { //Comando que le um "savefile"
