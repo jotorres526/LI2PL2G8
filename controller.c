@@ -85,17 +85,14 @@ int tabuleiroToString(char **str, ESTADO *e) {
 }
 
 
-int string_to_tab (char **str,ESTADO *e) {
-    int size = 0;
+void stringToTabuleiro(char **str,ESTADO *e) {
     COORDENADA c;
     REVERSE_FORI(8) {
         FORJ(8) {
            c = setCoordenada(i,j);
-           setCasa(e,c,str[i][j]);
+           setCasa(e, c, str[i][j]);
         } 
-        size++;
     }
-return size;
 }
 
 ERROS gravar(FILE *fp, ESTADO *e, char *filename) {
