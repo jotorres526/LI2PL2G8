@@ -2,10 +2,8 @@
 @file dados.h
 Definição do estado e das funções que o manipulam
 */
-
 #ifndef ___DATA_H___
 #define ___DATA_H___
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
