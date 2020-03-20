@@ -29,7 +29,7 @@ int interpretador(ESTADO *e) {
             printf("Saindo do jogo...\n");
             return 0;
         } else if(sscanf(linha, "gr %s", filename) == 1) { //Comando que guarda o tabuleiro atual (cria um "savefile")
-            gravar(fp, e, filename);
+            if(gravar(fp, e, filename) == OK) printf("Guardado com sucesso\n");
         } else if(sscanf(linha, "ler %s", filename) == 1) { //Comando que le um "savefile"
             fp = fopen(filename, "r");
             fclose(fp);
