@@ -6,7 +6,7 @@ A função devolve verdadeiro (valor diferente de zero) se for possível jogar e
 não seja possível.*/
 
 // Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
-int jogada_valida (ESTADO *e, COORDENADA c) {
+int jogada_vizinha (ESTADO *e, COORDENADA c) {
     COORDENADA posAnt = getUltimaJogada  (e);
     if ( getLinha(posAnt)  - 1 <= getLinha(c)  &&  getLinha(c)  <= getLinha(posAnt)  + 1 &&
          getColuna(posAnt) - 1 <= getColuna(c) &&  getColuna(c) <= getColuna(posAnt) + 1)
@@ -16,16 +16,25 @@ int jogada_valida (ESTADO *e, COORDENADA c) {
 
 // Função que ve se não é possivel jogar mais e se a peça branca se encontra presa
 int is_traped (ESTADO *e, COORDENADA c) {
-    int coluna = getColuna(c) - 1;
-    int linha  = getLinha(c) - 1 ;
-    int ultimaColuna = coluna + 3, ultimalinha = linha + 3;
-    while(linha < ultimalinha) {
-        while (coluna < ultimaColuna) {
-            if(getCasa_parametro(e ,linha ,coluna) == VAZIO) return 0;
-            coluna++;
-        }
-        linha++;
+    int coluna,linha,ultimaColuna,ultimaLinha;
+    if(getColuna(c) == 7 ) { 
+        coluna = 6;
+        ultimaColuna = 7;
+    } else {
         coluna = getColuna(c) - 1;
+        ultimaColuna = coluna + 2;
+    } 
+    if(getLinha(c)== 7) {
+        linha = 6;
+        ultimaLinha = 7;
+    } else {
+        linha  = getLinha(c) - 1 ;
+        ultimaLinha = linha + 2;
+    }
+    for( int i = linha ; i < ultimaLinha; i++) {
+        for(int j = coluna; j < ultimaColuna;j++) {
+            if(getCasa_parametro(e ,i, j) == VAZIO) return 0;
+        }
     }
     return 1;
 }
@@ -42,7 +51,7 @@ int endGame (ESTADO *e) {
         printf("Parabéns Jogador 1!!\n\nFim do jogo.\n");
         return 0;   
     }
-    else if(is_traped(e,posAnt) ) {
+    else if(is_traped(e,posAnt)) {
         printf("Parabéns Jogador %d!!\n\nFim do jogo.\n",getjogador(e));
         return 0;
     }  
@@ -51,9 +60,9 @@ int endGame (ESTADO *e) {
 
 int jogar(ESTADO *e, COORDENADA c) {
     COORDENADA lstJogada = getUltimaJogada (e);
-    if ( getCasa(e,c) == VAZIO 
+    if ( (getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM)
          && c.coluna < 8 && c.coluna >= 0 && c.linha < 8 && c.linha >= 0
-         && jogada_valida(e,c)) {
+         && jogada_vizinha(e,c)) {
         setCasa(e, lstJogada, PRETA);
         if(getjogador(e) == 1) {
             setUltimaJogada (e, c);
