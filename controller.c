@@ -72,7 +72,6 @@ char coordToChar(ESTADO *e, int linha, int coluna) {
 
 //Retorna o tamanho do array de strings
 int tabuleiroToString(char **str, ESTADO *e) {
-<<<<<<< HEAD
     char buff[10];
     int linha = 0;
     REVERSE_FORI(8) {
@@ -101,8 +100,6 @@ return size;
 
 
 int tab_to_string(char **str, ESTADO *e) {
-=======
->>>>>>> 75d0f4c3a7dab06f537b5d3b5e5d018e39e4d3c8
     char buff[10];
     int linha = 0;
     REVERSE_FORI(8) {
