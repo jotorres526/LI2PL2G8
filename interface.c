@@ -1,17 +1,5 @@
 #include "interface.h"
 #define BUF_SIZE 1024
-void mostra_casa(CASA c) {
-    switch(c) {
-    case BRANCA:
-        putchar('*');
-        break;
-    case PRETA:
-        putchar('#');
-        break;
-    default:
-        putchar('.');
-    }
-}
 
 void mostrar_tabuleiro(ESTADO *e) {
     char **c = tab_to_string(e);
