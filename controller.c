@@ -16,30 +16,20 @@ Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
 }
 
 // Função que ve se não é possivel jogar mais e se a peça branca se encontra presa
-int isRodeado(ESTADO *e, COORDENADA c) {
-    int coluna,linha,ultimaColuna,ultimaLinha;
-    if(getColuna(c) == 7 ) { 
-        coluna = 6;
-        ultimaColuna = 7;
-    } else {
-        coluna = getColuna(c) - 1;
-        ultimaColuna = coluna + 2;
-    } 
-    if(getLinha(c)== 7) {
-        linha = 6;
-        ultimaLinha = 7;
-    } else {
-        linha  = getLinha(c) - 1 ;
-        ultimaLinha = linha + 2;
-    }
-    for( int i = linha ; i < ultimaLinha; i++) {
-        for(int j = coluna; j < ultimaColuna;j++) {
-            if(getCasa_parametro(e ,i, j) == VAZIO) return 0;
+Boolean isRodeado(ESTADO *e, COORDENADA c) {
+    Boolean r = True;
+    for(int i = getLinha(c) - 1; i <= getLinha(c) + 1; i++)
+        for(int j = getColuna(c) - 1; j <= getColuna(c) + 1; j++) {
+            if(i >= 0 && i < 8 && j >= 0 && j < 8) {
+                COORDENADA c = setCoordenada(i, j);
+                if(getCasa(e, c) == VAZIO){
+                    r = False;
+                    break;
+                } 
+            }
         }
-    }
-    return 1;
+    return r;
 }
-
 
 // Função que determina o fim do jogo
 Boolean isTerminado(ESTADO *e) {
@@ -82,6 +72,7 @@ char coordToChar(ESTADO *e, int linha, int coluna) {
 
 //Retorna o tamanho do array de strings
 int tabuleiroToString(char **str, ESTADO *e) {
+<<<<<<< HEAD
     char buff[10];
     int linha = 0;
     REVERSE_FORI(8) {
@@ -110,16 +101,18 @@ return size;
 
 
 int tab_to_string(char **str, ESTADO *e) {
+=======
+>>>>>>> 75d0f4c3a7dab06f537b5d3b5e5d018e39e4d3c8
     char buff[10];
-    int size = 0;
+    int linha = 0;
     REVERSE_FORI(8) {
-        FORJ(8) buff[j] = revelar_casa(e, size, j); 
+        FORJ(8) buff[j] = coordToChar(e, linha, j); 
         buff[8] = '\n';
         buff[9] = '\0';
         str[i] = strdup(buff);
-        size++;
+        linha++;
     }
-    return size;
+    return linha;
 }
 
 
