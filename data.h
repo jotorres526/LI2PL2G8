@@ -78,6 +78,7 @@ typedef struct {
 COORDENADA setCoordenada(int line, int col);
 int getColuna(COORDENADA c);
 int getLinha(COORDENADA c);
+CASA getCasa_ultimaJogada(ESTADO *e);
 
 /*******************Manipulação de JOGADA******************/
 JOGADA getJogada(ESTADO *e, int idx);
