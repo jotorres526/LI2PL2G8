@@ -2,21 +2,20 @@
 #define BUF_SIZE 1024
 
 void mostrar_tabuleiro(ESTADO *e) {
-    char **c = tab_to_string(e);
-    REVERSE_FORI(8) { //Percorrer todas as linhas de forma inversa
-        printf("%d ", i + 1);
-        FORJ(10) { //Percorrer todas as colunas de uma linha
-                putchar(c[i][j]);
-            }
+    char **tabuleiro = malloc(8 * sizeof(char *));
+    int size = tab_to_string(tabuleiro, e);
+    FORI(8) {
+        printf("%d ", 8 - i);
+        FORJ(9) putchar(tabuleiro[i][j]);
     }
-    putchar('\n');
     printf("  abcdefgh\n");
+    FORI(size) free(tabuleiro[i]);
+    free(tabuleiro);
 }
 
 int interpretador(ESTADO *e) {
-    char linha[BUF_SIZE];
+    char linha[BUF_SIZE], filename[BUF_SIZE];
     char col[2], lin[2];
-    char filename[BUF_SIZE];
     FILE *fp;
     printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,\n");
     mostrar_tabuleiro(e);
@@ -30,11 +29,10 @@ int interpretador(ESTADO *e) {
             printf("Saindo do jogo...\n");
             return 0;
         } else if(sscanf(linha, "gr %s", filename) == 1) { //Comando que guarda o tabuleiro atual (cria um "savefile")
-            fp = fopen(filename, "w");
-            fprintf(fp, "Placeholder be like 💩💩💩💩💩💩💩💩💩💩💩💩💩\n");
+            gravar(fp, e, filename);
+        } else if(sscanf(linha, "ler %s", filename) == 1) { //Comando que le um "savefile"
+            fp = fopen(filename, "r");
             fclose(fp);
-        } else if(strcmp(linha, "ler\n") == 0) { //Comando que le um "savefile"
-            printf("Faz de conta que le\n");
         }
     }
     return 1;
