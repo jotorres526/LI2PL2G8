@@ -37,7 +37,6 @@ int interpretador(ESTADO *e) {
         } else if(sscanf(linha, "ler %s", filename) == 1) { //Comando que le um "savefile"
             fp = fopen(filename, "r");
             fclose(fp);
-        }
     }
     return 1;
 }
