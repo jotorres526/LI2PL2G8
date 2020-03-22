@@ -2,23 +2,23 @@
 #define BUF_SIZE 1024
 
 void mostrar_tabuleiro(ESTADO *e) {
-    char **tabuleiro = malloc(8 * sizeof(char *));
-    int size = tabuleiroToString(tabuleiro, e);
-    FORI(8) {
-        printf("%d ", 8 - i);
-        FORJ(9) putchar(tabuleiro[i][j]);
+    COORDENADA c;
+    REVERSE_FORI(8) {
+        printf("%d ", i + 1);
+        FORJ(8) {
+            c = setCoordenada(i, j);
+            putchar(getCasa(e, c));
+        }
+        putchar('\n');
     }
     printf("  abcdefgh\n");
-    FORI(size) free(tabuleiro[i]);
-    free(tabuleiro);
 }
 
 int interpretador(ESTADO *e) {
     Boolean over = False;
     char linha[BUF_SIZE], filename[BUF_SIZE];
     char col[2], lin[2];
-    FILE *fp;
-    printf("Bem vindo ao Rastros!\nInstruções: Q - Sair; gr - Gravar,\n");
+    printf("Bem vindo ao Rastros!\nInstruções: Q - Sair | | gr *ficheiro* - Grava jogo | | ler *ficheiro* - Lê savefile \n");
     mostrar_tabuleiro(e);
     for(int i = 0; !over; i++) {
         printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
@@ -33,9 +33,9 @@ int interpretador(ESTADO *e) {
             printf("Saindo do jogo...\n");
             return 0;
         } else if(sscanf(linha, "gr %s", filename) == 1) { //Comando que guarda o tabuleiro atual (cria um "savefile")
-            if(gravar(fp, e, filename) == OK) printf("Guardado com sucesso\n");
+            if(gravar(e, filename) == OK) printf("Guardado com sucesso\n");
         } else if(sscanf(linha, "ler %s", filename) == 1) { //Comando que le um "savefile"
-            if(ler(e,filename)== OK) {
+            if(ler(e, filename) == OK) {
                 printf("A ler tabuleiro...\n");
                 mostrar_tabuleiro(e);
             }
