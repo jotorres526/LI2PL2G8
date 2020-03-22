@@ -1,5 +1,5 @@
 /**
-@file dados.h
+@file data.h
 Definição do estado e das funções que o manipulam
 */
 #ifndef ___DATA_H___

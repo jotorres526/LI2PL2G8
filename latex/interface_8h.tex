@@ -1,0 +1,57 @@
+\hypertarget{interface_8h}{}\section{interface.\+h File Reference}
+\label{interface_8h}\index{interface.\+h@{interface.\+h}}
+{\ttfamily \#include \char`\"{}controller.\+h\char`\"{}}\newline
+Include dependency graph for interface.\+h\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interface_8h_aa0b6c1689e60ac852a73d67e066c1df5}{mostrar\+\_\+tabuleiro} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que precorre o tabuleiro do estado e utiliza a função putchar para imprimir o respetivo caracter da casa. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8h_a24da95ebeede4a540e37790ce8be359b}{interpretador} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Interpertador de comandos pede ao utilizador para introduzir um comando No caso de o comando ser\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definição da interface e da maneira como o utilizador interage com o programa 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{interface_8h_a24da95ebeede4a540e37790ce8be359b}\label{interface_8h_a24da95ebeede4a540e37790ce8be359b}} 
+\index{interface.\+h@{interface.\+h}!interpretador@{interpretador}}
+\index{interpretador@{interpretador}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{interpretador()}{interpretador()}}
+{\footnotesize\ttfamily int interpretador (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Interpertador de comandos pede ao utilizador para introduzir um comando No caso de o comando ser\+: 
+
+
+\begin{DoxyItemize}
+\item Q, o jogo fecha;
+\item Coordenada, o jogador faz uma jogada;
+\item gr nome do ficheiro, o estado atual será gravado num ficheiro de texto;
+\item ler nome do ficheiro, irá ser carregado o estado previamente guardado. 
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 para parar o jogo ou 1 para continuar 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\mbox{\Hypertarget{interface_8h_aa0b6c1689e60ac852a73d67e066c1df5}\label{interface_8h_aa0b6c1689e60ac852a73d67e066c1df5}} 
+\index{interface.\+h@{interface.\+h}!mostrar\+\_\+tabuleiro@{mostrar\+\_\+tabuleiro}}
+\index{mostrar\+\_\+tabuleiro@{mostrar\+\_\+tabuleiro}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{mostrar\+\_\+tabuleiro()}{mostrar\_tabuleiro()}}
+{\footnotesize\ttfamily void mostrar\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que precorre o tabuleiro do estado e utiliza a função putchar para imprimir o respetivo caracter da casa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado \\
+\hline
+\end{DoxyParams}
