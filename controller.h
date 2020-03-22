@@ -1,6 +1,6 @@
 /**
 @file controller.h
-Definição da lógica e controlo do programa
+Definição da lógica e controlo do estado
 */
 #ifndef ___CONTROLLER_H___
 #define ___CONTROLLER_H___
@@ -15,6 +15,7 @@ Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jog
 Caso a jogada não seja possível retorna 1. 
 @param estado Apontador para o estado
 @param c A coordenada
+@returns 1 no caso de a jogada ser válida e 0 no caso contrário
 */
 int jogar(ESTADO *estado, COORDENADA c);
 
@@ -23,6 +24,7 @@ int jogar(ESTADO *estado, COORDENADA c);
 Neste sentido verifica se o algum jogador chegou a casa UM ou DOIS.
 Caso chegue retorna True caso contrário falso.
 @param e Apontador para o estado
+@returns True no caso de o jogo ter terminado, False caso contrário
  */
 Boolean isTerminado(ESTADO *e);
 
@@ -31,6 +33,7 @@ Boolean isTerminado(ESTADO *e);
 Retorna True caso seja, False caso contrário.
 @param e Apontador para o estado
 @param c Coordanada da casa atual
+@returns True no caso de c ser vizinha da posição atual, False caso contrário
 */
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c);
 
@@ -39,6 +42,7 @@ Boolean isCasaVizinha(ESTADO *e, COORDENADA c);
 @param e Apontador para o estado
 @param linha Linha do tabuleiro
 @param coluna Coluna do tabuleiro
+@returns O char correspondente à linha e à coluna
 */
 char coordToChar(ESTADO *e, int linha, int coluna);
 
@@ -46,6 +50,7 @@ char coordToChar(ESTADO *e, int linha, int coluna);
 \brief Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.
 @param e Apontador para o estado
 @param filename Nome do ficheiro que sera gravado
+@returns OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário
 */
 ERROS gravar(ESTADO *e, char *filename);
 
@@ -53,6 +58,7 @@ ERROS gravar(ESTADO *e, char *filename);
 \brief Função que lê um ficheiro e converte cada linha do mesmo para uma linha de tabuleiro do Estado do jogo.
 @param e Apontador para o estado
 @param filename Nome do ficheiro para ler
+@returns OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário
 */
 ERROS ler(ESTADO *e,  char *filename);
 
@@ -60,6 +66,7 @@ ERROS ler(ESTADO *e,  char *filename);
 \brief Função que determina qual foi o jogador que venceu o jogo. 
 Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rodeado.
 @param estado Apontador para o estado
+@returns O jogador vencedor
 */
 int winner (ESTADO *e) ;
 #endif
