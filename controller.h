@@ -12,4 +12,6 @@ char coordToChar(ESTADO *e, int linha, int coluna);
 //Função que transforma um tabuleiro num array de strings
 int tabuleiroToString(char **str, ESTADO *e);
 ERROS gravar(FILE *fp, ESTADO *e, char *filename);
+ERROS ler(ESTADO *e,  char *filename);
+int winner (ESTADO *e) ;
 #endif

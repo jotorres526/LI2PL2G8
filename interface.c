@@ -27,7 +27,7 @@ int interpretador(ESTADO *e) {
             COORDENADA coord = {*col - 'a', *lin - '1'};
             if(jogar(e, coord)) {
                 mostrar_tabuleiro(e);
-                if((over = isTerminado(e))) printf("Game over!\n");
+                if((over = isTerminado(e))) printf("Game over!\nParabéns jogador %d!\n",winner(e));
             }
         } else if(strcmp(linha, "Q\n") == 0) { //Comando para sair do jogo
             printf("Saindo do jogo...\n");
@@ -35,8 +35,11 @@ int interpretador(ESTADO *e) {
         } else if(sscanf(linha, "gr %s", filename) == 1) { //Comando que guarda o tabuleiro atual (cria um "savefile")
             if(gravar(fp, e, filename) == OK) printf("Guardado com sucesso\n");
         } else if(sscanf(linha, "ler %s", filename) == 1) { //Comando que le um "savefile"
-            fp = fopen(filename, "r");
-            fclose(fp);
+            if(ler(e,filename)== OK) {
+                printf("A ler tabuleiro...\n");
+                mostrar_tabuleiro(e);
+            }
+        } 
     }
     return 1;
 }

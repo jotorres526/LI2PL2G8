@@ -28,6 +28,7 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
                 } 
             }
         }
+    
     return r;
 }
 
@@ -70,6 +71,17 @@ char coordToChar(ESTADO *e, int linha, int coluna) {
     return c1;
 }
 
+int winner (ESTADO *e) {
+    COORDENADA posAnt = getUltimaJogada(e);
+    if(getColuna(posAnt) == 0 && getLinha(posAnt) == 0) return 1;
+    if(getColuna(posAnt) == 7 && getLinha(posAnt) == 7) return 2;
+    if(isRodeado(e,posAnt)) {
+        swapJogador(e);
+        return getjogador(e);
+    }
+    else return 0;
+}
+
 //Retorna o tamanho do array de strings
 int tabuleiroToString(char **str, ESTADO *e) {
     char buff[10];
@@ -87,11 +99,13 @@ int tabuleiroToString(char **str, ESTADO *e) {
 
 void stringToTabuleiro(char **str,ESTADO *e) {
     COORDENADA c;
+    int linha = 0;
     REVERSE_FORI(8) {
         FORJ(8) {
            c = setCoordenada(i,j);
-           setCasa(e, c, str[i][j]);
+           setCasa(e, c, str[linha][j]);
         } 
+        linha++;
     }
 }
 
@@ -109,6 +123,22 @@ ERROS gravar(FILE *fp, ESTADO *e, char *filename) {
     return OK;
 }
 
+ERROS ler(ESTADO *e,  char *filename) {
+    char **c = malloc(8 * sizeof(char *));
+    char string[9];
+    FILE *fp;
+    fp = fopen(filename,"r");
+    if(fp == NULL) return ERRO_LER_TAB;
+    FORI(8){
+        fgets(string,64,fp);
+        c[i] = strdup(string);
+    }
+    stringToTabuleiro(c,e);
+    FORI(8) free(c[i]);
+    free(c);
+    fclose(fp);
+    return OK;
+}
 
 
 
