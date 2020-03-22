@@ -71,71 +71,37 @@ char coordToChar(ESTADO *e, int linha, int coluna) {
     return c1;
 }
 
-int winner (ESTADO *e) {
+int winner(ESTADO *e) {
+    int player = 0;
     COORDENADA posAnt = getUltimaJogada(e);
-    if(getColuna(posAnt) == 0 && getLinha(posAnt) == 0) return 1;
-    if(getColuna(posAnt) == 7 && getLinha(posAnt) == 7) return 2;
-    if(isRodeado(e,posAnt)) {
+    if(getColuna(posAnt) == 0 && getLinha(posAnt) == 0) player = 1;
+    if(getColuna(posAnt) == 7 && getLinha(posAnt) == 7) player = 2;
+    if(isRodeado(e, posAnt)) {
         swapJogador(e);
-        return getjogador(e);
+        player = getjogador(e);
     }
-    else return 0;
+    return player;
 }
 
-//Retorna o tamanho do array de strings
-int tabuleiroToString(char **str, ESTADO *e) {
-    char buff[10];
-    int linha = 0;
-    REVERSE_FORI(8) {
-        FORJ(8) buff[j] = coordToChar(e, linha, j); 
-        buff[8] = '\n';
-        buff[9] = '\0';
-        str[i] = strdup(buff);
-        linha++;
-    }
-    return linha;
-}
-
-
-void stringToTabuleiro(char **str,ESTADO *e) {
-    COORDENADA c;
-    int linha = 0;
-    REVERSE_FORI(8) {
-        FORJ(8) {
-           c = setCoordenada(i,j);
-           setCasa(e, c, str[linha][j]);
-        } 
-        linha++;
-    }
-}
-
-ERROS gravar(FILE *fp, ESTADO *e, char *filename) {
-    char **tabuleiro = malloc(8 * sizeof(char *));
-    int size = tabuleiroToString(tabuleiro, e);
-    fp = fopen(filename, "w");
+ERROS gravar(ESTADO *e, char *filename) {
+    FILE *fp = fopen(filename, "w");
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
-    FORI(size) {
-        fprintf(fp, "%s", tabuleiro[i]);
-        free(tabuleiro[i]);
+    REVERSE_FORI(8) {
+        FORJ(8) fputc(getCasa(e, setCoordenada(i, j)), fp);
+        fputc('\n', fp);
     }
     fclose(fp);
-    free(tabuleiro);
     return OK;
 }
 
 ERROS ler(ESTADO *e,  char *filename) {
-    char **c = malloc(8 * sizeof(char *));
-    char string[9];
-    FILE *fp;
-    fp = fopen(filename,"r");
-    if(fp == NULL) return ERRO_LER_TAB;
-    FORI(8){
-        fgets(string,64,fp);
-        c[i] = strdup(string);
+    FILE *fp = fopen(filename, "r");
+    char buffer[64];
+    if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
+    REVERSE_FORI(8){
+        fgets(buffer, 64, fp);
+        FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
     }
-    stringToTabuleiro(c,e);
-    FORI(8) free(c[i]);
-    free(c);
     fclose(fp);
     return OK;
 }
