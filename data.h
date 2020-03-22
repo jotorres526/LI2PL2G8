@@ -74,51 +74,76 @@ typedef struct {
 
 /*******************Manipulação de COORDENADA******************/
 /**
- * Função que cria uma coordenada recebendo as coordenadas respetivas para a coluna e linha.
+\brief Função que cria uma coordenada as coordenadas respetivas para a coluna e linha.
+@param col  - coordenada respetiva para a coluna
+@param line - coordenada respetiva para a linha
+@returns Coordenada criada
 */
 COORDENADA setCoordenada(int line, int col);
+
 /**
- * Função que dada um coordenada devolve o parâmetro da coluna.
+\brief Função que dada um coordenada devolve o parâmetro da coluna.
+@param c -coordenada necessária
+@returns Parâmetro da coluna
 */
 int getColuna(COORDENADA c);
-/** 
- * Funçao que dada uma coordenada devolve o parâmetro da linha.
- */
+
+/**
+\brief Função que dada um coordenada devolve o parâmetro da linha.
+@param c - coordenada necessária
+@returns Parâmetro da linha
+*/
 int getLinha(COORDENADA c);
+
 /** 
- * Função que devolve a casa onde a ultima casa foi realizada.
+\brief Função que devolve a casa onde a ultima casa foi realizada.
+@param e - Estado do jogo.
+@returns Casa
 */
 CASA getCasa_ultimaJogada(ESTADO *e);
 
 /*******************Manipulação de JOGADA******************/
-
 /**
- * Função que recebe uma jogada num determinado indice
+\brief Função que recebe uma jogada num determinado indice
+@param e - Estado do jogo
+@param idx - Indice da jogada no array de jogadas
+@returns Jogada obtida
 */
 JOGADA getJogada(ESTADO *e, int idx);
 
 /** 
- * Função que dada duas coordenadas cria uma JOGADA e retorna a respetiva jogada.
+\brief Função que dada duas coordenadas cria uma JOGADA e retorna a respetiva jogada.
+@param c1 - Primeira coordenada 
+@param c2 - Segunda coordenada
+@returns JOGADA adicionada
 */
 JOGADA setJogada(COORDENADA c1, COORDENADA c2);
 
 /**
- * Função que obtém a ultima jogada realizada.
+\brief Função que obtém a ultima jogada realizada.
+@param e - Estado do jogo.
+@returns Coordenada da ultima jogada
 */
 COORDENADA getUltimaJogada (ESTADO *e);
 
 /** 
- * Função que coloca a ultima jogada no estado.
+\brief Função que coloca a ultima jogada no estado.
+@param e - Estado do jogo
+@param c1 - Coordenada da ultima jogada
 */
 void setUltimaJogada(ESTADO *e, COORDENADA c1);
 
 /**
- * Função que adiciona um JOGADA j ao estado.
+\brief Função que adiciona um JOGADA j ao estado.
+@param e - Estado do jogo
+@param j - Jogada a ser adicionada
 */
 void addToJogadas(ESTADO *e, JOGADA j);
 
 /** 
- * Função que retorna o numero de jogadas realizadas até um determinado momento.
+\brief Função que retorna o numero de jogadas.
+@param e - Estado do jogo
+@returns numero de jogadas realizadas até ao momento
 */
 int getNumJogadas(ESTADO *e);
 
@@ -126,37 +151,51 @@ int getNumJogadas(ESTADO *e);
 /*******************Manipulação de CASA******************/
 
 /**
- * Função que acede ao estado e ve qual a casa que se encontra numa determinada coordenada c.
+\brief Função que acede ao estado e ve qual a casa que se encontra numa determinada coordenada c.
+@param e - Estado do jogo 
+@param c - Coordenada a procurar
+@returns Casa que está na respetiva coordenada
 */
 CASA getCasa(ESTADO *e, COORDENADA c);
 
 /** 
- * Função que coloca uma casa numa determinada coordenada no estado.
+\brief Função que coloca uma casa numa determinada coordenada no estado.
+@param e - Estado do jogo
+@param c - coordenada 
+@param casa - Tipo de casa a ser colocado em c
 */
 void setCasa(ESTADO *e, COORDENADA c, CASA casa);
 
 /** 
- * Função que recebe coordenadas de dois inteiros e encontra a respetiva casa no estado.
+\brief Função que recebe coordenadas de dois inteiros e encontra a respetiva casa no estado.
+@param e - Estado inicial do jogo
+@param x - Parametro da linha
+@param y - Parâmetro da coluna
+@returns Casa que se encontra em x e y
 */
 CASA getCasa_parametro(ESTADO *e, int x,int y);
 
 /*******************Manipulação de jogador******************/
 /** 
- * Função que acede ao estado e muda o jogador, caso seja 1 muda para 2 e vice-versa.
+\brief Função que acede ao estado e muda o jogador, caso seja 1 muda para 2 e vice-versa.
+@param e - Estado do jogo
 */
 void swapJogador(ESTADO *e);
 
 /** 
- * Função que retorna qual é o jogador que está a jogar atual
+\brief Função que retorna qual é o jogador que está a jogar atual
+@param e - Estado inicial
+@returns Jogador atual
 */
 int getjogador(ESTADO *e);
 
 /*******************Inicializacao******************/
 /**
-* Inicializa o estado do jogo
-* A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
-* Todo o resto do tabuleiro é inicializado a VAZIO
-* O tabuleiro é representado por um array bidimensional do tipo tab[linha][coluna]
+\brief Inicializa o estado do jogo
+A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
+Todo o resto do tabuleiro é inicializado a VAZIO
+O tabuleiro é representado por um array bidimensional do tipo tab[linha][coluna]
+@returns Novo estado do jogo
 */
 ESTADO *inicializar_estado();
 #endif
