@@ -103,6 +103,20 @@ int getColuna(COORDENADA c);
 */
 int getLinha(COORDENADA c);
 
+/**
+\brief Funcao que cria uma coordenada Nula
+Serve maioritariamente para o caso de criar uma jogada mas sem o jogador 2 ter ainda jogado
+@returns Uma coordenada onde a coluna e a linha são -1
+*/
+COORDENADA createNullCoord();
+
+/**
+\brief Verifica se uma coordenada é null
+@param c Coordenada a verificar
+@returns True no caso de a coordenada ser null e False caso contrário
+*/
+Boolean isNullCoord(COORDENADA c);
+
 /** 
 \brief Função que devolve a casa onde a ultima casa foi realizada.
 @param e - Estado do jogo.
@@ -154,9 +168,14 @@ void addToJogadas(ESTADO *e, JOGADA j);
 @returns numero de jogadas realizadas até ao momento
 */
 int getNumJogadas(ESTADO *e);
-//Retorna um apontador para o array de jogadas 
-JOGADA* getJogadas(ESTADO *e);
 
+/**
+\brief Troca a jogada num dado indice por outra
+@param e Estado do jogo
+@param j Nova jogada que irá tomar o lugar da antiga
+@param idx Indice da jogada que sera para trocar
+*/
+void editJogadas(ESTADO* e, JOGADA j, int idx);
 
 /*******************Manipulação de CASA******************/
 
