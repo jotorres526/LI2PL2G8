@@ -8,6 +8,11 @@ COORDENADA setCoordenada(int line, int col) {
     return c;
 }
 
+COORDENADA getCoordenada (JOGADA j, int jogador) {
+    if(jogador==1) return j.jogador1;
+    else return j.jogador2;
+}
+
 int getColuna(COORDENADA c) {
     return c.coluna;
 }
@@ -56,6 +61,11 @@ int getNumJogadas(ESTADO *e) {
     return e->num_jogadas;
 }
 
+//Retorna um apontador para o array de jogadas 
+JOGADA* getJogadas(ESTADO *e) {
+    return e->jogadas;
+}
+
 
 /*******************Manipulação de CASA******************/
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
@@ -91,6 +101,8 @@ void swapJogador(ESTADO *e) {
 int getjogador(ESTADO *e) {
     return e->jogador_atual;
 }
+
+
 /*******************Inicializacao******************/
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada

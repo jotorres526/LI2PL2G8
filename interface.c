@@ -14,6 +14,8 @@ void mostrar_tabuleiro(ESTADO *e) {
     printf("  abcdefgh\n");
 }
 
+
+
 int interpretador(ESTADO *e) {
     Boolean over = False;
     char linha[BUF_SIZE], filename[BUF_SIZE];
@@ -39,7 +41,16 @@ int interpretador(ESTADO *e) {
                 printf("A ler tabuleiro...\n");
                 mostrar_tabuleiro(e);
             }
-        } 
+        } else if(strcmp(linha, "movs\n") == 0) {
+            int dim = getNumJogadas(e) + 1;
+            FORI(dim) {
+                JOGADA j = getJogada(e,i);        
+                int x = getLinha(getCoordenada(j,1))+ 1;
+                int y = getLinha(getCoordenada(j,2))+ 1;
+                printf("(Jogada %d): ",i);
+                printf("%c%d %c%d\n",convert(getColuna(getCoordenada(j,1))),x,convert(getColuna(getCoordenada(j,2))),y);
+            }
+        }
     }
     return 1;
 }

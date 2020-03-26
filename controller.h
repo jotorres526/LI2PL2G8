@@ -6,6 +6,15 @@ Definição da lógica e controlo do estado
 #define ___CONTROLLER_H___
 #include "data.h"
 
+//funções por documentar::
+char convert(int x);
+void movs(ESTADO *e, char *filename) ;
+
+
+
+
+
+
 /**
 \brief Definição da função que realiza as jogadas. 
 Nesta função são realizadas as seguintes tarefas:

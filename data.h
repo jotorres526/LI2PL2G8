@@ -72,6 +72,14 @@ typedef struct {
   COORDENADA ultima_jogada;
 } ESTADO;
 
+
+// funcões por documentar:::
+COORDENADA getCoordenada (JOGADA j, int jogador);
+
+
+
+
+
 /*******************Manipulação de COORDENADA******************/
 /**
 \brief Função que cria uma coordenada as coordenadas respetivas para a coluna e linha.
@@ -146,6 +154,8 @@ void addToJogadas(ESTADO *e, JOGADA j);
 @returns numero de jogadas realizadas até ao momento
 */
 int getNumJogadas(ESTADO *e);
+//Retorna um apontador para o array de jogadas 
+JOGADA* getJogadas(ESTADO *e);
 
 
 /*******************Manipulação de CASA******************/
