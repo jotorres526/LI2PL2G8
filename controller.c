@@ -85,10 +85,23 @@ int winner(ESTADO *e) {
 
 ERROS gravar(ESTADO *e, char *filename) {
     FILE *fp = fopen(filename, "w");
+    JOGADA j;
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
+    //Ciclo que guarda o tabuleiro 
     REVERSE_FORI(8) {
         FORJ(8) fputc(getCasa(e, setCoordenada(i, j)), fp);
         fputc('\n', fp);
+    }
+    //Guarda as jogadas no ficheiro
+    FORI(getNumJogadas(e)) {
+        j = getJogada(e, i);
+        int linJ1, linJ2;
+        char colJ1, colJ2;
+        linJ1 = getLinha(getCoordenada(j, 1)) + 1;
+        linJ2 = getLinha(getCoordenada(j, 2)) + 1;
+        colJ1 = getColuna(getCoordenada(j, 1)) + 'a';
+        colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
+        fprintf(fp, "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
     }
     fclose(fp);
     return OK;
@@ -106,20 +119,6 @@ ERROS ler(ESTADO *e,  char *filename) {
     return OK;
 }
 
-//converte o numero da linha para a letra da respetiva coluna
-char convert(int x) {
-    switch (x) {
-    case 0: return'a';
-    case 1: return'b';
-    case 2: return'c';
-    case 3: return'd';
-    case 4: return'e';
-    case 5: return'f';
-    case 6: return'g';
-    case 7: return'h';
-    }
-    return 0;
-}
 
 
 

@@ -14,7 +14,27 @@ void mostrar_tabuleiro(ESTADO *e) {
     printf("  abcdefgh\n");
 }
 
-
+void mostra_jogadas(ESTADO *e) {
+    int dim = getNumJogadas(e), i = 0;
+    while(i < dim) {
+        JOGADA j = getJogada(e,i); 
+        if(getLinha(getCoordenada(j,2)) == 0 && getColuna(getCoordenada(j,2)) == 0) { 
+            int x1 = getLinha(getCoordenada(j,1))+ 1;
+            int y1 = getColuna(getCoordenada(j,1)) + 'a';
+            int x2 = getLinha(getCoordenada(j,2))+ 1;
+            int y2 = getColuna(getCoordenada(j,2)) + 'a';
+            printf("(Jogada %d): ",i);
+            printf("%c%d %c%d\n",y1,x1,y2,x2);
+            i++;
+        } else {
+            int x1 = getLinha(getCoordenada(j,1))+ 1;
+            int y1 = getColuna(getCoordenada(j,1)) + 'a';
+            printf("(Jogada %d): ",i);
+            printf("%c%d\n",y1,x1);
+            i++;
+        }
+    }
+}
 
 int interpretador(ESTADO *e) {
     Boolean over = False;
@@ -42,14 +62,7 @@ int interpretador(ESTADO *e) {
                 mostrar_tabuleiro(e);
             }
         } else if(strcmp(linha, "movs\n") == 0) {
-            int dim = getNumJogadas(e) + 1;
-            FORI(dim) {
-                JOGADA j = getJogada(e,i);        
-                int x = getLinha(getCoordenada(j,1))+ 1;
-                int y = getLinha(getCoordenada(j,2))+ 1;
-                printf("(Jogada %d): ",i);
-                printf("%c%d %c%d\n",convert(getColuna(getCoordenada(j,1))),x,convert(getColuna(getCoordenada(j,2))),y);
-            }
+                mostra_jogadas(e);
         }
     }
     return 1;
