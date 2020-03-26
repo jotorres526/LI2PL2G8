@@ -8,7 +8,6 @@ Definição da lógica e controlo do estado
 
 //funções por documentar::
 char convert(int x);
-void movs(ESTADO *e, char *filename) ;
 
 
 

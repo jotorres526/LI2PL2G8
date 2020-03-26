@@ -90,7 +90,6 @@ ERROS gravar(ESTADO *e, char *filename) {
         FORJ(8) fputc(getCasa(e, setCoordenada(i, j)), fp);
         fputc('\n', fp);
     }
-    movs(e,filename);
     fclose(fp);
     return OK;
 }
@@ -122,15 +121,6 @@ char convert(int x) {
     return 0;
 }
 
-void movs(ESTADO *e) {
-    int dim = getNumJogadas(e) + 1;
-    FORI(dim) {
-        JOGADA j = getJogada(e,i);        
-        int x = getLinha(getCoordenada(j,1))+ 1;
-        int y = getLinha(getCoordenada(j,2))+ 1;
-        printf("(Jogada %d): ",i);
-        printf("%c%d %c%d\n",convert(getColuna(getCoordenada(j,1))),x,convert(getColuna(getCoordenada(j,2))),y);
-    }
-}
+
 
 
