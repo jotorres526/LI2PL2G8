@@ -55,7 +55,7 @@ int jogar(ESTADO *e, COORDENADA c) {
             swapJogador(e);
         } else {
             JOGADA j = setJogada(lstJogada, c);
-            editJogadas(e, j, getNumJogadas(e));
+            editJogadas(e, j, getNumJogadas(e) - 1);
             setUltimaJogada (e, c); 
             swapJogador(e);
         }
@@ -99,10 +99,10 @@ ERROS gravar(ESTADO *e, char *filename) {
         j = getJogada(e, i);
         int linJ1, linJ2;
         char colJ1, colJ2;
-        linJ1 = getLinha(getCoordenada(j, 1));
+        linJ1 = getLinha(getCoordenada(j, 1)) + 1;
         colJ1 = getColuna(getCoordenada(j, 1)) + 'a';
-        if (isNullCoord(getCoordenada(j, 2))) {
-            linJ2 = getLinha(getCoordenada(j, 2));
+        if (!isNullCoord(getCoordenada(j, 2))) {
+            linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
             fprintf(fp, "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
         }

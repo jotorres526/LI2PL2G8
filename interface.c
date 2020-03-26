@@ -21,15 +21,16 @@ void mostra_jogadas(ESTADO *e) {
     char colJ1, colJ2;
     FORI(dim) {
         j = getJogada(e, i);
-        linJ1 = getLinha(getCoordenada(j, 1));
+        linJ1 = getLinha(getCoordenada(j, 1)) + 1;
         colJ1 = getColuna(getCoordenada(j, 1)) + 'a';
         if (!isNullCoord(getCoordenada(j, 2))) {
-            linJ2 = getLinha(getCoordenada(j, 2));
+            linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
             printf( "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
         }
         else printf( "Jog %d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
     }
+}
 
 int interpretador(ESTADO *e) {
     Boolean over = False;
