@@ -21,6 +21,19 @@ int getLinha(COORDENADA c) {
     return c.linha;
 }
 
+COORDENADA createNullCoord() {
+    COORDENADA r;
+    r.coluna = -1;
+    r.linha = -1;
+    return r;
+}
+
+Boolean isNullCoord(COORDENADA c) {
+    Boolean r = True;
+    if (c.coluna == -1 && c.linha == -1) r = False;
+    return r;
+}
+
 /*******************Manipulação de JOGADA******************/
 //Retorna a jogada idx + 1
 JOGADA getJogada(ESTADO *e, int idx) {
@@ -61,11 +74,10 @@ int getNumJogadas(ESTADO *e) {
     return e->num_jogadas;
 }
 
-//Retorna um apontador para o array de jogadas 
-JOGADA* getJogadas(ESTADO *e) {
-    return e->jogadas;
+//Troca a jogada na posicao i pela JOGADA j
+void editJogadas(ESTADO* e, JOGADA j, int idx) {
+    e->jogadas[idx] = j;
 }
-
 
 /*******************Manipulação de CASA******************/
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)

@@ -6,8 +6,7 @@ Definição da lógica e controlo do estado
 #define ___CONTROLLER_H___
 #include "data.h"
 
-//funções por documentar::
-char convert(int x);
+
 
 
 
