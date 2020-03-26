@@ -100,10 +100,13 @@ ERROS gravar(ESTADO *e, char *filename) {
         int linJ1, linJ2;
         char colJ1, colJ2;
         linJ1 = getLinha(getCoordenada(j, 1));
-        linJ2 = getLinha(getCoordenada(j, 2));
         colJ1 = getColuna(getCoordenada(j, 1)) + 'a';
-        colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-        fprintf(fp, "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
+        if (isNullCoord(getCoordenada(j, 2))) {
+            linJ2 = getLinha(getCoordenada(j, 2));
+            colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
+            fprintf(fp, "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
+        }
+        else fprintf(fp, "Jog %d: %c%d\n", getNumJogadas(e), colJ1, linJ1)
     }
     fclose(fp);
     return OK;
