@@ -211,6 +211,13 @@ CASA getCasa_parametro(ESTADO *e, int x,int y);
 */
 void swapJogador(ESTADO *e);
 
+/**
+\brief Funcao que altera o jogador atual
+@param e - Estado do jogo
+@param jog - O novo jogador (se for diferente de 1 ou 2 o jogador mantem se o mesmo)
+*/ 
+void setJogador(ESTADO *e, int jog);
+
 /** 
 \brief Função que retorna qual é o jogador que está a jogar atual
 @param e - Estado inicial
