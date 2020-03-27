@@ -1,4 +1,5 @@
 #include "controller.h"
+#include <string.h>
 
 /* Função deverá receber o estado atual e uma coordenada e  modificaro estado ao jogar na casa correta
 se a jogada for válida. 
@@ -94,6 +95,7 @@ ERROS gravar(ESTADO *e, char *filename) {
         FORJ(8) fputc(getCasa(e, setCoordenada(i, j)), fp);
         fputc('\n', fp);
     }
+    fputc('\n', fp);
     //Guarda as jogadas no ficheiro
     FORI(getNumJogadas(e)) {
         j = getJogada(e, i);
@@ -104,9 +106,9 @@ ERROS gravar(ESTADO *e, char *filename) {
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            fprintf(fp, "Jog %d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
+            fprintf(fp, "Jog%d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
         }
-        else fprintf(fp, "Jog %d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
+        else fprintf(fp, "Jog%d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
     }
     fclose(fp);
     return OK;
@@ -116,10 +118,32 @@ ERROS ler(ESTADO *e,  char *filename) {
     FILE *fp = fopen(filename, "r");
     char buffer[64];
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
+    e = inicializar_estado(); //Reinicializa o estado para assegurar que le o ficheiro sem problemas
+    //Passar o tabuleiro no ficheiro para o estado
     REVERSE_FORI(8){
         fgets(buffer, 64, fp);
         FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
     }
+    fgetc(fp); //Consumir o new line 
+    //Passar as jogadas para o estado
+    char* jogada, jog1, jog2;
+    COORDENADA c1, c2
+    JOGADA j1;
+    while(fgets(buffer, 64, fp)) {
+        //Partir a linha de jogadas em pedaços 
+        jogada = strtok(buffer, " \r\n"); //consome a jogada que nao será usada
+        jog1 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 1
+        jog2 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 2
+        c1 = setCoordenada(jog1[1], jog1[0] - 'a');
+        if (jog2 == NULL) c2 = createNullCoord();
+        else c2 = setCoordenada(jog2[1], jog2[0] - 'a');
+        j = setJogada(c1, c2);
+        addToJogadas(e, j);
+    }
+    //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
+    if (isNullCoord(c2)) setUltimaJogada(e, c1);
+    else setUltimaJogada(e, c2);
+
     fclose(fp);
     return OK;
 }
