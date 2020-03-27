@@ -5,7 +5,7 @@
 se a jogada for válida. 
 A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
 não seja possível.*/
-
+//
 // Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     COORDENADA posAnt = getUltimaJogada(e);
@@ -126,24 +126,24 @@ ERROS ler(ESTADO *e,  char *filename) {
     }
     fgetc(fp); //Consumir o new line 
     //Passar as jogadas para o estado
-    char* jogada, jog1, jog2;
-    COORDENADA c1, c2
-    JOGADA j1;
+    char *jog1, *jog2;
+    int jogada;
+    COORDENADA c1, c2;
+    JOGADA j;
     while(fgets(buffer, 64, fp)) {
         //Partir a linha de jogadas em pedaços 
-        jogada = strtok(buffer, " \r\n"); //consome a jogada que nao será usada
-        jog1 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 1
-        jog2 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 2
+        int scanned = sscanf(buffer, "Jog%d: %s %s\n", &jogada, jog1, jog2);
         c1 = setCoordenada(jog1[1], jog1[0] - 'a');
-        if (jog2 == NULL) c2 = createNullCoord();
-        else c2 = setCoordenada(jog2[1], jog2[0] - 'a');
+        if(scanned == 3) c2 = setCoordenada(jog2[1], jog2[0] - 'a');
+        else c2 = createNullCoord();
         j = setJogada(c1, c2);
-        addToJogadas(e, j);
+        addToJogadas(e, j);    
     }
+
     //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
     if (isNullCoord(c2)) setUltimaJogada(e, c1);
     else setUltimaJogada(e, c2);
-
+    
     fclose(fp);
     return OK;
 }
