@@ -5,7 +5,7 @@
 se a jogada for válida. 
 A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
 não seja possível.*/
-
+//
 // Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     COORDENADA posAnt = getUltimaJogada(e);
@@ -25,7 +25,7 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
                 COORDENADA c = setCoordenada(i, j);
                 if(getCasa(e, c) == VAZIO){
                     r = False;
-                    break;
+                                        break;
                 } 
             }
         }
