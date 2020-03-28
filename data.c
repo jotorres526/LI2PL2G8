@@ -29,8 +29,8 @@ COORDENADA createNullCoord() {
 }
 
 Boolean isNullCoord(COORDENADA c) {
-    Boolean r = True;
-    if (c.coluna == -1 && c.linha == -1) r = False;
+    Boolean r = False;
+    if (c.coluna == -1 && c.linha == -1) r = True;
     return r;
 }
 

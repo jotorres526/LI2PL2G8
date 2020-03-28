@@ -127,7 +127,7 @@ ERROS ler(ESTADO *e,  char *filename) {
     fgetc(fp); //Consumir o new line 
     //Passar as jogadas para o estado
     char* jogada, jog1, jog2;
-    COORDENADA c1, c2
+    COORDENADA c1, c2;
     JOGADA j1;
     while(fgets(buffer, 64, fp)) {
         //Partir a linha de jogadas em pedaços 
