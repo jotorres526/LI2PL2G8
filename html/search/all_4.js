@@ -4,6 +4,7 @@ var searchData=
   ['getcasa_5fparametro',['getCasa_parametro',['../data_8h.html#af257fae5e735a17794b8c906b6b4d563',1,'data.c']]],
   ['getcasa_5fultimajogada',['getCasa_ultimaJogada',['../data_8h.html#acb8160cac1e3533d3e0c268f0a65bf36',1,'data.h']]],
   ['getcoluna',['getColuna',['../data_8h.html#a0183a44bde7867f6c417e584afa8e56e',1,'data.c']]],
+  ['getcoordenada',['getCoordenada',['../data_8h.html#a2d1d1300cb689bfade0c8ab736a5c2ed',1,'data.c']]],
   ['getjogada',['getJogada',['../data_8h.html#a252b653cecd65225969ef0fbc457d226',1,'data.c']]],
   ['getjogador',['getjogador',['../data_8h.html#a10993347e610b194752a0afda93e2d47',1,'data.c']]],
   ['getlinha',['getLinha',['../data_8h.html#a79cea1ec53fca591b4803ac0393bdaee',1,'data.c']]],

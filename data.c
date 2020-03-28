@@ -113,6 +113,10 @@ void swapJogador(ESTADO *e) {
 int getjogador(ESTADO *e) {
     return e->jogador_atual;
 }
+// Muda o jogador atual para 'jog'
+void setJogador(ESTADO *e, int jog) {
+    if(jog == 1 || jog == 2) e->jogador_atual = jog;
+}
 
 
 /*******************Inicializacao******************/

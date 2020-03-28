@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['setcasa',['setCasa',['../data_8h.html#a6f0eddb6649f61e6fa2293252f6dd749',1,'data.c']]],
-  ['setcoordenada',['setCoordenada',['../data_8h.html#a1999bafee85ae84698b9c2db31b1ba99',1,'data.c']]],
-  ['setjogada',['setJogada',['../data_8h.html#a303b6241d969cf48ca060bc3706093f3',1,'data.c']]],
-  ['setultimajogada',['setUltimaJogada',['../data_8h.html#a261951f5a3b69e5ffa6edb742f7fd5e8',1,'data.c']]],
-  ['swapjogador',['swapJogador',['../data_8h.html#a7ad8db36a0e0e59670e1bc940fe6b09d',1,'data.c']]]
+  ['mostrar_5ftabuleiro',['mostrar_tabuleiro',['../interface_8h.html#aa0b6c1689e60ac852a73d67e066c1df5',1,'interface.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ler',['ler',['../controller_8h.html#a6b2c21f1f942998df07e3e31c45021c9',1,'controller.c']]]
+  ['jogar',['jogar',['../controller_8h.html#a53472e75f056ceb02b5387193021838a',1,'controller.c']]]
 ];

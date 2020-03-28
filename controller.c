@@ -46,7 +46,7 @@ Boolean isTerminado(ESTADO *e) {
 
 int jogar(ESTADO *e, COORDENADA c) {
     COORDENADA lstJogada = getUltimaJogada (e);
-    if ( (getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM)
+    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM)
          && c.coluna < 8 && c.coluna >= 0 && c.linha < 8 && c.linha >= 0
          && isCasaVizinha(e, c)) {
         setCasa(e, lstJogada, PRETA);
@@ -56,9 +56,10 @@ int jogar(ESTADO *e, COORDENADA c) {
             swapJogador(e);
         } else {
             JOGADA j = setJogada(lstJogada, c);
-            editJogadas(e, j, getNumJogadas(e) - 1);
+            addToJogadas(e,j);
             setUltimaJogada (e, c); 
             swapJogador(e);
+            incNumJogadas(e);
         }
         setCasa(e, c, BRANCA);
         return 1;
@@ -92,13 +93,18 @@ ERROS gravar(ESTADO *e, char *filename) {
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
     //Ciclo que guarda o tabuleiro 
     REVERSE_FORI(8) {
-        FORJ(8) fputc(getCasa(e, setCoordenada(i, j)), fp);
+        fprintf(fp, "%d ", i + 1);
+        FORJ(8) {
+            fputc(getCasa(e, setCoordenada(i, j)), fp);
+        }
         fputc('\n', fp);
     }
+    fprintf(fp, "  abcdefgh\n");
     fputc('\n', fp);
     //Guarda as jogadas no ficheiro
-    FORI(getNumJogadas(e)) {
+    FORI(getNumJogadas(e) + 1) {
         j = getJogada(e, i);
+        if(isNullCoord(getCoordenada(j, 1))) break;
         int linJ1, linJ2;
         char colJ1, colJ2;
         linJ1 = getLinha(getCoordenada(j, 1)) + 1;
@@ -106,9 +112,9 @@ ERROS gravar(ESTADO *e, char *filename) {
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            fprintf(fp, "Jog%d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
+            fprintf(fp, "Jog%02d: %c%d %c%d\n", i, colJ1, linJ1, colJ2, linJ2);
         }
-        else fprintf(fp, "Jog%d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
+        else fprintf(fp, "Jog%02d: %c%d\n", i, colJ1, linJ1);
     }
     fclose(fp);
     return OK;
@@ -118,32 +124,36 @@ ERROS ler(ESTADO *e,  char *filename) {
     FILE *fp = fopen(filename, "r");
     char buffer[64];
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
-    e = inicializar_estado(); //Reinicializa o estado para assegurar que le o ficheiro sem problemas
     //Passar o tabuleiro no ficheiro para o estado
     REVERSE_FORI(8){
         fgets(buffer, 64, fp);
-        FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
+        FROMJ_TO_N(2,10) setCasa(e, setCoordenada(i, j - 2), buffer[j]);
     }
-    fgetc(fp); //Consumir o new line 
+    fgets(buffer, 64, fp);//consumir os caracteres de 'flavour' do tabuleiro
+    fgetc(fp); //Consumir o new line
     //Passar as jogadas para o estado
-    char* jogada, jog1, jog2;
+    char jog1[3], jog2[3];
+    int jogada;
     COORDENADA c1, c2;
-    JOGADA j1;
+    JOGADA j;
     while(fgets(buffer, 64, fp)) {
         //Partir a linha de jogadas em pedaços 
-        jogada = strtok(buffer, " \r\n"); //consome a jogada que nao será usada
-        jog1 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 1
-        jog2 = strtok(NULL, " \r\n"); //retorna a string equivalente a jogada do jogador 2
-        c1 = setCoordenada(jog1[1], jog1[0] - 'a');
-        if (jog2 == NULL) c2 = createNullCoord();
-        else c2 = setCoordenada(jog2[1], jog2[0] - 'a');
+        int scanned = sscanf(buffer, "Jog%d: %s %s\n", &jogada, jog1, jog2);
+        c1 = setCoordenada(jog1[1] - '1', jog1[0] - 'a');
+        if(scanned == 3) c2 = setCoordenada(jog2[1] - '1', jog2[0] - 'a');
+        else c2 = createNullCoord();
         j = setJogada(c1, c2);
-        addToJogadas(e, j);
+        addToJogadas(e, j);    
     }
-    //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
-    if (isNullCoord(c2)) setUltimaJogada(e, c1);
-    else setUltimaJogada(e, c2);
 
+    //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
+    if (isNullCoord(c2)) {
+        setUltimaJogada(e, c1);
+        setJogador(e, 2);
+    } else {
+        setUltimaJogada(e, c2);
+        setJogador(e, 1);
+    } 
     fclose(fp);
     return OK;
 }
