@@ -74,9 +74,6 @@ typedef struct {
 
 
 // funcões por documentar:::
-COORDENADA getCoordenada (JOGADA j, int jogador);
-
-
 
 
 
@@ -123,6 +120,14 @@ Boolean isNullCoord(COORDENADA c);
 @returns Casa
 */
 CASA getCasa_ultimaJogada(ESTADO *e);
+
+/** 
+\brief Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2
+@param j - jogada a ser analisada.
+@param jogador - qual o jogador que se pretende obter a respetiva coordenada da jogada 
+@returns Casa
+*/
+COORDENADA getCoordenada (JOGADA j, int jogador);
 
 /*******************Manipulação de JOGADA******************/
 /**
@@ -176,6 +181,12 @@ int getNumJogadas(ESTADO *e);
 @param idx Indice da jogada que sera para trocar
 */
 void editJogadas(ESTADO* e, JOGADA j, int idx);
+
+/** 
+\brief Função que incrementa o numero de jogadas.
+@param e Estado do jogo
+*/
+void incNumJogadas(ESTADO *e);
 
 /*******************Manipulação de CASA******************/
 

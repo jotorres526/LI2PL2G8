@@ -143,7 +143,8 @@ ERROS ler(ESTADO *e,  char *filename) {
         if(scanned == 3) c2 = setCoordenada(jog2[1] - '1', jog2[0] - 'a');
         else c2 = createNullCoord();
         j = setJogada(c1, c2);
-        addToJogadas(e, j);    
+        addToJogadas(e, j);
+        incNumJogadas(e);    
     }
 
     //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
