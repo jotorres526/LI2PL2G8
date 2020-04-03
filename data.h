@@ -188,6 +188,13 @@ void editJogadas(ESTADO* e, JOGADA j, int idx);
 */
 void incNumJogadas(ESTADO *e);
 
+/**
+\brief Altera o numero de jogadas atual para um dado numero
+@param e Estado do jogo
+@param num Novo numero de jogadas
+*/
+void setNumJogadas(ESTADO *e, int num);
+
 /*******************Manipulação de CASA******************/
 
 /**
@@ -236,6 +243,11 @@ void setJogador(ESTADO *e, int jog);
 */
 int getjogador(ESTADO *e);
 
+/**
+\brief Retorna alguns valores do estado para o inicial
+@param e - Estado que será "reset"
+*/
+void resetEstado(ESTADO *e);
 /*******************Inicializacao******************/
 /**
 \brief Inicializa o estado do jogo
