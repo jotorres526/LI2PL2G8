@@ -158,6 +158,27 @@ ERROS ler(ESTADO *e,  char *filename) {
 }
 
 
+Boolean pos(ESTADO *e, int n) {
+    int numJogadas = getNumJogadas(e),i;
+    COORDENADA c;
+    JOGADA j;
+    if(n > numJogadas || n < 0) return False;
+    renicializaTab(e);
+    for(i = 0; i <= n; i++) {
+        incNumJogadas(e);
+        j  = getJogada(e,i);
+        c = getCoordenada(j,1);
+        setCasa(e,c,PRETA);
+        c = getCoordenada(j,2);
+        setCasa(e,c,PRETA);
+    }
+    j  = getJogada(e,n);
+    c = getCoordenada(j,2);
+    setCasa(e,c,BRANCA);
+    setUltimaJogada(e,c);
+    return True;
+} 
+
 
 
 
