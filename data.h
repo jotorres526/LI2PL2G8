@@ -63,7 +63,9 @@ typedef struct {
   /** As jogadas */
   JOGADAS jogadas;
   /** O número das jogadas, usado no prompt */
-  int num_jogadas;
+    int num_jogadas;
+  /** O apontador para a jogada atual */
+    int pointer_jogada;
   /** O jogador atual */
   int jogador_atual;
   /** O nº de comando, usado no prompt */
@@ -74,7 +76,9 @@ typedef struct {
 
 
 // funcões por documentar:::
-
+int getPointerJogada(ESTADO *e);
+void setPointerJogada(ESTADO *e, int num) ;
+void renicializaTab(ESTADO *e);
 
 
 /*******************Manipulação de COORDENADA******************/

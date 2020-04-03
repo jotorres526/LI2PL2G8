@@ -87,15 +87,19 @@ void setNumJogadas(ESTADO *e, int num) {
     e->num_jogadas = num;
 }
 
+void setPointerJogada(ESTADO *e, int num) {
+    e->pointer_jogada = num;
+}
+
+int getPointerJogada(ESTADO *e) {
+    return e->pointer_jogada;
+}
+
 
 /*******************Manipulação de CASA******************/
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
 CASA getCasa(ESTADO *e, COORDENADA c) {
     return e->tab[c.linha][c.coluna];
-}
-
-CASA getCasa_parametro(ESTADO *e, int x,int y) {
-    return e->tab[x][y];
 }
 
 //Recebe:  
@@ -132,6 +136,19 @@ void resetEstado(ESTADO *e) {
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
 }
+
+void renicializaTab(ESTADO *e) {
+    COORDENADA c;
+    FORI(8) 
+        FORJ(8) {
+            c = setCoordenada(i, j);
+            setCasa(e, c, VAZIO);
+        }
+    setCasa(e,setCoordenada(4, 4), BRANCA);
+    setCasa(e,setCoordenada(7, 7),DOIS);
+    setCasa(e,setCoordenada(0, 0),UM);
+}
+
 /*******************Inicializacao******************/
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
@@ -141,13 +158,14 @@ ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
     e->jogador_atual = 1;
     e->num_jogadas = 0;
+    e -> pointer_jogada = 0;
     e->ultima_jogada = setCoordenada(4, 4);
     setCasa(e, setCoordenada(4, 4), BRANCA);
     setCasa(e, setCoordenada(7, 7), DOIS);
     setCasa(e, setCoordenada(0, 0), UM);
-    FORI(32) e->jogadas[i] = setJogada(createNullCoord(), createNullCoord());
+    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
     FORI(8) 
-        FORJ(8) 
+        FORJ(8)
             setCasa(e, setCoordenada(i, j), VAZIO);
     return e;
 }
