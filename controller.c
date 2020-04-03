@@ -54,6 +54,7 @@ int jogar(ESTADO *e, COORDENADA c) {
             addToJogadas(e, setJogada(c, createNullCoord()));
             setUltimaJogada (e, c);
             swapJogador(e);
+            avaliaJogada(e);
         } else {
             JOGADA j = setJogada(lstJogada, c);
             addToJogadas(e,j);
@@ -165,7 +166,7 @@ Boolean pos(ESTADO *e, int n) {
     if(n > numJogadas || n < 0) return False;
     renicializaTab(e);
     for(i = 0; i <= n; i++) {
-        incNumJogadas(e);
+        setPointerJogada(e,i);
         j  = getJogada(e,i);
         c = getCoordenada(j,1);
         setCasa(e,c,PRETA);
@@ -179,6 +180,16 @@ Boolean pos(ESTADO *e, int n) {
     return True;
 } 
 
+void avaliaJogada(ESTADO *e) {
+    if(getNumJogadas(e) == getPointerJogada(e)) 
+        setPointerJogada(e,0);
+    if(getNumJogadas(e) > getPointerJogada(e)) {
+        setNumJogadas(e,getPointerJogada(e));
+        for(int i = getPointerJogada(e); i < 32; i++) {
+            e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+        }
+    }
+}
 
 
 
