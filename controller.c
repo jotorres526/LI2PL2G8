@@ -144,9 +144,7 @@ ERROS ler(ESTADO *e,  char *filename) {
         else c2 = createNullCoord();
         j = setJogada(c1, c2);
         addToJogadas(e, j);
-        incNumJogadas(e);    
     }
-
     //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
     if (isNullCoord(c2)) {
         setUltimaJogada(e, c1);
