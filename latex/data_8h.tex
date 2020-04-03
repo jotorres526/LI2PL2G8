@@ -6,9 +6,21 @@
 {\ttfamily \#include \char`\"{}macros/cycle.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}macros/boolean.\+h\char`\"{}}\newline
 Include dependency graph for data.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{data_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,8 +68,14 @@ int \hyperlink{data_8h_a0183a44bde7867f6c417e584afa8e56e}{get\+Coluna} (\hyperli
 \begin{DoxyCompactList}\small\item\em Função que dada um coordenada devolve o parâmetro da coluna. \end{DoxyCompactList}\item 
 int \hyperlink{data_8h_a79cea1ec53fca591b4803ac0393bdaee}{get\+Linha} (\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
 \begin{DoxyCompactList}\small\item\em Função que dada um coordenada devolve o parâmetro da linha. \end{DoxyCompactList}\item 
+\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} \hyperlink{data_8h_ab4332447f942e9a8268ccce3e0d5854c}{create\+Null\+Coord} ()
+\begin{DoxyCompactList}\small\item\em Funcao que cria uma coordenada Nula Serve maioritariamente para o caso de criar uma jogada mas sem o jogador 2 ter ainda jogado. \end{DoxyCompactList}\item 
+Boolean \hyperlink{data_8h_ae1315370ef7e22e1cbd289d8a08b99b2}{is\+Null\+Coord} (\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
+\begin{DoxyCompactList}\small\item\em Verifica se uma coordenada é null. \end{DoxyCompactList}\item 
 \hyperlink{data_8h_aba91601f16d4c485b2d9b8c429f27039}{C\+A\+SA} \hyperlink{data_8h_acb8160cac1e3533d3e0c268f0a65bf36}{get\+Casa\+\_\+ultima\+Jogada} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que devolve a casa onde a ultima casa foi realizada. \end{DoxyCompactList}\item 
+\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} \hyperlink{data_8h_a2d1d1300cb689bfade0c8ab736a5c2ed}{get\+Coordenada} (\hyperlink{structJOGADA}{J\+O\+G\+A\+DA} j, int jogador)
+\begin{DoxyCompactList}\small\item\em Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2. \end{DoxyCompactList}\item 
 \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} \hyperlink{data_8h_a252b653cecd65225969ef0fbc457d226}{get\+Jogada} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int idx)
 \begin{DoxyCompactList}\small\item\em Função que recebe uma jogada num determinado indice. \end{DoxyCompactList}\item 
 \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} \hyperlink{data_8h_a303b6241d969cf48ca060bc3706093f3}{set\+Jogada} (\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c1, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c2)
@@ -70,6 +88,10 @@ void \hyperlink{data_8h_a5156aa8d30673f3bd7b1190fd04103de}{add\+To\+Jogadas} (\h
 \begin{DoxyCompactList}\small\item\em Função que adiciona um \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} j ao estado. \end{DoxyCompactList}\item 
 int \hyperlink{data_8h_a12874adb19d5d154a3af0f3028d17d3b}{get\+Num\+Jogadas} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que retorna o numero de jogadas. \end{DoxyCompactList}\item 
+void \hyperlink{data_8h_ae893525430d4ceb49841b95443a96728}{edit\+Jogadas} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} j, int idx)
+\begin{DoxyCompactList}\small\item\em Troca a jogada num dado indice por outra. \end{DoxyCompactList}\item 
+void \hyperlink{data_8h_a9aceecbb9febd75affa41ed245740268}{inc\+Num\+Jogadas} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que incrementa o numero de jogadas. \end{DoxyCompactList}\item 
 \hyperlink{data_8h_aba91601f16d4c485b2d9b8c429f27039}{C\+A\+SA} \hyperlink{data_8h_a91f22f1ec4a44d41ae7dbcc449157d47}{get\+Casa} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
 \begin{DoxyCompactList}\small\item\em Função que acede ao estado e ve qual a casa que se encontra numa determinada coordenada c. \end{DoxyCompactList}\item 
 void \hyperlink{data_8h_a6f0eddb6649f61e6fa2293252f6dd749}{set\+Casa} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c, \hyperlink{data_8h_aba91601f16d4c485b2d9b8c429f27039}{C\+A\+SA} casa)
@@ -78,6 +100,8 @@ void \hyperlink{data_8h_a6f0eddb6649f61e6fa2293252f6dd749}{set\+Casa} (\hyperlin
 \begin{DoxyCompactList}\small\item\em Função que recebe coordenadas de dois inteiros e encontra a respetiva casa no estado. \end{DoxyCompactList}\item 
 void \hyperlink{data_8h_a7ad8db36a0e0e59670e1bc940fe6b09d}{swap\+Jogador} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que acede ao estado e muda o jogador, caso seja 1 muda para 2 e vice-\/versa. \end{DoxyCompactList}\item 
+void \hyperlink{data_8h_a9c7501ee68575a6bb3795e7f385d841a}{set\+Jogador} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int jog)
+\begin{DoxyCompactList}\small\item\em Funcao que altera o jogador atual. \end{DoxyCompactList}\item 
 int \hyperlink{data_8h_a10993347e610b194752a0afda93e2d47}{getjogador} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que retorna qual é o jogador que está a jogar atual. \end{DoxyCompactList}\item 
 \hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$ \hyperlink{data_8h_a7e0c7e26fb685d9ab501e19b05e6954f}{inicializar\+\_\+estado} ()
@@ -103,6 +127,38 @@ Função que adiciona um \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} j ao estado.
 {\em e} & -\/ Estado do jogo \\
 \hline
 {\em j} & -\/ Jogada a ser adicionada \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_ab4332447f942e9a8268ccce3e0d5854c}\label{data_8h_ab4332447f942e9a8268ccce3e0d5854c}} 
+\index{data.\+h@{data.\+h}!create\+Null\+Coord@{create\+Null\+Coord}}
+\index{create\+Null\+Coord@{create\+Null\+Coord}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{create\+Null\+Coord()}{createNullCoord()}}
+{\footnotesize\ttfamily \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} create\+Null\+Coord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcao que cria uma coordenada Nula Serve maioritariamente para o caso de criar uma jogada mas sem o jogador 2 ter ainda jogado. 
+
+\begin{DoxyReturn}{Returns}
+Uma coordenada onde a coluna e a linha são -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_ae893525430d4ceb49841b95443a96728}\label{data_8h_ae893525430d4ceb49841b95443a96728}} 
+\index{data.\+h@{data.\+h}!edit\+Jogadas@{edit\+Jogadas}}
+\index{edit\+Jogadas@{edit\+Jogadas}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{edit\+Jogadas()}{editJogadas()}}
+{\footnotesize\ttfamily void edit\+Jogadas (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{structJOGADA}{J\+O\+G\+A\+DA}}]{j,  }\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Troca a jogada num dado indice por outra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Estado do jogo \\
+\hline
+{\em j} & Nova jogada que irá tomar o lugar da antiga \\
+\hline
+{\em idx} & Indice da jogada que sera para trocar \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{data_8h_a91f22f1ec4a44d41ae7dbcc449157d47}\label{data_8h_a91f22f1ec4a44d41ae7dbcc449157d47}} 
@@ -182,6 +238,26 @@ Função que dada um coordenada devolve o parâmetro da coluna.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Parâmetro da coluna 
+\end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_a2d1d1300cb689bfade0c8ab736a5c2ed}\label{data_8h_a2d1d1300cb689bfade0c8ab736a5c2ed}} 
+\index{data.\+h@{data.\+h}!get\+Coordenada@{get\+Coordenada}}
+\index{get\+Coordenada@{get\+Coordenada}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{get\+Coordenada()}{getCoordenada()}}
+{\footnotesize\ttfamily \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} get\+Coordenada (\begin{DoxyParamCaption}\item[{\hyperlink{structJOGADA}{J\+O\+G\+A\+DA}}]{j,  }\item[{int}]{jogador }\end{DoxyParamCaption})}
+
+
+
+Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & -\/ jogada a ser analisada. \\
+\hline
+{\em jogador} & -\/ qual o jogador que se pretende obter a respetiva coordenada da jogada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Casa 
 \end{DoxyReturn}
 \mbox{\Hypertarget{data_8h_a252b653cecd65225969ef0fbc457d226}\label{data_8h_a252b653cecd65225969ef0fbc457d226}} 
 \index{data.\+h@{data.\+h}!get\+Jogada@{get\+Jogada}}
@@ -275,6 +351,21 @@ Função que obtém a ultima jogada realizada.
 \begin{DoxyReturn}{Returns}
 Coordenada da ultima jogada 
 \end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_a9aceecbb9febd75affa41ed245740268}\label{data_8h_a9aceecbb9febd75affa41ed245740268}} 
+\index{data.\+h@{data.\+h}!inc\+Num\+Jogadas@{inc\+Num\+Jogadas}}
+\index{inc\+Num\+Jogadas@{inc\+Num\+Jogadas}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{inc\+Num\+Jogadas()}{incNumJogadas()}}
+{\footnotesize\ttfamily void inc\+Num\+Jogadas (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa o numero de jogadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Estado do jogo \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{data_8h_a7e0c7e26fb685d9ab501e19b05e6954f}\label{data_8h_a7e0c7e26fb685d9ab501e19b05e6954f}} 
 \index{data.\+h@{data.\+h}!inicializar\+\_\+estado@{inicializar\+\_\+estado}}
 \index{inicializar\+\_\+estado@{inicializar\+\_\+estado}!data.\+h@{data.\+h}}
@@ -287,6 +378,24 @@ Inicializa o estado do jogo A peça branca começa na coluna 4 da linha 4 e cons
 
 \begin{DoxyReturn}{Returns}
 Novo estado do jogo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_ae1315370ef7e22e1cbd289d8a08b99b2}\label{data_8h_ae1315370ef7e22e1cbd289d8a08b99b2}} 
+\index{data.\+h@{data.\+h}!is\+Null\+Coord@{is\+Null\+Coord}}
+\index{is\+Null\+Coord@{is\+Null\+Coord}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{is\+Null\+Coord()}{isNullCoord()}}
+{\footnotesize\ttfamily Boolean is\+Null\+Coord (\begin{DoxyParamCaption}\item[{\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
+
+
+
+Verifica se uma coordenada é null. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordenada a verificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True no caso de a coordenada ser null e False caso contrário 
 \end{DoxyReturn}
 \mbox{\Hypertarget{data_8h_a6f0eddb6649f61e6fa2293252f6dd749}\label{data_8h_a6f0eddb6649f61e6fa2293252f6dd749}} 
 \index{data.\+h@{data.\+h}!set\+Casa@{set\+Casa}}
@@ -347,6 +456,23 @@ Função que dada duas coordenadas cria uma \hyperlink{structJOGADA}{J\+O\+G\+A\
 \begin{DoxyReturn}{Returns}
 \hyperlink{structJOGADA}{J\+O\+G\+A\+DA} adicionada 
 \end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_a9c7501ee68575a6bb3795e7f385d841a}\label{data_8h_a9c7501ee68575a6bb3795e7f385d841a}} 
+\index{data.\+h@{data.\+h}!set\+Jogador@{set\+Jogador}}
+\index{set\+Jogador@{set\+Jogador}!data.\+h@{data.\+h}}
+\subsubsection{\texorpdfstring{set\+Jogador()}{setJogador()}}
+{\footnotesize\ttfamily void set\+Jogador (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{jog }\end{DoxyParamCaption})}
+
+
+
+Funcao que altera o jogador atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & -\/ Estado do jogo \\
+\hline
+{\em jog} & -\/ O novo jogador (se for diferente de 1 ou 2 o jogador mantem se o mesmo) \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{data_8h_a261951f5a3b69e5ffa6edb742f7fd5e8}\label{data_8h_a261951f5a3b69e5ffa6edb742f7fd5e8}} 
 \index{data.\+h@{data.\+h}!set\+Ultima\+Jogada@{set\+Ultima\+Jogada}}
 \index{set\+Ultima\+Jogada@{set\+Ultima\+Jogada}!data.\+h@{data.\+h}}

@@ -112,9 +112,9 @@ ERROS gravar(ESTADO *e, char *filename) {
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            fprintf(fp, "Jog%02d: %c%d %c%d\n", i, colJ1, linJ1, colJ2, linJ2);
+            fprintf(fp, "Jog %02d: %c%d %c%d\n", i + 1, colJ1, linJ1, colJ2, linJ2);
         }
-        else fprintf(fp, "Jog%02d: %c%d\n", i, colJ1, linJ1);
+        else fprintf(fp, "Jog %02d: %c%d\n", i + 1, colJ1, linJ1);
     }
     fclose(fp);
     return OK;
@@ -132,20 +132,19 @@ ERROS ler(ESTADO *e,  char *filename) {
     fgets(buffer, 64, fp);//consumir os caracteres de 'flavour' do tabuleiro
     fgetc(fp); //Consumir o new line
     //Passar as jogadas para o estado
-    char jog1[3], jog2[3];
+    char jog1[32], jog2[32];
     int jogada;
     COORDENADA c1, c2;
-    JOGADA j;
+    resetEstado(e);
     while(fgets(buffer, 64, fp)) {
         //Partir a linha de jogadas em pedaços 
-        int scanned = sscanf(buffer, "Jog%d: %s %s\n", &jogada, jog1, jog2);
+        int scanned = sscanf(buffer, "Jog %02d: %s %s\n", &jogada, jog1, jog2);
         c1 = setCoordenada(jog1[1] - '1', jog1[0] - 'a');
         if(scanned == 3) c2 = setCoordenada(jog2[1] - '1', jog2[0] - 'a');
         else c2 = createNullCoord();
-        j = setJogada(c1, c2);
-        addToJogadas(e, j);    
+        addToJogadas(e, setJogada(c1, c2));
+        incNumJogadas(e);
     }
-
     //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
     if (isNullCoord(c2)) {
         setUltimaJogada(e, c1);

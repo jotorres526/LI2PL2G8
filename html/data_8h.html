@@ -76,8 +76,6 @@ $(function() {
 Include dependency graph for data.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="data_8h__incl.png" border="0" usemap="#data_8h" alt=""/></div>
-<map name="data_8h" id="data_8h">
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -156,7 +154,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:acb8160cac1e3533d3e0c268f0a65bf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que devolve a casa onde a ultima casa foi realizada.  <a href="#acb8160cac1e3533d3e0c268f0a65bf36">More...</a><br /></td></tr>
 <tr class="separator:acb8160cac1e3533d3e0c268f0a65bf36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d1d1300cb689bfade0c8ab736a5c2ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCOORDENADA.html">COORDENADA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data_8h.html#a2d1d1300cb689bfade0c8ab736a5c2ed">getCoordenada</a> (<a class="el" href="structJOGADA.html">JOGADA</a> j, int jogador)</td></tr>
-<tr class="memdesc:a2d1d1300cb689bfade0c8ab736a5c2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que devolve a coordenada de um jogador 1 ou 2 numa jogada.  <a href="#a2d1d1300cb689bfade0c8ab736a5c2ed">More...</a><br /></td></tr>
+<tr class="memdesc:a2d1d1300cb689bfade0c8ab736a5c2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2.  <a href="#a2d1d1300cb689bfade0c8ab736a5c2ed">More...</a><br /></td></tr>
 <tr class="separator:a2d1d1300cb689bfade0c8ab736a5c2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a252b653cecd65225969ef0fbc457d226"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structJOGADA.html">JOGADA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data_8h.html#a252b653cecd65225969ef0fbc457d226">getJogada</a> (<a class="el" href="structESTADO.html">ESTADO</a> *e, int idx)</td></tr>
 <tr class="memdesc:a252b653cecd65225969ef0fbc457d226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que recebe uma jogada num determinado indice.  <a href="#a252b653cecd65225969ef0fbc457d226">More...</a><br /></td></tr>
@@ -180,7 +178,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae893525430d4ceb49841b95443a96728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troca a jogada num dado indice por outra.  <a href="#ae893525430d4ceb49841b95443a96728">More...</a><br /></td></tr>
 <tr class="separator:ae893525430d4ceb49841b95443a96728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aceecbb9febd75affa41ed245740268"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data_8h.html#a9aceecbb9febd75affa41ed245740268">incNumJogadas</a> (<a class="el" href="structESTADO.html">ESTADO</a> *e)</td></tr>
-<tr class="memdesc:a9aceecbb9febd75affa41ed245740268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa o número de jogadas.  <a href="#a9aceecbb9febd75affa41ed245740268">More...</a><br /></td></tr>
+<tr class="memdesc:a9aceecbb9febd75affa41ed245740268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que incrementa o numero de jogadas.  <a href="#a9aceecbb9febd75affa41ed245740268">More...</a><br /></td></tr>
 <tr class="separator:a9aceecbb9febd75affa41ed245740268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91f22f1ec4a44d41ae7dbcc449157d47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data_8h.html#aba91601f16d4c485b2d9b8c429f27039">CASA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data_8h.html#a91f22f1ec4a44d41ae7dbcc449157d47">getCasa</a> (<a class="el" href="structESTADO.html">ESTADO</a> *e, <a class="el" href="structCOORDENADA.html">COORDENADA</a> c)</td></tr>
 <tr class="memdesc:a91f22f1ec4a44d41ae7dbcc449157d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que acede ao estado e ve qual a casa que se encontra numa determinada coordenada c.  <a href="#a91f22f1ec4a44d41ae7dbcc449157d47">More...</a><br /></td></tr>
@@ -471,15 +469,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Função que devolve a coordenada de um jogador 1 ou 2 numa jogada. </p>
+<p>Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">j</td><td>- jogada realizada </td></tr>
-    <tr><td class="paramname">jogador</td><td>- jogador indicado </td></tr>
+    <tr><td class="paramname">j</td><td>- jogada a ser analisada. </td></tr>
+    <tr><td class="paramname">jogador</td><td>- qual o jogador que se pretende obter a respetiva coordenada da jogada </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Coordenada onde j se encontra </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Casa </dd></dl>
 
 </div>
 </div>
@@ -645,7 +643,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Incrementa o número de jogadas. </p>
+<p>Função que incrementa o numero de jogadas. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">e</td><td>Estado do jogo </td></tr>

@@ -15,20 +15,21 @@ void mostrar_tabuleiro(ESTADO *e) {
 }
 
 void mostra_jogadas(ESTADO *e) {
-    int dim = getNumJogadas(e);
+    int dim = getNumJogadas(e) + 1;
     JOGADA j;
     int linJ1, linJ2;
     char colJ1, colJ2;
     FORI(dim) {
         j = getJogada(e, i);
+        if(isNullCoord(getCoordenada(j, 1))) break;
         linJ1 = getLinha(getCoordenada(j, 1)) + 1;
         colJ1 = getColuna(getCoordenada(j, 1)) + 'a';
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            printf( "Jog %02d: %c%d %c%d\n", getNumJogadas(e), colJ1, linJ1, colJ2, linJ2);
+            printf("Jog %02d: %c%d %c%d\n", i + 1 , colJ1, linJ1, colJ2, linJ2);
         }
-        else printf( "Jog %02d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
+        else printf("Jog %02d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
     }
 }
 
