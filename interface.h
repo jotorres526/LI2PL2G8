@@ -9,7 +9,7 @@ Definição da interface e da maneira como o utilizador interage com o programa
 
 /** 
 \brief Função que precorre o tabuleiro do estado e utiliza a função putchar para imprimir o respetivo caracter da casa.
-@param e Apontador para o estado
+@param e Apontador para o estado.
 */
 void mostrar_tabuleiro(ESTADO *e);
 
