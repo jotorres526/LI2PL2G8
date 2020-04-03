@@ -27,9 +27,9 @@ void mostra_jogadas(ESTADO *e) {
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            printf("Jog %02d: %c%d %c%d\n", i + 1, colJ1, linJ1, colJ2, linJ2);
+            printf("Jog %02d: %c%d %c%d\n", i + 1 , colJ1, linJ1, colJ2, linJ2);
         }
-        else printf("Jog %02d: %c%d\n", getNumJogadas(e) + 1, colJ1, linJ1);
+        else printf("Jog %02d: %c%d\n", getNumJogadas(e), colJ1, linJ1);
     }
 }
 
@@ -40,7 +40,7 @@ int interpretador(ESTADO *e) {
     printf("Bem vindo ao Rastros!\nInstruções: Q - Sair | | gr *ficheiro* - Grava jogo | | ler *ficheiro* - Lê savefile \n");
     mostrar_tabuleiro(e);
     for(int i = 0; !over; i++) {
-        printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e) + 1, getjogador(e));
+        printf("(#%d Jogada %d Player %d)> ", i, getNumJogadas(e), getjogador(e));
         if(fgets(linha, BUF_SIZE, stdin) == NULL) return 0; //le o comando e retorna 0 caso nao seja escrito nada
         if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) { //If que executa a jogada
             COORDENADA coord = {*col - 'a', *lin - '1'};
