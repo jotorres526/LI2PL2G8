@@ -83,6 +83,9 @@ void incNumJogadas(ESTADO *e) {
     e->num_jogadas++;
 }
 
+void setNumJogadas(ESTADO *e, int num) {
+    e->num_jogadas = num;
+}
 
 
 /*******************Manipulação de CASA******************/
@@ -124,7 +127,11 @@ void setJogador(ESTADO *e, int jog) {
     if(jog == 1 || jog == 2) e->jogador_atual = jog;
 }
 
-
+void resetEstado(ESTADO *e) {
+    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+    e -> jogador_atual = 1;
+    e -> num_jogadas = 0;
+}
 /*******************Inicializacao******************/
 //Inicializa o estado do jogo
 //A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada
@@ -145,9 +152,6 @@ ESTADO *inicializar_estado() {
     setCasa(e,setCoordenada(0, 0),UM);
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
-    FORI(32) {
-        JOGADA j = setJogada(createNullCoord(),createNullCoord());
-        e->jogadas[i] = j;
-    }
+    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
     return e;
 }
