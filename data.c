@@ -139,19 +139,15 @@ void resetEstado(ESTADO *e) {
 //O tabuleiro é representado por um array bidimensional do tipo tab[linha][coluna]
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
-    COORDENADA pecaBranca = setCoordenada(4, 4);
-    COORDENADA c;
-    setUltimaJogada(e, pecaBranca);
+    e->jogador_atual = 1;
+    e->num_jogadas = 0;
+    e->ultima_jogada = setCoordenada(4, 4);
+    setCasa(e, setCoordenada(4, 4), BRANCA);
+    setCasa(e, setCoordenada(7, 7), DOIS);
+    setCasa(e, setCoordenada(0, 0), UM);
+    FORI(32) e->jogadas[i] = setJogada(createNullCoord(), createNullCoord());
     FORI(8) 
-        FORJ(8) {
-            c = setCoordenada(i, j);
-            setCasa(e, c, VAZIO);
-        }
-    setCasa(e, pecaBranca, BRANCA);
-    setCasa(e,setCoordenada(7, 7),DOIS);
-    setCasa(e,setCoordenada(0, 0),UM);
-    e -> jogador_atual = 1;
-    e -> num_jogadas = 0;
-    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+        FORJ(8) 
+            setCasa(e, setCoordenada(i, j), VAZIO);
     return e;
 }
