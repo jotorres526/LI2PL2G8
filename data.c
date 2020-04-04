@@ -140,6 +140,7 @@ void resetEstado(ESTADO *e) {
     FORI(32) e->jogadas[i] = createJogada(createNullCoord(),createNullCoord());
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
+    e->pointer_jogada = 0;
 }
 
 void renicializaTab(ESTADO *e) {

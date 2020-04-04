@@ -30,15 +30,20 @@ void mostrar_tabuleiro(ESTADO *e) {
     printf("  abcdefgh\n");
 }
 
-void mostra_jogadas(ESTADO *e) {
+void logJogadas(ESTADO *e) {
     JOGADA j;
-    FORI(getPointerJogada(e) + 1) {
+    FORI(getPointerJogada(e)) {
         j = getJogada(e, i);
+        printf("Jog %02d: ", i + 1);
+        mostraJogada(e, j);
+     }
+     if(getPointerJogada(e) == getNumJogadas(e)) {
+        j = getJogada(e, getPointerJogada(e));
         if(!isNullCoord(getCoordenada(j, 1))) {
-            printf("Jog %02d: ", i + 1);
+            printf("Jog %02d: ", getPointerJogada(e) + 1);
             mostraJogada(e, j);
         }
-     }
+    }
 }
 
 int interpretador(ESTADO *e) {
@@ -68,10 +73,10 @@ int interpretador(ESTADO *e) {
                 mostrar_tabuleiro(e);
             }
         } else if(strcmp(linha, "movs\n") == 0) {
-                mostra_jogadas(e);
+                logJogadas(e);
         } else if(sscanf(linha, "pos %d", &pos) == 1) {
-                goToPos(e, pos);
-                mostrar_tabuleiro(e);
+                if(goToPos(e, pos)) mostrar_tabuleiro(e);
+                else printf("Introduza uma jogada válida!\n");
         }
     }
     return 1;

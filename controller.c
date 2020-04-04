@@ -66,7 +66,10 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
         setCasa(e, getUltimaJogada(e), PRETA);
         setCasa(e, c, BRANCA);
         addMovJogador(e, c);
-        if(getjogador(e) == 2) incPointerJogada(e);
+        if(getjogador(e) == 2) {
+            incPointerJogada(e);
+            editJogadas(e, createJogada(createNullCoord(),createNullCoord()),getPointerJogada(e));
+        }
         setNumJogadas(e, getPointerJogada(e)); //Meter o numero de jogadas igual ao pointer previamente incrementado
         swapJogador(e);
         r = OK;
@@ -101,7 +104,7 @@ ERROS gravar(ESTADO *e, char *filename) {
     fprintf(fp, "  abcdefgh\n");
     fputc('\n', fp);
     //Guarda as jogadas no ficheiro
-    FORI(getNumJogadas(e) + 1) {
+    FORI(getPointerJogada(e) + 1) {
         j = getJogada(e, i);
         if(isNullCoord(getCoordenada(j, 1))) break;
         int linJ1, linJ2;
@@ -159,18 +162,25 @@ ERROS ler(ESTADO *e,  char *filename) {
 
 
 Boolean goToPos(ESTADO *e, int n) {
-    JOGADA j;
+    JOGADA j = getJogada(e, n-1);
     Boolean r = False;
-    if(n < getNumJogadas(e) && n >= 0) {
+    if(n <= getNumJogadas(e) && n >= 0 && !isNullCoord(getCoordenada(j,2))) {
+        setJogador(e,1);
         setPointerJogada(e, n);
         renicializaTab(e);
-        FORI(n + 1) {       
-            j = getJogada(e, i);
-            setCasa(e, getCoordenada(j, 1), PRETA);
-            if(i == n) setCasa(e, getCoordenada(j, 2), BRANCA);
-            else setCasa(e, getCoordenada(j, 2), PRETA);
+        if(n != 0) {
+            setCasa(e,setCoordenada(4,4),PRETA);
+            FORI(n) {       
+                j = getJogada(e, i);
+                setCasa(e, getCoordenada(j, 1), PRETA);
+                setCasa(e, getCoordenada(j, 2), PRETA);
+            }
+            setCasa(e, getCoordenada(j, 2), BRANCA);
+            setUltimaJogada(e, getCoordenada(j, 2));
+        } else {
+            setUltimaJogada(e, setCoordenada(4, 4));
         }
-        setUltimaJogada(e, getCoordenada(j, 2));
+        r = True;
     }
     return r;
 } 
