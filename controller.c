@@ -29,7 +29,6 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
                 } 
             }
         }
-    
     return r;
 }
 
@@ -44,36 +43,35 @@ Boolean isTerminado(ESTADO *e) {
     return r;
 }
 
-int jogar(ESTADO *e, COORDENADA c) {
-    COORDENADA lstJogada = getUltimaJogada (e);
-    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM)
-         && c.coluna < 8 && c.coluna >= 0 && c.linha < 8 && c.linha >= 0
-         && isCasaVizinha(e, c)) {
-        setCasa(e, lstJogada, PRETA);
-        if(getjogador(e) == 1) {
-            addToJogadas(e, setJogada(c, createNullCoord()));
-            setUltimaJogada (e, c);
-            swapJogador(e);
-            avaliaJogada(e);
-        } else {
-            JOGADA j = setJogada(lstJogada, c);
-            addToJogadas(e,j);
-            setUltimaJogada (e, c); 
-            swapJogador(e);
-            incNumJogadas(e);
-        }
-        setCasa(e, c, BRANCA);
-        return 1;
-    } else {
-        printf("Jogada Inválida.\n");
-        return 0;
-    }
+Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
+    Boolean r = False;
+    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM) &&
+        getColuna(c) < 8 && getColuna >= 0 && getLinha(c) < 8 && getLinha(c) >= 0 &&
+        isCasaVizinha(e, c))
+            r = True;
+    return r;
 }
 
-char coordToChar(ESTADO *e, int linha, int coluna) {
-    COORDENADA c = setCoordenada(linha, coluna); 
-    CASA c1 = getCasa(e, c);
-    return c1;
+void addMovJogador(ESTADO *e, COORDENADA c) {
+    int position = getPointerJogada(e);
+    int jogador = getjogador(e);
+    JOGADA j = (jogador == 1) ? createJogada(c, createNullCoord()) : createJogada(getUltimaJogada(e), c);
+    editJogadas(e, j, position);
+    setUltimaJogada(e, c);
+}
+
+ERROS jogar(ESTADO *e, COORDENADA c) {
+    ERROS r = JOGADA_INVALIDA;
+    if (isJogadaValida(e, c)) {
+        setCasa(e, getUltimaJogada(e), PRETA);
+        setCasa(e, c, BRANCA);
+        addMovJogador(e, c);
+        if(getjogador(e) == 2) incPointerJogada(e);
+        setNumJogadas(e, getPointerJogada(e)); //Meter o numero de jogadas igual ao pointer previamente incrementado
+        swapJogador(e);
+        r = OK;
+    }
+    return r;
 }
 
 int winner(ESTADO *e) {
@@ -143,8 +141,9 @@ ERROS ler(ESTADO *e,  char *filename) {
         c1 = setCoordenada(jog1[1] - '1', jog1[0] - 'a');
         if(scanned == 3) c2 = setCoordenada(jog2[1] - '1', jog2[0] - 'a');
         else c2 = createNullCoord();
-        addToJogadas(e, setJogada(c1, c2));
+        addToJogadas(e, createJogada(c1, c2));
         incNumJogadas(e);
+        incPointerJogada(e);
     }
     //Alterar a ultima jogada para refletir o 'reloading' da lista de jogadas
     if (isNullCoord(c2)) {
@@ -159,37 +158,19 @@ ERROS ler(ESTADO *e,  char *filename) {
 }
 
 
-Boolean pos(ESTADO *e, int n) {
-    int numJogadas = getNumJogadas(e),i;
-    COORDENADA c;
+Boolean goToPos(ESTADO *e, int n) {
     JOGADA j;
-    if(n > numJogadas || n < 0) return False;
-    renicializaTab(e);
-    for(i = 0; i <= n; i++) {
-        setPointerJogada(e,i);
-        j  = getJogada(e,i);
-        c = getCoordenada(j,1);
-        setCasa(e,c,PRETA);
-        c = getCoordenada(j,2);
-        setCasa(e,c,PRETA);
-    }
-    j  = getJogada(e,n);
-    c = getCoordenada(j,2);
-    setCasa(e,c,BRANCA);
-    setUltimaJogada(e,c);
-    return True;
-} 
-
-void avaliaJogada(ESTADO *e) {
-    if(getNumJogadas(e) == getPointerJogada(e)) 
-        setPointerJogada(e,0);
-    if(getNumJogadas(e) > getPointerJogada(e)) {
-        setNumJogadas(e,getPointerJogada(e));
-        for(int i = getPointerJogada(e); i < 32; i++) {
-            e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+    Boolean r = False;
+    if(n < getNumJogadas(e) && n >= 0) {
+        setPointerJogada(e, n);
+        renicializaTab(e);
+        FORI(n + 1) {       
+            j = getJogada(e, i);
+            setCasa(e, getCoordenada(j, 1), PRETA);
+            if(i == n) setCasa(e, getCoordenada(j, 2), BRANCA);
+            else setCasa(e, getCoordenada(j, 2), PRETA);
         }
+        setUltimaJogada(e, getCoordenada(j, 2));
     }
-}
-
-
-
+    return r;
+} 

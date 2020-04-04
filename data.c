@@ -35,19 +35,19 @@ Boolean isNullCoord(COORDENADA c) {
 }
 
 /*******************Manipulação de JOGADA******************/
-//Retorna a jogada idx + 1
-JOGADA getJogada(ESTADO *e, int idx) {
-    return e->jogadas[idx];
-}
-
 //Recebe as coordenadas do jogador1 e do jogador2 respetivamente para criar uma nova jogada
-JOGADA setJogada(COORDENADA c1, COORDENADA c2) {
+JOGADA createJogada(COORDENADA c1, COORDENADA c2) {
     JOGADA jog; 
     jog.jogador1.coluna = c1.coluna;
     jog.jogador1.linha = c1.linha;
     jog.jogador2.coluna = c2.coluna;
     jog.jogador2.linha = c2.linha;
     return jog;
+}
+
+//Retorna a jogada idx + 1
+JOGADA getJogada(ESTADO *e, int idx) {
+    return e->jogadas[idx];
 }
 
 //Retorna a ultima jogada 
@@ -69,32 +69,35 @@ void addToJogadas(ESTADO *e, JOGADA j) {
     if(e->num_jogadas < 32) e->jogadas[e->num_jogadas] = j;
 }
 
-//Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
-int getNumJogadas(ESTADO *e) {
-    return e->num_jogadas;
-}
-
 //Troca a jogada na posicao i pela JOGADA j
 void editJogadas(ESTADO* e, JOGADA j, int idx) {
     e->jogadas[idx] = j;
 }
 
-void incNumJogadas(ESTADO *e) {
-    e->num_jogadas++;
+//Retorna o numero de jogadas efetuadas(Cada jogada tem o movimento dos dois jogadores)
+int getNumJogadas(ESTADO *e) {
+    return e->num_jogadas;
 }
 
 void setNumJogadas(ESTADO *e, int num) {
     e->num_jogadas = num;
 }
 
-void setPointerJogada(ESTADO *e, int num) {
-    e->pointer_jogada = num;
+void incNumJogadas(ESTADO *e) {
+    e->num_jogadas++;
 }
 
 int getPointerJogada(ESTADO *e) {
     return e->pointer_jogada;
 }
 
+void setPointerJogada(ESTADO *e, int num) {
+    e->pointer_jogada = num;
+}
+
+void incPointerJogada(ESTADO *e) {
+    e->pointer_jogada++;
+}
 
 /*******************Manipulação de CASA******************/
 //Retorna o estado atual da casa na coordenada c (Branca, Preta ou Vazia)
@@ -122,17 +125,19 @@ void swapJogador(ESTADO *e) {
     }
     else e->jogador_atual = 1;
 }
+
 // Função que retorna o jogador atual que vai jogar
 int getjogador(ESTADO *e) {
     return e->jogador_atual;
 }
+
 // Muda o jogador atual para 'jog'
-void setJogador(ESTADO *e, int jog) {
-    if(jog == 1 || jog == 2) e->jogador_atual = jog;
+void setJogador(ESTADO *e, int jogador) {
+    if(jogador == 1 || jogador == 2) e->jogador_atual = jogador;
 }
 
 void resetEstado(ESTADO *e) {
-    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+    FORI(32) e->jogadas[i] = createJogada(createNullCoord(),createNullCoord());
     e -> jogador_atual = 1;
     e -> num_jogadas = 0;
 }
@@ -158,14 +163,14 @@ ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
     e->jogador_atual = 1;
     e->num_jogadas = 0;
-    e -> pointer_jogada = 0;
+    e->pointer_jogada = 0;
     e->ultima_jogada = setCoordenada(4, 4);
-    setCasa(e, setCoordenada(4, 4), BRANCA);
-    setCasa(e, setCoordenada(7, 7), DOIS);
-    setCasa(e, setCoordenada(0, 0), UM);
-    FORI(32) e->jogadas[i] = setJogada(createNullCoord(),createNullCoord());
+    FORI(32) e->jogadas[i] = createJogada(createNullCoord(), createNullCoord());
     FORI(8) 
         FORJ(8)
             setCasa(e, setCoordenada(i, j), VAZIO);
+    setCasa(e, setCoordenada(4, 4), BRANCA);
+    setCasa(e, setCoordenada(7, 7), DOIS);
+    setCasa(e, setCoordenada(0, 0), UM);
     return e;
 }

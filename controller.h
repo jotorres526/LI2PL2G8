@@ -17,7 +17,7 @@ Caso a jogada não seja possível retorna 1.
 @param c A coordenada
 @returns 1 no caso de a jogada ser válida e 0 no caso contrário
 */
-int jogar(ESTADO *estado, COORDENADA c);
+ERROS jogar(ESTADO *e, COORDENADA c);
 
 /**
 \brief Função que determina se o Jogo está terminado.
@@ -36,15 +36,6 @@ Retorna True caso seja, False caso contrário.
 @returns True no caso de c ser vizinha da posição atual, False caso contrário
 */
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c);
-
-/**
-\brief Funçao que ve qual o char de uma determinada casa.
-@param e Apontador para o estado
-@param linha Linha do tabuleiro
-@param coluna Coluna do tabuleiro
-@returns O char correspondente à linha e à coluna
-*/
-char coordToChar(ESTADO *e, int linha, int coluna);
 
 /**
 \brief Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.
@@ -69,4 +60,6 @@ Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rod
 @returns O jogador vencedor
 */
 int winner (ESTADO *e) ;
+
+Boolean goToPos(ESTADO *e, int n);
 #endif

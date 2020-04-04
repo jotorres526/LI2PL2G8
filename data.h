@@ -79,7 +79,7 @@ typedef struct {
 int getPointerJogada(ESTADO *e);
 void setPointerJogada(ESTADO *e, int num) ;
 void renicializaTab(ESTADO *e);
-
+void incPointerJogada(ESTADO *e);
 
 /*******************Manipulação de COORDENADA******************/
 /**
@@ -134,6 +134,14 @@ CASA getCasa_ultimaJogada(ESTADO *e);
 COORDENADA getCoordenada (JOGADA j, int jogador);
 
 /*******************Manipulação de JOGADA******************/
+/** 
+\brief Função que dada duas coordenadas cria uma JOGADA e retorna a respetiva jogada.
+@param c1 - Primeira coordenada 
+@param c2 - Segunda coordenada
+@returns JOGADA adicionada
+*/
+JOGADA createJogada(COORDENADA c1, COORDENADA c2);
+
 /**
 \brief Função que recebe uma jogada num determinado indice
 @param e - Estado do jogo
@@ -141,14 +149,6 @@ COORDENADA getCoordenada (JOGADA j, int jogador);
 @returns Jogada obtida
 */
 JOGADA getJogada(ESTADO *e, int idx);
-
-/** 
-\brief Função que dada duas coordenadas cria uma JOGADA e retorna a respetiva jogada.
-@param c1 - Primeira coordenada 
-@param c2 - Segunda coordenada
-@returns JOGADA adicionada
-*/
-JOGADA setJogada(COORDENADA c1, COORDENADA c2);
 
 /**
 \brief Função que obtém a ultima jogada realizada.
@@ -171,13 +171,6 @@ void setUltimaJogada(ESTADO *e, COORDENADA c1);
 */
 void addToJogadas(ESTADO *e, JOGADA j);
 
-/** 
-\brief Função que retorna o numero de jogadas.
-@param e - Estado do jogo
-@returns numero de jogadas realizadas até ao momento
-*/
-int getNumJogadas(ESTADO *e);
-
 /**
 \brief Troca a jogada num dado indice por outra
 @param e Estado do jogo
@@ -187,10 +180,11 @@ int getNumJogadas(ESTADO *e);
 void editJogadas(ESTADO* e, JOGADA j, int idx);
 
 /** 
-\brief Função que incrementa o numero de jogadas.
-@param e Estado do jogo
+\brief Função que retorna o numero de jogadas.
+@param e - Estado do jogo
+@returns numero de jogadas realizadas até ao momento
 */
-void incNumJogadas(ESTADO *e);
+int getNumJogadas(ESTADO *e);
 
 /**
 \brief Altera o numero de jogadas atual para um dado numero
@@ -198,6 +192,12 @@ void incNumJogadas(ESTADO *e);
 @param num Novo numero de jogadas
 */
 void setNumJogadas(ESTADO *e, int num);
+
+/** 
+\brief Função que incrementa o numero de jogadas.
+@param e Estado do jogo
+*/
+void incNumJogadas(ESTADO *e);
 
 /*******************Manipulação de CASA******************/
 
@@ -236,9 +236,9 @@ void swapJogador(ESTADO *e);
 /**
 \brief Funcao que altera o jogador atual
 @param e - Estado do jogo
-@param jog - O novo jogador (se for diferente de 1 ou 2 o jogador mantem se o mesmo)
+@param jogador - O novo jogador (se for diferente de 1 ou 2 o jogador mantem se o mesmo)
 */ 
-void setJogador(ESTADO *e, int jog);
+void setJogador(ESTADO *e, int jogador);
 
 /** 
 \brief Função que retorna qual é o jogador que está a jogar atual
