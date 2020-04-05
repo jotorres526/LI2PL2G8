@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['winner',['winner',['../controller_8h.html#ae7e229be0513d84bfae07481bb8461cc',1,'controller.c']]]
+  ['tab',['tab',['../structESTADO.html#ab56f0f1be16954d3768b4174d14c087d',1,'ESTADO']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['incnumjogadas',['incNumJogadas',['../data_8h.html#a9aceecbb9febd75affa41ed245740268',1,'data.c']]],
+  ['incpointerjogada',['incPointerJogada',['../data_8h.html#a9d58c94323f44719b333380934c1a57c',1,'data.c']]],
   ['inicializar_5festado',['inicializar_estado',['../data_8h.html#a7e0c7e26fb685d9ab501e19b05e6954f',1,'data.c']]],
   ['interface_2eh',['interface.h',['../interface_8h.html',1,'']]],
   ['interpretador',['interpretador',['../interface_8h.html#a24da95ebeede4a540e37790ce8be359b',1,'interface.c']]],
