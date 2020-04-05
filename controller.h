@@ -56,10 +56,16 @@ ERROS ler(ESTADO *e,  char *filename);
 /**
 \brief Função que determina qual foi o jogador que venceu o jogo. 
 Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rodeado.
-@param estado Apontador para o estado
+@param e Apontador para o estado
 @returns O jogador vencedor
 */
 int winner (ESTADO *e) ;
 
+/**
+\brief Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada
+@param e - Estado do jogo
+@param n - Jogada a partir de onde se vai continuar o jogo
+@returns True caso seja possivel e False caso contrario
+*/ 
 Boolean goToPos(ESTADO *e, int n);
 #endif
