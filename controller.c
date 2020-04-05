@@ -168,6 +168,7 @@ Boolean goToPos(ESTADO *e, int n) {
         setJogador(e,1);
         setPointerJogada(e, n);
         renicializaTab(e);
+        if(n == getNumJogadas(e)) editJogadas(e, createJogada(createNullCoord(), createNullCoord()), n);
         if(n != 0) {
             setCasa(e,setCoordenada(4,4),PRETA);
             FORI(n) {       
