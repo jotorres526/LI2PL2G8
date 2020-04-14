@@ -1,9 +1,7 @@
 #include "list.h"
 
 LISTA createList() {
-  LISTA l = malloc(sizeof(struct nodo));
-  l->valor = NULL;
-  l->proximo = NULL;
+  LISTA l = NULL;
   return l;
 }
 

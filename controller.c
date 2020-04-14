@@ -185,3 +185,17 @@ Boolean goToPos(ESTADO *e, int n) {
     }
     return r;
 } 
+
+
+COORDENADA jog (ESTADO *e) {
+    COORDENADA c = getUltimaJogada(e);
+    LISTA l1 = createList(),l2;
+    for(int i = getLinha(c) - 1; i <= getLinha(c) + 1; i++)
+        for(int j = getColuna(c) - 1; j <= getColuna(c) + 1; j++) {
+            COORDENADA c = setCoordenada(i, j);
+            if( getCasa(e,c)== VAZIO) {
+                l2 = insertHead(l1,&c); // inserir coordenadas livres à cabeça da lista vazia
+            }
+        }
+    //algoritmo minmax
+}
