@@ -73,10 +73,10 @@ int interpretador(ESTADO *e) {
                 mostrar_tabuleiro(e);
             }
         } else if(strcmp(linha, "movs\n") == 0) {
-                logJogadas(e);
+            logJogadas(e);
         } else if(sscanf(linha, "pos %d", &pos) == 1) {
-                if(goToPos(e, pos)) mostrar_tabuleiro(e);
-                else printf("Introduza uma jogada válida!\n");
+            if(goToPos(e, pos)) mostrar_tabuleiro(e);
+            else printf("Introduza uma jogada válida!\n");
         }
     }
     return 1;

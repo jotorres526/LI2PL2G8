@@ -1,16 +1,14 @@
 \hypertarget{controller_8h}{}\section{controller.\+h File Reference}
 \label{controller_8h}\index{controller.\+h@{controller.\+h}}
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
-Include dependency graph for controller.\+h\+:
-\nopagebreak
+Include dependency graph for controller.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{controller_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,47 +18,45 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{controller_8h_a53472e75f056ceb02b5387193021838a}{jogar} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$estado, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
+\hyperlink{data_8h_ab8d2e03f1be6ed043ab77a0ea6d0c3fd}{E\+R\+R\+OS} \hyperlink{controller_8h_a40267453816c8fee2f1b6e11dacb2929}{jogar} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
 \begin{DoxyCompactList}\small\item\em Definição da função que realiza as jogadas. Nesta função são realizadas as seguintes tarefas\+: Verifica se a coordenada introduzida é vizinha, se está vazia e se está dentro do tabuleiro. Visto isto caso seja o jogador 1 a jogar , coloca a jogada no parametro ultima jogada e troca para o jogador 2. Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jogador e ainda coloca no array de jogadas. Caso a jogada não seja possível retorna 1. \end{DoxyCompactList}\item 
 Boolean \hyperlink{controller_8h_ac67c4b1a7c831bdbd9e0a38ad074ea17}{is\+Terminado} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que determina se o Jogo está terminado. Neste sentido verifica se o algum jogador chegou a casa UM ou D\+O\+IS. Caso chegue retorna True caso contrário falso. \end{DoxyCompactList}\item 
 Boolean \hyperlink{controller_8h_a08e1666ed90ac193eb2544c4fd357e25}{is\+Casa\+Vizinha} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
 \begin{DoxyCompactList}\small\item\em Função que verifica se a jogada a ser realizada é vizinha da casa anterior. Retorna True caso seja, False caso contrário. \end{DoxyCompactList}\item 
-char \hyperlink{controller_8h_a661095218495d9176293d89d8aacbb82}{coord\+To\+Char} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int linha, int coluna)
-\begin{DoxyCompactList}\small\item\em Funçao que ve qual o char de uma determinada casa. \end{DoxyCompactList}\item 
 \hyperlink{data_8h_ab8d2e03f1be6ed043ab77a0ea6d0c3fd}{E\+R\+R\+OS} \hyperlink{controller_8h_a626d31a8bad5c3f4fa84afc0c5f987ef}{gravar} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, char $\ast$filename)
 \begin{DoxyCompactList}\small\item\em Função que grava o tabuleiro no seu estado atual para um ficheiro de texto. \end{DoxyCompactList}\item 
 \hyperlink{data_8h_ab8d2e03f1be6ed043ab77a0ea6d0c3fd}{E\+R\+R\+OS} \hyperlink{controller_8h_a6b2c21f1f942998df07e3e31c45021c9}{ler} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, char $\ast$filename)
 \begin{DoxyCompactList}\small\item\em Função que lê um ficheiro e converte cada linha do mesmo para uma linha de tabuleiro do Estado do jogo. \end{DoxyCompactList}\item 
 int \hyperlink{controller_8h_ae7e229be0513d84bfae07481bb8461cc}{winner} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
-\begin{DoxyCompactList}\small\item\em Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa D\+O\+IS ou se está rodeado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa D\+O\+IS ou se está rodeado. \end{DoxyCompactList}\item 
+Boolean \hyperlink{controller_8h_aeef7aee77236ee9789abdc771481e83d}{go\+To\+Pos} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int n)
+\begin{DoxyCompactList}\small\item\em Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Definição da lógica e controlo do estado 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{controller_8h_a661095218495d9176293d89d8aacbb82}\label{controller_8h_a661095218495d9176293d89d8aacbb82}} 
-\index{controller.\+h@{controller.\+h}!coord\+To\+Char@{coord\+To\+Char}}
-\index{coord\+To\+Char@{coord\+To\+Char}!controller.\+h@{controller.\+h}}
-\subsubsection{\texorpdfstring{coord\+To\+Char()}{coordToChar()}}
-{\footnotesize\ttfamily char coord\+To\+Char (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{linha,  }\item[{int}]{coluna }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{controller_8h_aeef7aee77236ee9789abdc771481e83d}\label{controller_8h_aeef7aee77236ee9789abdc771481e83d}} 
+\index{controller.\+h@{controller.\+h}!go\+To\+Pos@{go\+To\+Pos}}
+\index{go\+To\+Pos@{go\+To\+Pos}!controller.\+h@{controller.\+h}}
+\subsubsection{\texorpdfstring{go\+To\+Pos()}{goToPos()}}
+{\footnotesize\ttfamily Boolean go\+To\+Pos (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
-Funçao que ve qual o char de uma determinada casa. 
+Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em e} & Apontador para o estado \\
+{\em e} & -\/ Estado do jogo \\
 \hline
-{\em linha} & Linha do tabuleiro \\
-\hline
-{\em coluna} & Coluna do tabuleiro \\
+{\em n} & -\/ Jogada a partir de onde se vai continuar o jogo \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-O char correspondente à linha e à coluna 
+True caso seja possivel e False caso contrario 
 \end{DoxyReturn}
 \mbox{\Hypertarget{controller_8h_a626d31a8bad5c3f4fa84afc0c5f987ef}\label{controller_8h_a626d31a8bad5c3f4fa84afc0c5f987ef}} 
 \index{controller.\+h@{controller.\+h}!gravar@{gravar}}
@@ -120,11 +116,11 @@ Função que determina se o Jogo está terminado. Neste sentido verifica se o al
 \begin{DoxyReturn}{Returns}
 True no caso de o jogo ter terminado, False caso contrário 
 \end{DoxyReturn}
-\mbox{\Hypertarget{controller_8h_a53472e75f056ceb02b5387193021838a}\label{controller_8h_a53472e75f056ceb02b5387193021838a}} 
+\mbox{\Hypertarget{controller_8h_a40267453816c8fee2f1b6e11dacb2929}\label{controller_8h_a40267453816c8fee2f1b6e11dacb2929}} 
 \index{controller.\+h@{controller.\+h}!jogar@{jogar}}
 \index{jogar@{jogar}!controller.\+h@{controller.\+h}}
 \subsubsection{\texorpdfstring{jogar()}{jogar()}}
-{\footnotesize\ttfamily int jogar (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{estado,  }\item[{\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \hyperlink{data_8h_ab8d2e03f1be6ed043ab77a0ea6d0c3fd}{E\+R\+R\+OS} jogar (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
 
 
 
@@ -172,7 +168,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
 
 
 \begin{DoxyParams}{Parameters}
-{\em estado} & Apontador para o estado \\
+{\em e} & Apontador para o estado \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

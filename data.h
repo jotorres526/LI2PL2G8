@@ -76,9 +76,28 @@ typedef struct {
 
 
 // funcões por documentar:::
+
+/**
+\brief Função usada para obter o pointer da posiçao do estado no array de jogadas
+@param e - Estado do jogo
+@returns Valor do pointer
+*/ 
 int getPointerJogada(ESTADO *e);
+/**
+\brief Altera o valor do pointer que indica a jogada atual
+@param e - Estado do jogo
+@param num - Novo valor
+*/ 
 void setPointerJogada(ESTADO *e, int num) ;
+/**
+\brief Retorna o tabuleiro para o seu valor inicial
+@param e - Estado do jogo
+*/ 
 void renicializaTab(ESTADO *e);
+/**
+\brief Incrementa o pointer da posicao do estado no array
+@param e - Estado do jogo
+*/ 
 void incPointerJogada(ESTADO *e);
 
 /*******************Manipulação de COORDENADA******************/
