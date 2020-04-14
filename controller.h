@@ -5,6 +5,7 @@ Definição da lógica e controlo do estado
 #ifndef ___CONTROLLER_H___
 #define ___CONTROLLER_H___
 #include "data.h"
+#include "list.h"
 
 /**
 \brief Definição da função que realiza as jogadas. 
