@@ -25,13 +25,13 @@ LISTA tail(LISTA l) {
 
 // Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda
 LISTA deleteHead(LISTA l) {
-    LISTA temp = proximo(l);
+    LISTA temp = tail(l);
     free(l);
     return temp;
 }
 
 // Devolve verdareiro se a lista é vazia
 int isEmpty(LISTA l) {
-    return (l->valor == NULL);
+    return (l == NULL);
 }
 

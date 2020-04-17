@@ -187,15 +187,83 @@ Boolean goToPos(ESTADO *e, int n) {
 } 
 
 
-COORDENADA jog (ESTADO *e) {
-    COORDENADA c = getUltimaJogada(e);
-    LISTA l1 = createList(),l2;
-    for(int i = getLinha(c) - 1; i <= getLinha(c) + 1; i++)
-        for(int j = getColuna(c) - 1; j <= getColuna(c) + 1; j++) {
-            COORDENADA c = setCoordenada(i, j);
-            if( getCasa(e,c)== VAZIO) {
-                l2 = insertHead(l1,&c); // inserir coordenadas livres à cabeça da lista vazia
+
+
+LISTA getpositions (ESTADO *e, COORDENADA c2) {
+    LISTA l1 = createList();
+    for(int i = getLinha(c2) - 1; i <= getLinha(c2) + 1; i++)
+        for(int j = getColuna(c2) - 1; j <= getColuna(c2) + 1; j++) {
+            COORDENADA *c = malloc(sizeof(COORDENADA)) ;
+            *c = setCoordenada(i,j);
+            if( getCasa(e,*c)== VAZIO) {
+                l1 = insertHead(l1,c); // inserir coordenadas livres à cabeça da lista vazia
             }
         }
-    //algoritmo minmax
+    return l1;
 }
+
+double min(double x, double y) {
+    if(x < y) return x;
+    else return y;
+}
+
+double max(double x, double y) {
+    if(x > y) return x;
+    else return y;
+}
+
+double dist(COORDENADA c1,COORDENADA c2) {
+    double dist = sqrt(pow((c1.linha  - c2.linha ), 2) + pow((c1.coluna - c2.coluna), 2));
+    return dist;
+}
+
+
+
+double minimax(ESTADO *e, LISTA nodo, int  profundidade, Boolean maximizingPlayer) {
+    if(profundidade == 0) {
+        COORDENADA *aux;
+        aux = getHead(nodo);
+        double value;
+        if(getjogador(e) == 1) value = dist(*aux,setCoordenada(7,7));
+        else value = dist(*aux,setCoordenada(0,0));
+        return value;
+    }
+    if(maximizingPlayer) {
+        double valor1 = -200;
+        for(LISTA pt = nodo; pt->proximo; pt = pt->proximo) {
+            COORDENADA *aux;
+            aux = getHead(pt);
+            double eval = minimax(e,getpositions(e,*aux),profundidade - 1, False);
+            valor1 = max(valor1,eval);  
+        }
+        return valor1;
+    }
+    else {
+        double valor2 = 200;
+        for(LISTA pt = nodo; pt->proximo; pt = pt->proximo) {
+            COORDENADA *aux;
+            aux = getHead(pt);
+            double eval = minimax(e,getpositions(e,*aux),profundidade - 1, True);
+            valor2 = min(valor2,eval);
+        }
+        return valor2;   
+    }
+}
+
+
+COORDENADA jog(ESTADO *e) {
+    LISTA nodo =  getpositions(e,getUltimaJogada(e));
+    COORDENADA c = setCoordenada(7,7);
+    double x = minimax(e,nodo,2,True);
+    LISTA posicoes = getpositions(e,getUltimaJogada(e));
+    for(LISTA pt = posicoes; pt->proximo; pt = pt->proximo) {
+        COORDENADA *aux = getHead(pt);
+        if(getjogador(e) == 1) {
+            if(x == dist(*aux,setCoordenada(7,7))) return *aux;
+        } else {
+            if(x == dist(*aux,setCoordenada(0,0))) return *aux;
+        }
+    }
+    return c;    
+}
+

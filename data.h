@@ -7,6 +7,7 @@ Definição do estado e das funções que o manipulam
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "macros/cycle.h"
 #include "macros/boolean.h"
 
