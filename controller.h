@@ -6,7 +6,7 @@ Definição da lógica e controlo do estado
 #define ___CONTROLLER_H___
 #include "data.h"
 #include "list.h"
-COORDENADA jog (ESTADO *e) ;
+COORDENADA jog(ESTADO *e, int jogador);
 
 /**
 \brief Definição da função que realiza as jogadas. 
