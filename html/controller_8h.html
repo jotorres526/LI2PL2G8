@@ -65,11 +65,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="list_8h_source.html">list.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for controller.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="controller_8h__incl.png" border="0" usemap="#controller_8h" alt=""/></div>
 <map name="controller_8h" id="controller_8h">
+<area shape="rect" id="node2" href="data_8h.html" title="data.h" alt="" coords="212,80,271,107"/>
+<area shape="rect" id="node9" href="list_8h.html" title="list.h" alt="" coords="117,80,168,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -77,6 +80,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="controller_8h__dep__incl.png" border="0" usemap="#controller_8hdep" alt=""/></div>
 <map name="controller_8hdep" id="controller_8hdep">
+<area shape="rect" id="node2" href="interface_8h.html" title="interface.h" alt="" coords="7,80,90,107"/>
 </map>
 </div>
 </div>
@@ -105,6 +109,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aeef7aee77236ee9789abdc771481e83d"><td class="memItemLeft" align="right" valign="top">Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="controller_8h.html#aeef7aee77236ee9789abdc771481e83d">goToPos</a> (<a class="el" href="structESTADO.html">ESTADO</a> *e, int n)</td></tr>
 <tr class="memdesc:aeef7aee77236ee9789abdc771481e83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada.  <a href="#aeef7aee77236ee9789abdc771481e83d">More...</a><br /></td></tr>
 <tr class="separator:aeef7aee77236ee9789abdc771481e83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d4c42ee6b18c25efdf6a9973a75973"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCOORDENADA.html">COORDENADA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="controller_8h.html#a00d4c42ee6b18c25efdf6a9973a75973">jog</a> (<a class="el" href="structESTADO.html">ESTADO</a> *e, int jogador)</td></tr>
+<tr class="memdesc:a00d4c42ee6b18c25efdf6a9973a75973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax.  <a href="#a00d4c42ee6b18c25efdf6a9973a75973">More...</a><br /></td></tr>
+<tr class="separator:a00d4c42ee6b18c25efdf6a9973a75973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definição da lógica e controlo do estado </p>
@@ -247,6 +254,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True no caso de o jogo ter terminado, False caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="a00d4c42ee6b18c25efdf6a9973a75973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d4c42ee6b18c25efdf6a9973a75973">&#9670;&nbsp;</a></span>jog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCOORDENADA.html">COORDENADA</a> jog </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structESTADO.html">ESTADO</a> *&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>jogador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Apontador para o estado </td></tr>
+    <tr><td class="paramname">jogador</td><td>- Jogador que está a jogar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Coordenada que aproxima o jogador da vitorias </dd></dl>
 
 </div>
 </div>

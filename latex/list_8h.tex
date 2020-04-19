@@ -1,0 +1,225 @@
+\hypertarget{list_8h}{}\section{list.\+h File Reference}
+\label{list_8h}\index{list.\+h@{list.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}macros/boolean.\+h\char`\"{}}\newline
+Include dependency graph for list.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{list_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{list_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnodo}{nodo}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{list_8h_ab74c40cea97ab9b24f68471bb1ded1a2}\label{list_8h_ab74c40cea97ab9b24f68471bb1ded1a2}} 
+typedef struct \hyperlink{structnodo}{nodo} {\bfseries N\+O\+DO}
+\item 
+\mbox{\Hypertarget{list_8h_a2ed03b19209dd10718380b31b09a69f5}\label{list_8h_a2ed03b19209dd10718380b31b09a69f5}} 
+typedef struct \hyperlink{structnodo}{nodo} $\ast$ {\bfseries L\+I\+S\+TA}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_afeac446323ce0922fec8d04015bcc59f}{create\+List} ()
+\begin{DoxyCompactList}\small\item\em Função que cria uma lista vazia. \end{DoxyCompactList}\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_abd58a698d9cbc9bfea706d5c92e3b1fc}{insert\+Head} (\hyperlink{structnodo}{L\+I\+S\+TA} l, void $\ast$valor)
+\begin{DoxyCompactList}\small\item\em Função que insere uma cabeça numa lista. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{list_8h_a581a5a8bb55c742a87cb3eab38dc7bfb}{get\+Head} (\hyperlink{structnodo}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Função que insere uma cabeça numa lista. \end{DoxyCompactList}\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_a9cba525d21f684e649d05ffb6344f5bc}{tail} (\hyperlink{structnodo}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Função que retira a cabeça numa lista. \end{DoxyCompactList}\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_a83597a1719c87863358df50d9dbea96a}{delete\+Head} (\hyperlink{structnodo}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Função que remove a cabeça numa lista e liberta o espaço. \end{DoxyCompactList}\item 
+int \hyperlink{list_8h_a258dee7c10b15d6e8b17210b7c9ff305}{is\+Empty} (\hyperlink{structnodo}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Função que ve se uma lista é vazia. \end{DoxyCompactList}\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_a3339c3e08ff433a32159d194d83d93b6}{set\+Valor\+Nodo} (\hyperlink{structnodo}{L\+I\+S\+TA} l, int x)
+\begin{DoxyCompactList}\small\item\em Função que insere uma cabeça numa lista. \end{DoxyCompactList}\item 
+int \hyperlink{list_8h_a87a20a915543f7a57906892954da586e}{get\+Valor\+Nodo} (\hyperlink{structnodo}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Função que devolde o valor\+Nodo da lista. \end{DoxyCompactList}\item 
+\hyperlink{structnodo}{L\+I\+S\+TA} \hyperlink{list_8h_a07639e60402b3f928078986140d5c122}{set\+Head} (\hyperlink{structnodo}{L\+I\+S\+TA} l, void $\ast$valor)
+\begin{DoxyCompactList}\small\item\em Função que coloca um apontador no campo valor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definição do modulo de listas ligadas 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{list_8h_afeac446323ce0922fec8d04015bcc59f}\label{list_8h_afeac446323ce0922fec8d04015bcc59f}} 
+\index{list.\+h@{list.\+h}!create\+List@{create\+List}}
+\index{create\+List@{create\+List}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{create\+List()}{createList()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} create\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma lista vazia. 
+
+\begin{DoxyReturn}{Returns}
+Uma lista vazia 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a83597a1719c87863358df50d9dbea96a}\label{list_8h_a83597a1719c87863358df50d9dbea96a}} 
+\index{list.\+h@{list.\+h}!delete\+Head@{delete\+Head}}
+\index{delete\+Head@{delete\+Head}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{delete\+Head()}{deleteHead()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} delete\+Head (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que remove a cabeça numa lista e liberta o espaço. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo inicio da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a581a5a8bb55c742a87cb3eab38dc7bfb}\label{list_8h_a581a5a8bb55c742a87cb3eab38dc7bfb}} 
+\index{list.\+h@{list.\+h}!get\+Head@{get\+Head}}
+\index{get\+Head@{get\+Head}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{get\+Head()}{getHead()}}
+{\footnotesize\ttfamily void$\ast$ get\+Head (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que insere uma cabeça numa lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve o valor da cabeça da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a87a20a915543f7a57906892954da586e}\label{list_8h_a87a20a915543f7a57906892954da586e}} 
+\index{list.\+h@{list.\+h}!get\+Valor\+Nodo@{get\+Valor\+Nodo}}
+\index{get\+Valor\+Nodo@{get\+Valor\+Nodo}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{get\+Valor\+Nodo()}{getValorNodo()}}
+{\footnotesize\ttfamily int get\+Valor\+Nodo (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que devolde o valor\+Nodo da lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para verificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo inicio da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_abd58a698d9cbc9bfea706d5c92e3b1fc}\label{list_8h_abd58a698d9cbc9bfea706d5c92e3b1fc}} 
+\index{list.\+h@{list.\+h}!insert\+Head@{insert\+Head}}
+\index{insert\+Head@{insert\+Head}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{insert\+Head()}{insertHead()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} insert\+Head (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l,  }\item[{void $\ast$}]{valor }\end{DoxyParamCaption})}
+
+
+
+Função que insere uma cabeça numa lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+{\em $\ast$valor} & -\/ valor a ser inserido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo inicio da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a258dee7c10b15d6e8b17210b7c9ff305}\label{list_8h_a258dee7c10b15d6e8b17210b7c9ff305}} 
+\index{list.\+h@{list.\+h}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily int is\+Empty (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que ve se uma lista é vazia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se for vazio, 0 caso contrário 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a07639e60402b3f928078986140d5c122}\label{list_8h_a07639e60402b3f928078986140d5c122}} 
+\index{list.\+h@{list.\+h}!set\+Head@{set\+Head}}
+\index{set\+Head@{set\+Head}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{set\+Head()}{setHead()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} set\+Head (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l,  }\item[{void $\ast$}]{valor }\end{DoxyParamCaption})}
+
+
+
+Função que coloca um apontador no campo valor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+{\em $\ast$valor} & -\/ valor a ser inserido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo inicio da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a3339c3e08ff433a32159d194d83d93b6}\label{list_8h_a3339c3e08ff433a32159d194d83d93b6}} 
+\index{list.\+h@{list.\+h}!set\+Valor\+Nodo@{set\+Valor\+Nodo}}
+\index{set\+Valor\+Nodo@{set\+Valor\+Nodo}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{set\+Valor\+Nodo()}{setValorNodo()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} set\+Valor\+Nodo (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Função que insere uma cabeça numa lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+{\em x} & -\/ valor a ser inserido no campo de valornodo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+inicio da lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a9cba525d21f684e649d05ffb6344f5bc}\label{list_8h_a9cba525d21f684e649d05ffb6344f5bc}} 
+\index{list.\+h@{list.\+h}!tail@{tail}}
+\index{tail@{tail}!list.\+h@{list.\+h}}
+\subsubsection{\texorpdfstring{tail()}{tail()}}
+{\footnotesize\ttfamily \hyperlink{structnodo}{L\+I\+S\+TA} tail (\begin{DoxyParamCaption}\item[{\hyperlink{structnodo}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que retira a cabeça numa lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ lista para inserir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve a cauda da lista 
+\end{DoxyReturn}

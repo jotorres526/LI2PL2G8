@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['renicializatab',['renicializaTab',['../data_8h.html#aa2205e147ba0ada94666920611ebdd3f',1,'data.c']]],
-  ['resetestado',['resetEstado',['../data_8h.html#abbe3b034f746515b4d678e3526c8d97d',1,'data.c']]]
+  ['mostrar_5ftabuleiro',['mostrar_tabuleiro',['../interface_8h.html#aa0b6c1689e60ac852a73d67e066c1df5',1,'interface.c']]]
 ];

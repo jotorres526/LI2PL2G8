@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['editjogadas',['editJogadas',['../data_8h.html#ae893525430d4ceb49841b95443a96728',1,'data.c']]]
+  ['deletehead',['deleteHead',['../list_8h.html#a83597a1719c87863358df50d9dbea96a',1,'list.c']]]
 ];

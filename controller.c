@@ -188,12 +188,10 @@ Boolean goToPos(ESTADO *e, int n) {
 
 Boolean over(ESTADO *e, COORDENADA c) {
     Boolean r = False;
-    if(getjogador(e) == 1) {
-        if((getLinha(c) == 0 && getColuna(c) == 0) || (isRodeado(e, c))) r = True;
-    }
-    else {
-        if((getLinha(c) == 7 && getColuna(c) == 7) || (isRodeado(e, c))) r = True;
-    }
+    if ((getLinha(c) == 7 && getColuna(c) == 7) ||
+        (getLinha(c) == 0 && getColuna(c) == 0) ||
+        (isRodeado(e,c))) 
+        r = True;
     return r;
 }
 
@@ -244,19 +242,18 @@ int length(ESTADO *e, COORDENADA c) {
 
 
 int valor(ESTADO *e, COORDENADA c, int jogador) {
-    int valor = -10;
-    if(over(e,c) && jogador) return 100;
-    else if(over(e,c)) return -100;
-    else if(length(e,c) % 2 == 0) return length(e,c);
-    else if(length(e,c) % 2 != 0) return -length(e,c);
-    return valor;
+    if(over(e,c)&& jogador) return 100;
+    if(dist(c,jogador) <= sqrt(8)) return -10;
+    else if(length(e,c) % 2 == 0)return length(e,c);
+    else if(length(e,c) % 2 != 0) return -9;
+    return -10;
 }
 
 
 int minimax(ESTADO *e, LISTA nodo, int  profundidade, Boolean maximizingPlayer, int jogador) {
     COORDENADA *aux2= getHead(nodo), *aux3;
     CASA casa;
-    if(over(e,*aux2) && maximizingPlayer) return 100;
+    if(over(e,*aux2) && !maximizingPlayer) return 100;
     else if(over(e,*aux2)) return -100;
     if(profundidade == 0) {
         COORDENADA *aux;
@@ -298,7 +295,7 @@ COORDENADA jog(ESTADO *e, int jogador) {
     int value;
     LISTA nodo =  insertHead(createList(),&lastplay);
     COORDENADA c = setCoordenada(7,7);
-    int x = minimax(e,nodo,3,True,jogador);
+    int x = minimax(e,nodo,2,True,jogador);
     for(LISTA pt = getpositions(e,lastplay); pt; pt = pt->proximo) {
         aux = getHead(pt);
         setCasa(e,*aux,BRANCA);
@@ -308,4 +305,3 @@ COORDENADA jog(ESTADO *e, int jogador) {
     }   
     return c;
 }
-

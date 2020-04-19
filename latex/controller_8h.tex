@@ -1,14 +1,17 @@
 \hypertarget{controller_8h}{}\section{controller.\+h File Reference}
 \label{controller_8h}\index{controller.\+h@{controller.\+h}}
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
-Include dependency graph for controller.\+h\+:\nopagebreak
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+Include dependency graph for controller.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{controller_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,7 +34,9 @@ Boolean \hyperlink{controller_8h_a08e1666ed90ac193eb2544c4fd357e25}{is\+Casa\+Vi
 int \hyperlink{controller_8h_ae7e229be0513d84bfae07481bb8461cc}{winner} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e)
 \begin{DoxyCompactList}\small\item\em Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa D\+O\+IS ou se está rodeado. \end{DoxyCompactList}\item 
 Boolean \hyperlink{controller_8h_aeef7aee77236ee9789abdc771481e83d}{go\+To\+Pos} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int n)
-\begin{DoxyCompactList}\small\item\em Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada. \end{DoxyCompactList}\item 
+\hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} \hyperlink{controller_8h_a00d4c42ee6b18c25efdf6a9973a75973}{jog} (\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$e, int jogador)
+\begin{DoxyCompactList}\small\item\em Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -115,6 +120,26 @@ Função que determina se o Jogo está terminado. Neste sentido verifica se o al
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True no caso de o jogo ter terminado, False caso contrário 
+\end{DoxyReturn}
+\mbox{\Hypertarget{controller_8h_a00d4c42ee6b18c25efdf6a9973a75973}\label{controller_8h_a00d4c42ee6b18c25efdf6a9973a75973}} 
+\index{controller.\+h@{controller.\+h}!jog@{jog}}
+\index{jog@{jog}!controller.\+h@{controller.\+h}}
+\subsubsection{\texorpdfstring{jog()}{jog()}}
+{\footnotesize\ttfamily \hyperlink{structCOORDENADA}{C\+O\+O\+R\+D\+E\+N\+A\+DA} jog (\begin{DoxyParamCaption}\item[{\hyperlink{structESTADO}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{jogador }\end{DoxyParamCaption})}
+
+
+
+Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado \\
+\hline
+{\em jogador} & -\/ Jogador que está a jogar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Coordenada que aproxima o jogador da vitorias 
 \end{DoxyReturn}
 \mbox{\Hypertarget{controller_8h_a40267453816c8fee2f1b6e11dacb2929}\label{controller_8h_a40267453816c8fee2f1b6e11dacb2929}} 
 \index{controller.\+h@{controller.\+h}!jogar@{jogar}}

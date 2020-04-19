@@ -6,7 +6,7 @@ Definição da lógica e controlo do estado
 #define ___CONTROLLER_H___
 #include "data.h"
 #include "list.h"
-COORDENADA jog(ESTADO *e, int jogador);
+
 
 /**
 \brief Definição da função que realiza as jogadas. 
@@ -70,4 +70,13 @@ int winner (ESTADO *e) ;
 @returns True caso seja possivel e False caso contrario
 */ 
 Boolean goToPos(ESTADO *e, int n);
+
+/**
+\brief Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax
+@param e Apontador para o estado
+@param jogador - Jogador que está a jogar
+@returns Coordenada que aproxima o jogador da vitorias
+*/
+COORDENADA jog(ESTADO *e, int jogador);
+
 #endif
