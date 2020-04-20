@@ -79,4 +79,6 @@ int getValorNodo(LISTA l);
 @returns novo inicio da lista
 */ 
 LISTA setHead(LISTA l, void *valor);
+LISTA getNext(LISTA l);
+LISTA setNext(LISTA l, LISTA x);
 #endif

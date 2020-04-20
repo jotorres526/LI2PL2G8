@@ -50,3 +50,14 @@ LISTA setHead(LISTA l, void *valor) {
     l->valor = valor;
     return l;
 }
+
+// insere um elemento no proximo de um dado nodo
+LISTA setNext(LISTA l, LISTA x) {
+    l->proximo = x;
+    return l;
+}
+
+//
+LISTA getNext(LISTA l) {
+    return l->proximo;
+}
