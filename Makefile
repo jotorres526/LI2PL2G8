@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -g -std=gnu11 -Wall -Wextra -pedantic-errors -O
 LIBS = -lm
 
 rastros.out: data.o controller.o interface.o list.o main.o

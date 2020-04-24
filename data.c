@@ -175,3 +175,18 @@ ESTADO *inicializar_estado() {
     setCasa(e, setCoordenada(0, 0), UM);
     return e;
 }
+
+//TESTE
+int getValorPar(ParMinMax p) {
+    return p.valor;
+}
+COORDENADA getCoordPar(ParMinMax p) {
+    return p.c;
+}
+
+ParMinMax setPar(int valor, COORDENADA c) {
+    ParMinMax p;
+    p.valor = valor;
+    p.c = c;
+    return p;
+}

@@ -1,7 +1,7 @@
 #include "interface.h"
 #define BUF_SIZE 1024
 
-void mostraJogada(ESTADO *e, JOGADA j) {
+void mostraJogada(JOGADA j) {
     COORDENADA c1 = getCoordenada(j, 1);
     COORDENADA c2 = getCoordenada(j, 2);
     int linJ1, linJ2;
@@ -35,13 +35,13 @@ void logJogadas(ESTADO *e) {
     FORI(getPointerJogada(e)) {
         j = getJogada(e, i);
         printf("Jog %02d: ", i + 1);
-        mostraJogada(e, j);
+        mostraJogada(j);
      }
      if(getPointerJogada(e) == getNumJogadas(e)) {
         j = getJogada(e, getPointerJogada(e));
         if(!isNullCoord(getCoordenada(j, 1))) {
             printf("Jog %02d: ", getPointerJogada(e) + 1);
-            mostraJogada(e, j);
+            mostraJogada(j);
         }
     }
 }
@@ -78,11 +78,10 @@ int interpretador(ESTADO *e) {
             if(goToPos(e, pos)) mostrar_tabuleiro(e);
             else printf("Introduza uma jogada válida!\n");
         } else if(strcmp(linha, "jog\n") == 0) {
-            COORDENADA c = jog(e,getjogador(e));
-            if(jogar(e, c) == OK) {
+            if(jog(e) == OK) {
                 mostrar_tabuleiro(e);
                 if((over = isTerminado(e))) printf("Game over!\nParabéns jogador %d!\n",winner(e));
-            } else printf("Jogada inválida... Jogue novamente\n");
+            } else printf("erro\n");
         }
     }
     return 1;

@@ -75,8 +75,17 @@ typedef struct {
   COORDENADA ultima_jogada;
 } ESTADO;
 
+typedef struct {
+    int valor;
+    COORDENADA c;
+} ParMinMax;
 
+int getValorPar(ParMinMax p);
+COORDENADA getCoordPar(ParMinMax p);
+ParMinMax setPar(int valor, COORDENADA c);
 // funcões por documentar:::
+
+
 
 /**
 \brief Função usada para obter o pointer da posiçao do estado no array de jogadas
