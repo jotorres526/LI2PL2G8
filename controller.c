@@ -23,7 +23,7 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
         for(int j = getColuna(c) - 1; j <= getColuna(c) + 1; j++) {
             if(i >= 0 && i < 8 && j >= 0 && j < 8) {
                 COORDENADA coord = setCoordenada(i, j);
-                if(getCasa(e, coord) == VAZIO){
+                if(getCasa(e, coord) == VAZIO || getCasa(e, coord) == DOIS || getCasa(e, coord) == UM){
                     r = False;
                     break;
                 } 
@@ -218,10 +218,10 @@ double dist(COORDENADA c1, int jogador) {
     double dist; 
     COORDENADA c;
     if(jogador == 1) {
-        c = setCoordenada(1,1);
+        c = setCoordenada(7,7);
         dist = sqrt(pow((c1.linha  - c.linha), 2) + pow((c1.coluna - c.coluna), 2));
     } else {    
-        c = setCoordenada(7,7);
+        c = setCoordenada(1,1);
         dist = sqrt(pow((c1.linha  - c.linha ), 2) + pow((c1.coluna - c.coluna), 2));
     }
     return dist;
@@ -250,9 +250,9 @@ int maxValue(ParMinMax fst, ParMinMax snd) {
 }
 
 int minValue(ParMinMax fst, ParMinMax snd) {
-    int r;
-    int val1 = getValorPar(fst);
-    int val2 = getValorPar(snd);
+    int r,
+        val1 = getValorPar(fst),
+        val2 = getValorPar(snd);
     if(val2 < val1) r = val2;
     else r = val1;
     return r; 
@@ -262,7 +262,7 @@ int minValue(ParMinMax fst, ParMinMax snd) {
 int calcValorCasa(ESTADO *e, COORDENADA c) {
     int jogador = getjogador(e);
     if(dist(c,jogador) <= sqrt(8)) return -10;
-    else if(length(e, c) % 2 == 0)return length(e, c);
+    else if(length(e, c) % 2 == 0)return -length(e, c);
     else if(length(e, c) % 2 != 0) return -9;
     return -10;
 }
@@ -273,7 +273,8 @@ ParMinMax recAuxMinimax(ESTADO *e, COORDENADA c, int depth, Boolean isMax){
     Boolean nxtLevel = isMax ? False : True;
     r = isMax ? setPar(-100, c) : setPar(100, c);
     int minMax;
-    if(depth != 0) {
+    if(over(e, c)) r = !isMax ? setPar(99, c) : setPar(-99, c);
+    else if(depth != 0) {
         LISTA proxCoords = createList();
         proxCoords = movsDisponiveis(e, proxCoords, c); 
         while (proxCoords) {
@@ -315,7 +316,7 @@ COORDENADA minimax(ESTADO *e, int depth) {
 }
 
 ERROS jog(ESTADO *e) {
-    COORDENADA nextMove = minimax(e, 4); //a partir de 8 depth fica mto custoso
+    COORDENADA nextMove = minimax(e, 4); //a partir de 7 depth fica mto custoso
     return jogar(e, nextMove);
 }
 
