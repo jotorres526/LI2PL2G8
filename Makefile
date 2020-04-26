@@ -1,24 +1,23 @@
 CC = gcc
-CFLAGS = -g -std=gnu11 -Wall -Wextra -pedantic-errors -O
-LIBS = -lm
+CFLAGS = -g -std=gnu11 -Wall -Wextra -pedantic-errors -O -lm
 
 rastros.out: data.o controller.o interface.o list.o main.o
-	$(CC) -o rastros.out data.o controller.o interface.o list.o main.o $(CFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) -o rastros.out data.o controller.o interface.o list.o main.o
 
 data.o: data.c data.h
-	$(CC) -c data.c $(CFLAGS)
+	$(CC) $(CFLAGS) -c data.c 
 
 controller.o: controller.c controller.h
-	$(CC) -c controller.c $(CFLAGS)
+	$(CC) $(CFLAGS) -c controller.c 
 
 interface.o: interface.c interface.h
-	$(CC) -c interface.c $(CFLAGS)
+	$(CC) $(CFLAGS) -c interface.c 
 
 list.o: list.c list.h
-	$(CC) -c list.c $(CFLAGS)
+	$(CC) $(CFLAGS) -c list.c 
 
 main.o: main.c
-	$(CC) -c main.c $(CFLAGS)
+	$(CC) $(CFLAGS) -c main.c 
 
 clean:
 	rm -f *.o

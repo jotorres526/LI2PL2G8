@@ -78,9 +78,14 @@ int interpretador(ESTADO *e) {
             if(goToPos(e, pos)) mostrar_tabuleiro(e);
             else printf("Introduza uma jogada válida!\n");
         } else if(strcmp(linha, "jog\n") == 0) {
-            if(jog(e) == OK) {
+            if(jog(e, 1) == OK) {
                 mostrar_tabuleiro(e);
                 if((over = isTerminado(e))) printf("Game over!\nParabéns jogador %d!\n",winner(e));
+            } else printf("erro\n");
+        } else if(strcmp(linha, "jog2\n") == 0) {
+            if(jog(e, 2) == OK) {
+                mostrar_tabuleiro(e);
+                if((over = isTerminado(e))) printf("Game over!\nParabéns jogador %d!\n", winner(e));
             } else printf("erro\n");
         }
     }

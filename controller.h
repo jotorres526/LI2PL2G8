@@ -77,6 +77,6 @@ Boolean goToPos(ESTADO *e, int n);
 @param jogador - Jogador que está a jogar
 @returns Coordenada que aproxima o jogador da vitorias
 */
-ERROS jog(ESTADO *e);
+ERROS jog(ESTADO *e, int heuristica);
 #endif
 
