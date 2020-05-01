@@ -19,16 +19,15 @@ Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
 // Função que ve se não é possivel jogar mais e se a peça branca se encontra presa
 Boolean isRodeado(ESTADO *e, COORDENADA c) {
     Boolean r = True;
-    for(int i = getLinha(c) - 1; i <= getLinha(c) + 1; i++)
-        for(int j = getColuna(c) - 1; j <= getColuna(c) + 1; j++) {
+    int linha = getLinha(c);
+    int coluna = getColuna(c);
+    for(int i = linha - 1; r && i <= linha + 1; i++)
+        for(int j = coluna - 1; r && j <= coluna + 1; j++)
             if(i >= 0 && i < 8 && j >= 0 && j < 8) {
                 COORDENADA coord = setCoordenada(i, j);
-                if(getCasa(e, coord) == VAZIO || getCasa(e, coord) == DOIS || getCasa(e, coord) == UM){
-                    r = False;
-                    break;
-                } 
+                CASA casa = getCasa(e, coord);
+                if((casa == VAZIO || casa == DOIS || casa == UM) && (linha != i || coluna != j)) r = False;
             }
-        }
     return r;
 }
 
@@ -186,15 +185,6 @@ Boolean goToPos(ESTADO *e, int n) {
     return r;
 } 
 
-Boolean over(ESTADO *e, COORDENADA c) {
-    Boolean r = False;
-    if ((getLinha(c) == 7 && getColuna(c) == 7) ||
-        (getLinha(c) == 0 && getColuna(c) == 0) ||
-        (isRodeado(e, c))) 
-        r = True;
-    return r;
-}
-
 //Estado para verificar quais as jogadas acediveis a partir de uma coordenada
 LISTA movsDisponiveis(ESTADO *e, LISTA l, COORDENADA c) {
     int linha = getLinha(c);
@@ -273,7 +263,7 @@ ParMinMax recAuxMinimax(ESTADO *e, COORDENADA c, int depth, Boolean isMax){
     Boolean nxtLevel = isMax ? False : True;
     r = isMax ? setPar(-100, c) : setPar(100, c);
     int minMax;
-    if(over(e, c)) r = !isMax ? setPar(99, c) : setPar(-99, c);
+    if(isRodeado(e, c)) r = setPar(101, c);
     else if(depth != 0) {
         LISTA proxCoords = createList();
         proxCoords = movsDisponiveis(e, proxCoords, c); 
@@ -296,22 +286,24 @@ ParMinMax recAuxMinimax(ESTADO *e, COORDENADA c, int depth, Boolean isMax){
 
 //Retorna a coordenada para a qual devemos jogar
 COORDENADA minimax(ESTADO *e, int depth) {
-    COORDENADA r;
-    LISTA possiveisJogadas = createList();
-    ParMinMax next, max = setPar(-101, createNullCoord()); //Estes valores tem de ser menor que na auxiliar pois precisa ser overwritten
-    int minMax;
-    possiveisJogadas = movsDisponiveis(e, possiveisJogadas, getUltimaJogada(e));
-    //Para cada elemento aplicar recursivamente um auxiliar do minimax que retorna
-    //um par com o valor e a coordenada
-    while(possiveisJogadas) {
-        COORDENADA *head = getHead(possiveisJogadas);
-        next = recAuxMinimax(e, *head, depth, True);
-        minMax = maxValue(max, next);
-        if(minMax > getValorPar(max))
-            max = setPar(minMax, *head);
-        possiveisJogadas = deleteHead(possiveisJogadas);
+    COORDENADA r = createNullCoord();
+    if(depth > 0) {
+        LISTA possiveisJogadas = createList();
+        ParMinMax next, max = setPar(-101, createNullCoord()); //Estes valores tem de ser menor que na auxiliar pois precisa ser overwritten
+        int minMax;
+        possiveisJogadas = movsDisponiveis(e, possiveisJogadas, getUltimaJogada(e));
+        //Para cada elemento aplicar recursivamente um auxiliar do minimax que retorna
+        //um par com o valor e a coordenada
+        while(possiveisJogadas) {
+            COORDENADA *head = getHead(possiveisJogadas);
+            next = recAuxMinimax(e, *head, depth - 1, True);
+            minMax = maxValue(max, next);
+            if(minMax > getValorPar(max))
+                max = setPar(minMax, *head);
+            possiveisJogadas = deleteHead(possiveisJogadas);
+        }
+        r = getCoordPar(max);
     }
-    r = getCoordPar(max);
     return r;
 }
 
@@ -348,8 +340,8 @@ COORDENADA floodFill(ESTADO *e) {
     //Incializar um tabuleiro com as distancias ao objetivo do jogador atual
     int **tabDistancias = malloc(sizeof(int*) * 8), jogador = getjogador(e);
     COORDENADA casaAtual = getUltimaJogada(e), 
-               objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7),
-               r;
+        objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7),
+        r;
     FORI(8) {
         tabDistancias[i] = malloc(sizeof(int) * 8);
         FORJ(8) {
@@ -380,8 +372,7 @@ COORDENADA floodFill(ESTADO *e) {
 
 ERROS jog(ESTADO *e, int heuristica) {
     COORDENADA nextMove;
-    if(heuristica == 1) nextMove = minimax(e, 3); //a partir de 7 depth fica mto custoso
+    if(heuristica == 1) nextMove = minimax(e, 4); //a partir de 7 depth fica mto custoso
     if(heuristica == 2) nextMove = floodFill(e);
-    printf("Linha: %d || Coluna: %d\n", getLinha(nextMove), getColuna(nextMove));
     return jogar(e, nextMove);
 }
