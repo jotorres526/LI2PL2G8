@@ -53,7 +53,7 @@ Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
 }
 
 void addMovJogador(ESTADO *e, COORDENADA c) {
-    int position = getPointerJogada(e);
+    int position = getPointerJogada(e) - 1;
     int jogador = getjogador(e);
     JOGADA j = (jogador == 1) ? createJogada(c, createNullCoord()) : createJogada(getUltimaJogada(e), c);
     editJogadas(e, j, position);
@@ -68,9 +68,9 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
         addMovJogador(e, c);
         if(getjogador(e) == 2) {
             incPointerJogada(e);
-            editJogadas(e, createJogada(createNullCoord(),createNullCoord()),getPointerJogada(e));
+            editJogadas(e, createJogada(createNullCoord(), createNullCoord()), getPointerJogada(e));
         }
-        setNumJogadas(e, getPointerJogada(e)); //Meter o numero de jogadas igual ao pointer previamente incrementado
+        setNumJogadas(e, getPointerJogada(e)); 
         swapJogador(e);
         r = OK;
     }

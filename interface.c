@@ -32,13 +32,13 @@ void mostrar_tabuleiro(ESTADO *e) {
 
 void logJogadas(ESTADO *e) {
     JOGADA j;
-    FORI(getPointerJogada(e)) {
+    FORI(getPointerJogada(e) - 1) {
         j = getJogada(e, i);
         printf("Jog %02d: ", i + 1);
         mostraJogada(j);
-     }
-     if(getPointerJogada(e) == getNumJogadas(e)) {
-        j = getJogada(e, getPointerJogada(e));
+    }
+    if(getPointerJogada(e) == getNumJogadas(e)) {
+        j = getJogada(e, getPointerJogada(e) - 1);
         if(!isNullCoord(getCoordenada(j, 1))) {
             printf("Jog %02d: ", getPointerJogada(e) + 1);
             mostraJogada(j);

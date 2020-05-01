@@ -7,7 +7,7 @@ Definição da lógica e controlo do estado
 #include "data.h"
 #include "list.h"
 
-
+COORDENADA minimax(ESTADO *e, int depth) ;
 /**
 \brief Definição da função que realiza as jogadas. 
 Nesta função são realizadas as seguintes tarefas:
