@@ -340,8 +340,8 @@ COORDENADA floodFill(ESTADO *e) {
     //Incializar um tabuleiro com as distancias ao objetivo do jogador atual
     int **tabDistancias = malloc(sizeof(int*) * 8), jogador = getjogador(e);
     COORDENADA casaAtual = getUltimaJogada(e), 
-               objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7),
-               r;
+        objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7),
+        r;
     FORI(8) {
         tabDistancias[i] = malloc(sizeof(int) * 8);
         FORJ(8) {
@@ -372,8 +372,7 @@ COORDENADA floodFill(ESTADO *e) {
 
 ERROS jog(ESTADO *e, int heuristica) {
     COORDENADA nextMove;
-    if(heuristica == 1) nextMove = minimax(e, 1); //a partir de 7 depth fica mto custoso
+    if(heuristica == 1) nextMove = minimax(e, 4); //a partir de 7 depth fica mto custoso
     if(heuristica == 2) nextMove = floodFill(e);
-    printf("Linha: %d || Coluna: %d\n", getLinha(nextMove), getColuna(nextMove));
     return jogar(e, nextMove);
 }
