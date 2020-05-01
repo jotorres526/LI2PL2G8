@@ -52,7 +52,7 @@ Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
 }
 
 void addMovJogador(ESTADO *e, COORDENADA c) {
-    int position = getPointerJogada(e) - 1;
+    int position = getPointerJogada(e);
     int jogador = getjogador(e);
     JOGADA j = (jogador == 1) ? createJogada(c, createNullCoord()) : createJogada(getUltimaJogada(e), c);
     editJogadas(e, j, position);
@@ -92,18 +92,14 @@ ERROS gravar(ESTADO *e, char *filename) {
     FILE *fp = fopen(filename, "w");
     JOGADA j;
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
-    //Ciclo que guarda o tabuleiro 
-    REVERSE_FORI(8) {
-        fprintf(fp, "%d ", i + 1);
+    REVERSE_FORI(8) {   //Ciclo que guarda o tabuleiro 
         FORJ(8) {
             fputc(getCasa(e, setCoordenada(i, j)), fp);
         }
         fputc('\n', fp);
     }
-    fprintf(fp, "  abcdefgh\n");
     fputc('\n', fp);
-    //Guarda as jogadas no ficheiro
-    FORI(getPointerJogada(e) + 1) {
+    FORI(getPointerJogada(e) + 1) {  //Guarda as jogadas no ficheiro
         j = getJogada(e, i);
         if(isNullCoord(getCoordenada(j, 1))) break;
         int linJ1, linJ2;
@@ -113,9 +109,9 @@ ERROS gravar(ESTADO *e, char *filename) {
         if (!isNullCoord(getCoordenada(j, 2))) {
             linJ2 = getLinha(getCoordenada(j, 2)) + 1;
             colJ2 = getColuna(getCoordenada(j, 2)) + 'a';
-            fprintf(fp, "Jog %02d: %c%d %c%d\n", i + 1, colJ1, linJ1, colJ2, linJ2);
+            fprintf(fp, "%02d: %c%d %c%d\n", i + 1, colJ1, linJ1, colJ2, linJ2);
         }
-        else fprintf(fp, "Jog %02d: %c%d\n", i + 1, colJ1, linJ1);
+        else fprintf(fp, "%02d: %c%d\n", i + 1, colJ1, linJ1);
     }
     fclose(fp);
     return OK;

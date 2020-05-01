@@ -32,7 +32,7 @@ void mostrar_tabuleiro(ESTADO *e) {
 
 void logJogadas(ESTADO *e) {
     JOGADA j;
-    FORI(getPointerJogada(e) - 1) {
+    FORI(getPointerJogada(e)) {
         j = getJogada(e, i);
         printf("Jog %02d: ", i + 1);
         mostraJogada(j);
