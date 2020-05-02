@@ -7,6 +7,7 @@ Definição da lógica e controlo do estado
 #include "data.h"
 #include "list.h"
 
+COORDENADA floodFill(ESTADO *e);
 COORDENADA minimax(ESTADO *e, int depth) ;
 /**
 \brief Definição da função que realiza as jogadas. 
