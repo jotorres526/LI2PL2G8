@@ -19,7 +19,6 @@
   </compound>
   <compound refid="structnodo" kind="struct"><name>nodo</name>
     <member refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" kind="variable"><name>valor</name></member>
-    <member refid="structnodo_1a885b76242a618b7fbdd7ac6bea4985c9" kind="variable"><name>valorNodo</name></member>
     <member refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" kind="variable"><name>proximo</name></member>
   </compound>
   <compound refid="structParMinMax" kind="struct"><name>ParMinMax</name>
@@ -28,9 +27,9 @@
   </compound>
   <compound refid="controller_8c" kind="file"><name>controller.c</name>
     <member refid="controller_8c_1a08e1666ed90ac193eb2544c4fd357e25" kind="function"><name>isCasaVizinha</name></member>
+    <member refid="controller_8c_1ae0505dc08991b3c07e97be442e12fdca" kind="function"><name>isJogadaValida</name></member>
     <member refid="controller_8c_1a0d672eef859983f2dd5c08751570a975" kind="function"><name>isRodeado</name></member>
     <member refid="controller_8c_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kind="function"><name>isTerminado</name></member>
-    <member refid="controller_8c_1ae0505dc08991b3c07e97be442e12fdca" kind="function"><name>isJogadaValida</name></member>
     <member refid="controller_8c_1aa996a19e9f46e1973a0d49094091f7ef" kind="function"><name>addMovJogador</name></member>
     <member refid="controller_8c_1a40267453816c8fee2f1b6e11dacb2929" kind="function"><name>jogar</name></member>
     <member refid="controller_8c_1ae7e229be0513d84bfae07481bb8461cc" kind="function"><name>winner</name></member>
@@ -53,7 +52,9 @@
     <member refid="controller_8c_1a3ac810d276df222ff6be8cce3748f24c" kind="function"><name>jog</name></member>
   </compound>
   <compound refid="controller_8h" kind="file"><name>controller.h</name>
-    <member refid="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" kind="function"><name>minimax</name></member>
+    <member refid="controller_8h_1ae0505dc08991b3c07e97be442e12fdca" kind="function"><name>isJogadaValida</name></member>
+    <member refid="controller_8h_1a0d672eef859983f2dd5c08751570a975" kind="function"><name>isRodeado</name></member>
+    <member refid="controller_8h_1aa996a19e9f46e1973a0d49094091f7ef" kind="function"><name>addMovJogador</name></member>
     <member refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kind="function"><name>jogar</name></member>
     <member refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kind="function"><name>isTerminado</name></member>
     <member refid="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" kind="function"><name>isCasaVizinha</name></member>
@@ -62,6 +63,19 @@
     <member refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kind="function"><name>winner</name></member>
     <member refid="controller_8h_1aeef7aee77236ee9789abdc771481e83d" kind="function"><name>goToPos</name></member>
     <member refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kind="function"><name>jog</name></member>
+    <member refid="controller_8h_1a6406281b697cdc5db2bace5c206fe852" kind="function"><name>movsDisponiveis</name></member>
+    <member refid="controller_8h_1a77aa8c5a2b42e624245d58fe456d539d" kind="function"><name>length</name></member>
+    <member refid="controller_8h_1a485d82d2b85b67a9ee193acddd809009" kind="function"><name>isTerminadoCoordenada</name></member>
+    <member refid="controller_8h_1aa9b3a1c4d2a475fbd760fac1f3b28f1b" kind="function"><name>maxValue</name></member>
+    <member refid="controller_8h_1a128b38dcb2a855de3a581e7bafef7d11" kind="function"><name>minValue</name></member>
+    <member refid="controller_8h_1a2531345b718e788d15c249101a07a9cf" kind="function"><name>casasTabDistancia</name></member>
+    <member refid="controller_8h_1aeda3b70005de99a256d1415226516bfd" kind="function"><name>preencheTabuleiro</name></member>
+    <member refid="controller_8h_1a5893072388bc8bbd789c1af3816cda78" kind="function"><name>initTabDistancias</name></member>
+    <member refid="controller_8h_1a514a6c9a48e50f6591fc3e1e3312a752" kind="function"><name>verAproximacao</name></member>
+    <member refid="controller_8h_1acb90a4f935d175cbea6c1b91e2f6c6b7" kind="function"><name>calcValorCasa</name></member>
+    <member refid="controller_8h_1a19ece44cb2e86c2f9638cbfc1787ed8a" kind="function"><name>recAuxMinimax</name></member>
+    <member refid="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" kind="function"><name>minimax</name></member>
+    <member refid="controller_8h_1aea8f7b95069b38db8db79fda6ec25ec0" kind="function"><name>floodFill</name></member>
   </compound>
   <compound refid="data_8c" kind="file"><name>data.c</name>
     <member refid="data_8c_1a1999bafee85ae84698b9c2db31b1ba99" kind="function"><name>setCoordenada</name></member>
@@ -149,6 +163,8 @@
   </compound>
   <compound refid="interface_8h" kind="file"><name>interface.h</name>
     <member refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kind="function"><name>mostrar_tabuleiro</name></member>
+    <member refid="interface_8h_1a7f6b458aa0fabff0fae10f97e0476310" kind="function"><name>mostraJogada</name></member>
+    <member refid="interface_8h_1a92443a79b13191ed8d1716b220fbd841" kind="function"><name>logJogadas</name></member>
     <member refid="interface_8h_1a24da95ebeede4a540e37790ce8be359b" kind="function"><name>interpretador</name></member>
   </compound>
   <compound refid="list_8c" kind="file"><name>list.c</name>
@@ -158,8 +174,6 @@
     <member refid="list_8c_1a9cba525d21f684e649d05ffb6344f5bc" kind="function"><name>tail</name></member>
     <member refid="list_8c_1a83597a1719c87863358df50d9dbea96a" kind="function"><name>deleteHead</name></member>
     <member refid="list_8c_1a258dee7c10b15d6e8b17210b7c9ff305" kind="function"><name>isEmpty</name></member>
-    <member refid="list_8c_1a3339c3e08ff433a32159d194d83d93b6" kind="function"><name>setValorNodo</name></member>
-    <member refid="list_8c_1a87a20a915543f7a57906892954da586e" kind="function"><name>getValorNodo</name></member>
     <member refid="list_8c_1a07639e60402b3f928078986140d5c122" kind="function"><name>setHead</name></member>
     <member refid="list_8c_1ace1c4c45f24919426a1c6c46ee93e031" kind="function"><name>setNext</name></member>
     <member refid="list_8c_1a2e5b441f1105c68977dd980e6222fd70" kind="function"><name>getNext</name></member>
@@ -173,8 +187,6 @@
     <member refid="list_8h_1a9cba525d21f684e649d05ffb6344f5bc" kind="function"><name>tail</name></member>
     <member refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kind="function"><name>deleteHead</name></member>
     <member refid="list_8h_1a258dee7c10b15d6e8b17210b7c9ff305" kind="function"><name>isEmpty</name></member>
-    <member refid="list_8h_1a3339c3e08ff433a32159d194d83d93b6" kind="function"><name>setValorNodo</name></member>
-    <member refid="list_8h_1a87a20a915543f7a57906892954da586e" kind="function"><name>getValorNodo</name></member>
     <member refid="list_8h_1a07639e60402b3f928078986140d5c122" kind="function"><name>setHead</name></member>
     <member refid="list_8h_1a2e5b441f1105c68977dd980e6222fd70" kind="function"><name>getNext</name></member>
     <member refid="list_8h_1ace1c4c45f24919426a1c6c46ee93e031" kind="function"><name>setNext</name></member>

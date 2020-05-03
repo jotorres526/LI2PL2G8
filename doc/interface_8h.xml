@@ -25,11 +25,20 @@
       <node id="5">
         <label>stdlib.h</label>
       </node>
+      <node id="9">
+        <label>macros/boolean.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
       <node id="1">
         <label>interface.h</label>
         <link refid="interface_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="7">
+        <label>math.h</label>
       </node>
       <node id="2">
         <label>controller.h</label>
@@ -38,18 +47,6 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-      </node>
-      <node id="9">
-        <label>macros/boolean.h</label>
-      </node>
-      <node id="6">
-        <label>string.h</label>
-      </node>
-      <node id="7">
-        <label>math.h</label>
-      </node>
-      <node id="4">
-        <label>stdio.h</label>
       </node>
       <node id="10">
         <label>list.h</label>
@@ -61,10 +58,31 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
       <node id="8">
         <label>macros/cycle.h</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>interface.c</label>
+        <link refid="interface_8c"/>
+      </node>
+      <node id="1">
+        <label>interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
       <sectiondef kind="func">
       <memberdef kind="function" id="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -92,7 +110,63 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.h" line="14" column="6" bodyfile="interface.c" bodystart="20" bodyend="31" declfile="interface.h" declline="14" declcolumn="6"/>
+        <location file="interface.h" line="14" column="6" bodyfile="interface.c" bodystart="25" bodyend="36" declfile="interface.h" declline="14" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a7f6b458aa0fabff0fae10f97e0476310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mostraJogada</definition>
+        <argsstring>(JOGADA j)</argsstring>
+        <name>mostraJogada</name>
+        <param>
+          <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Função recebe uma jogada e da print da mesma no ecrã </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>jogada a ser realizada. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interface.h" line="20" column="6" bodyfile="interface.c" bodystart="9" bodyend="23" declfile="interface.h" declline="20" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a92443a79b13191ed8d1716b220fbd841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logJogadas</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>logJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que recebe um estado e imprime todas a jogads feitas até ao momento utilizando a função log jogadas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado do jogo; </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interface.h" line="27" column="6" bodyfile="interface.c" bodystart="38" bodyend="52" declfile="interface.h" declline="27" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="interface_8h_1a24da95ebeede4a540e37790ce8be359b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -128,7 +202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.h" line="26" column="5" bodyfile="interface.c" bodystart="49" bodyend="93" declfile="interface.h" declline="26" declcolumn="5"/>
+        <location file="interface.h" line="39" column="5" bodyfile="interface.c" bodystart="54" bodyend="98" declfile="interface.h" declline="39" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -145,9 +219,13 @@
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1a24da95ebeede4a540e37790ce8be359b" kindref="member">interpretador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="20"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1a7f6b458aa0fabff0fae10f97e0476310" kindref="member">mostraJogada</ref>(<ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1a92443a79b13191ed8d1716b220fbd841" kindref="member">logJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1a24da95ebeede4a540e37790ce8be359b" kindref="member">interpretador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="interface.h"/>
   </compounddef>

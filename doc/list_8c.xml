@@ -10,9 +10,6 @@
       <node id="5">
         <label>macros/boolean.h</label>
       </node>
-      <node id="3">
-        <label>stdio.h</label>
-      </node>
       <node id="1">
         <label>list.c</label>
         <link refid="list_8c"/>
@@ -28,6 +25,9 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="3" column="7" bodyfile="list.c" bodystart="3" bodyend="6"/>
+        <location file="list.c" line="7" column="7" bodyfile="list.c" bodystart="7" bodyend="10"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1abd58a698d9cbc9bfea706d5c92e3b1fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="8" column="7" bodyfile="list.c" bodystart="8" bodyend="14"/>
+        <location file="list.c" line="12" column="7" bodyfile="list.c" bodystart="12" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a581a5a8bb55c742a87cb3eab38dc7bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void *</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="16" column="6" bodyfile="list.c" bodystart="16" bodyend="18"/>
+        <location file="list.c" line="20" column="6" bodyfile="list.c" bodystart="20" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a9cba525d21f684e649d05ffb6344f5bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="21" column="7" bodyfile="list.c" bodystart="21" bodyend="24"/>
+        <location file="list.c" line="25" column="7" bodyfile="list.c" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a83597a1719c87863358df50d9dbea96a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="27" column="7" bodyfile="list.c" bodystart="27" bodyend="32"/>
+        <location file="list.c" line="31" column="7" bodyfile="list.c" bodystart="31" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a258dee7c10b15d6e8b17210b7c9ff305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -208,79 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="35" column="5" bodyfile="list.c" bodystart="35" bodyend="37"/>
-      </memberdef>
-      <memberdef kind="function" id="list_8c_1a3339c3e08ff433a32159d194d83d93b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
-        <definition>LISTA setValorNodo</definition>
-        <argsstring>(LISTA l, int x)</argsstring>
-        <name>setValorNodo</name>
-        <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
-          <declname>l</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>x</declname>
-        </param>
-        <briefdescription>
-<para>Função que insere uma cabeça numa lista. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>l</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- lista para inserir </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>x</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- valor a ser inserido no campo de valornodo </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>inicio da lista </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="list.c" line="40" column="7" bodyfile="list.c" bodystart="40" bodyend="43"/>
-      </memberdef>
-      <memberdef kind="function" id="list_8c_1a87a20a915543f7a57906892954da586e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int getValorNodo</definition>
-        <argsstring>(LISTA l)</argsstring>
-        <name>getValorNodo</name>
-        <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
-          <declname>l</declname>
-        </param>
-        <briefdescription>
-<para>Função que devolde o valorNodo da lista. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>l</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- lista para verificar </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>novo inicio da lista </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="list.c" line="45" column="5" bodyfile="list.c" bodystart="45" bodyend="47"/>
+        <location file="list.c" line="39" column="5" bodyfile="list.c" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a07639e60402b3f928078986140d5c122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -322,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="50" column="7" bodyfile="list.c" bodystart="50" bodyend="53"/>
+        <location file="list.c" line="44" column="7" bodyfile="list.c" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1ace1c4c45f24919426a1c6c46ee93e031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -338,12 +266,34 @@
           <declname>x</declname>
         </param>
         <briefdescription>
+<para>Função que coloca o elemento seguinte da lista igual a uma lista x. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para utilizar </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista a ser adicionada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>lista atualizada <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="56" column="7" bodyfile="list.c" bodystart="56" bodyend="59"/>
+        <location file="list.c" line="50" column="7" bodyfile="list.c" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a2e5b441f1105c68977dd980e6222fd70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
@@ -355,83 +305,88 @@
           <declname>l</declname>
         </param>
         <briefdescription>
+<para>Função que retorna o elemento seguinte da lista. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para utilizar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>elemento seguinte da lista </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.c" line="62" column="7" bodyfile="list.c" bodystart="62" bodyend="64"/>
+        <location file="list.c" line="56" column="7" bodyfile="list.c" bodystart="56" bodyend="58"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>Implementação das funções manipuladoras de listas </para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="4"><highlight class="normal"><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
-<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" kindref="member">insertHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor)<sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="structnodo" kindref="compound">nodo</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structnodo" kindref="compound">NODO</ref>));</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">nodo</ref>-&gt;valor<sp/>=<sp/>valor;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">nodo</ref>-&gt;proximo<sp/>=<sp/>l;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>l<sp/>=<sp/><ref refid="structnodo" kindref="compound">nodo</ref>;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l-&gt;valor;</highlight></codeline>
+<codeline lineno="1"></codeline>
+<codeline lineno="5"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1abd58a698d9cbc9bfea706d5c92e3b1fc" kindref="member">insertHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="structnodo" kindref="compound">nodo</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structnodo" kindref="compound">NODO</ref>));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">nodo</ref>-&gt;<ref refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" kindref="member">valor</ref><sp/>=<sp/>valor;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">nodo</ref>-&gt;<ref refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" kindref="member">proximo</ref><sp/>=<sp/>l;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>l<sp/>=<sp/><ref refid="structnodo" kindref="compound">nodo</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Devolve<sp/>a<sp/>cauda<sp/>da<sp/>lista</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a9cba525d21f684e649d05ffb6344f5bc" kindref="member">tail</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>temp<sp/>=<sp/>l-&gt;proximo;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Remove<sp/>a<sp/>cabeça<sp/>da<sp/>lista<sp/>(libertando<sp/>o<sp/>espaço<sp/>ocupado)<sp/>e<sp/>devolve<sp/>a<sp/>cauda</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>temp<sp/>=<sp/><ref refid="list_8h_1a9cba525d21f684e649d05ffb6344f5bc" kindref="member">tail</ref>(l);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>free(l-&gt;valor);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>free(l);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Devolve<sp/>verdareiro<sp/>se<sp/>a<sp/>lista<sp/>é<sp/>vazia</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="list_8h_1a258dee7c10b15d6e8b17210b7c9ff305" kindref="member">isEmpty</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(l<sp/>==<sp/>NULL);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>coloca<sp/>o<sp/>valor<sp/>do<sp/>nodo</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a3339c3e08ff433a32159d194d83d93b6" kindref="member">setValorNodo</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;valorNodo<sp/>=<sp/>x;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="list_8h_1a87a20a915543f7a57906892954da586e" kindref="member">getValorNodo</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l-&gt;valorNodo;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="list_8c_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l-&gt;<ref refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" kindref="member">valor</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Devolve<sp/>a<sp/>cauda<sp/>da<sp/>lista</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1a9cba525d21f684e649d05ffb6344f5bc" kindref="member">tail</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>temp<sp/>=<sp/>l-&gt;<ref refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" kindref="member">proximo</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Remove<sp/>a<sp/>cabeça<sp/>da<sp/>lista<sp/>(libertando<sp/>o<sp/>espaço<sp/>ocupado)<sp/>e<sp/>devolve<sp/>a<sp/>cauda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>temp<sp/>=<sp/><ref refid="list_8c_1a9cba525d21f684e649d05ffb6344f5bc" kindref="member">tail</ref>(l);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>free(l-&gt;<ref refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" kindref="member">valor</ref>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>free(l);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Devolve<sp/>verdareiro<sp/>se<sp/>a<sp/>lista<sp/>é<sp/>vazia</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="list_8c_1a258dee7c10b15d6e8b17210b7c9ff305" kindref="member">isEmpty</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(l<sp/>==<sp/>NULL);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>insere<sp/>o<sp/>apontador<sp/>no<sp/>primeiro<sp/>nodo<sp/>da<sp/>lista</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1a07639e60402b3f928078986140d5c122" kindref="member">setHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;<ref refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" kindref="member">valor</ref><sp/>=<sp/>valor;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
 <codeline lineno="47"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>insere<sp/>o<sp/>apontador<sp/>no<sp/>primeiro<sp/>nodo<sp/>da<sp/>lista</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a07639e60402b3f928078986140d5c122" kindref="member">setHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor)<sp/>{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;valor<sp/>=<sp/>valor;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>insere<sp/>um<sp/>elemento<sp/>no<sp/>proximo<sp/>de<sp/>um<sp/>dado<sp/>nodo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1ace1c4c45f24919426a1c6c46ee93e031" kindref="member">setNext</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;<ref refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" kindref="member">proximo</ref><sp/>=<sp/>x;</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
 <codeline lineno="53"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>insere<sp/>um<sp/>elemento<sp/>no<sp/>proximo<sp/>de<sp/>um<sp/>dado<sp/>nodo</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>setNext(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>x)<sp/>{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;proximo<sp/>=<sp/>x;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>getNext(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l-&gt;proximo;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8c_1a2e5b441f1105c68977dd980e6222fd70" kindref="member">getNext</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l-&gt;<ref refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" kindref="member">proximo</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="list.c"/>
   </compounddef>

@@ -26,14 +26,6 @@
       <node id="4">
         <label>stdlib.h</label>
       </node>
-      <node id="1">
-        <label>controller.h</label>
-        <link refid="controller_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
       <node id="8">
         <label>macros/boolean.h</label>
       </node>
@@ -43,8 +35,13 @@
       <node id="6">
         <label>math.h</label>
       </node>
-      <node id="3">
-        <label>stdio.h</label>
+      <node id="1">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="9">
         <label>list.h</label>
@@ -56,43 +53,167 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
       <node id="7">
         <label>macros/cycle.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
+      <node id="4">
+        <label>interface.c</label>
+        <link refid="interface_8c"/>
+      </node>
+      <node id="3">
         <label>interface.h</label>
         <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>controller.c</label>
+        <link refid="controller_8c"/>
       </node>
       <node id="1">
         <label>controller.h</label>
         <link refid="controller_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>main.c</label>
+        <link refid="main_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
-        <definition>COORDENADA minimax</definition>
-        <argsstring>(ESTADO *e, int depth)</argsstring>
-        <name>minimax</name>
+      <memberdef kind="function" id="controller_8h_1ae0505dc08991b3c07e97be442e12fdca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isJogadaValida</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isJogadaValida</name>
         <param>
           <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
           <declname>e</declname>
         </param>
         <param>
-          <type>int</type>
-          <declname>depth</declname>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
         </param>
         <briefdescription>
+<para>Verifica se uma coordenada é vizinha da ultima jogada, está a mover-se para uma casa onde nao haja peças brancas ou pretas e se está dentro dos boundries do tabuleiro, efetivamente verificando se é um movimento válido. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada a verificar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True se for uma jogada válida e False caso contrário </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="10" column="12" bodyfile="controller.c" bodystart="353" bodyend="376" declfile="controller.h" declline="10" declcolumn="12"/>
+        <location file="controller.h" line="17" column="9" bodyfile="controller.c" bodystart="31" bodyend="38" declfile="controller.h" declline="17" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a0d672eef859983f2dd5c08751570a975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isRodeado</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isRodeado</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Partindo do pressuposto que uma peça está rodeada faz um &quot;quadrado&quot; de coordenadas em volta da <ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref> c e percorre todas as 8 coordenadas. Se encontrar uma casa VAZIO; UM ou DOIS é verificado que nessa coordenada a peça não está rodeada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada que se quer verificar se está rodeada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True caso a peça se encontre rodeada e False caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="26" column="9" bodyfile="controller.c" bodystart="48" bodyend="60" declfile="controller.h" declline="26" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1aa996a19e9f46e1973a0d49094091f7ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addMovJogador</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>addMovJogador</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Cálcula qual é o jogador atual e dependendo disso adiciona/altera uma jogada no array de jogadas e altera o valor da ultima jogada para a dada <ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada a adicionar ao array </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="33" column="6" bodyfile="controller.c" bodystart="82" bodyend="88" declfile="controller.h" declline="33" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -113,7 +234,7 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>estado</parametername>
+<parametername>e</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Apontador para o estado </para>
@@ -128,13 +249,33 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>1 no caso de a jogada ser válida e 0 no caso contrário </para>
+<simplesect kind="return"><para>1 no caso de a jogada ser válida e 0 no caso contrário</para>
+</simplesect>
+Definição da função que realiza as jogadas. Nesta função são realizadas as seguintes tarefas: Verifica se a coordenada introduzida é vizinha, se está vazia e se está dentro do tabuleiro. Visto isto caso seja o jogador 1 a jogar , coloca a jogada no parametro ultima jogada e troca para o jogador 2. Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jogador e ainda coloca no array de jogadas. Caso a jogada não seja possível retorna 1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo que irá ser alterado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada recebida para um jogador se movimentar para lá </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>JOGADA_INVALIDA caso a coordenada não passe na validação ou OK caso o estado tenha sido corretamente alterado </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="22" column="7" bodyfile="controller.c" bodystart="62" bodyend="77" declfile="controller.h" declline="22" declcolumn="7"/>
+        <location file="controller.h" line="46" column="7" bodyfile="controller.c" bodystart="99" bodyend="114" declfile="controller.h" declline="46" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -158,13 +299,25 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>True no caso de o jogo ter terminado, False caso contrário </para>
+<simplesect kind="return"><para>True no caso de o jogo ter terminado, False caso contrário</para>
+</simplesect>
+Função que determina se o Jogo está terminado. Neste sentido verifica se o algum jogador chegou a casa UM ou DOIS. Caso chegue retorna True caso contrário falso.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True se o jogo estiver terminado e False caso contrário </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="31" column="9" bodyfile="controller.c" bodystart="35" bodyend="43" declfile="controller.h" declline="31" declcolumn="9"/>
+        <location file="controller.h" line="55" column="9" bodyfile="controller.c" bodystart="67" bodyend="75" declfile="controller.h" declline="55" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -200,13 +353,33 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>True no caso de c ser vizinha da posição atual, False caso contrário </para>
+<simplesect kind="return"><para>True no caso de c ser vizinha da posição atual, False caso contrário</para>
+</simplesect>
+Função que verifica se a jogada a ser realizada é vizinha da casa anterior. Retorna True caso seja, False caso contrário.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada a analizar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True se for vizinha e False se não for vizinha </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="40" column="9" bodyfile="controller.c" bodystart="10" bodyend="17" declfile="controller.h" declline="40" declcolumn="9"/>
+        <location file="controller.h" line="64" column="9" bodyfile="controller.c" bodystart="15" bodyend="22" declfile="controller.h" declline="64" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -242,13 +415,33 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário </para>
+<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário</para>
+</simplesect>
+Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado a ser gravado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nome que se quer dar ao ficheiro </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ERRO_ABRIR_FICHEIRO caso nao tenha sido possível criar o ficheiro ou OK caso o jogo tenha sido gravado com sucesso </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="48" column="7" bodyfile="controller.c" bodystart="91" bodyend="118" declfile="controller.h" declline="48" declcolumn="7"/>
+        <location file="controller.h" line="72" column="7" bodyfile="controller.c" bodystart="141" bodyend="168" declfile="controller.h" declline="72" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -290,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="56" column="7" bodyfile="controller.c" bodystart="120" bodyend="152" declfile="controller.h" declline="56" declcolumn="7"/>
+        <location file="controller.h" line="80" column="7" bodyfile="controller.c" bodystart="170" bodyend="202" declfile="controller.h" declline="80" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -314,13 +507,25 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>O jogador vencedor </para>
+<simplesect kind="return"><para>O jogador vencedor</para>
+</simplesect>
+Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rodeado.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Inteiro representante do jogador vencedor (1 ou 2) </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="64" column="5" bodyfile="controller.c" bodystart="79" bodyend="89" declfile="controller.h" declline="64" declcolumn="5"/>
+        <location file="controller.h" line="88" column="5" bodyfile="controller.c" bodystart="123" bodyend="133" declfile="controller.h" declline="88" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aeef7aee77236ee9789abdc771481e83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -362,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="72" column="9" bodyfile="controller.c" bodystart="155" bodyend="178" declfile="controller.h" declline="72" declcolumn="9"/>
+        <location file="controller.h" line="96" column="9" bodyfile="controller.c" bodystart="205" bodyend="228" declfile="controller.h" declline="96" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -378,7 +583,7 @@
           <declname>heuristica</declname>
         </param>
         <briefdescription>
-<para>Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax. </para>
+<para>Função que faz uma jogada com base em heuristicas. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -391,10 +596,10 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>jogador</parametername>
+<parametername>heuristica</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- Jogador que está a jogar </para>
+<para>que deve ser utilizada caso seja 1 é o floodfill caso 2 é o minimax </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -404,7 +609,625 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="80" column="7" bodyfile="controller.c" bodystart="405" bodyend="410" declfile="controller.h" declline="80" declcolumn="7"/>
+        <location file="controller.h" line="104" column="7" bodyfile="controller.c" bodystart="453" bodyend="458" declfile="controller.h" declline="104" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a6406281b697cdc5db2bace5c206fe852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA movsDisponiveis</definition>
+        <argsstring>(ESTADO *e, LISTA l, COORDENADA c)</argsstring>
+        <name>movsDisponiveis</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que cria a lista com todos os movimentos disponíveis a volta de uma casa. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista a ser inserida as coordenadas </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada onde sera feita a avaliação </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Lista com as coordenadas disponíveis </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="113" column="7" bodyfile="controller.c" bodystart="231" bodyend="246" declfile="controller.h" declline="113" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a77aa8c5a2b42e624245d58fe456d539d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int length</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>length</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que calcula o numero de coordenadas livres a volta de uma coordenada c. Neste modo calcular se é par as coordenadas a volta. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada para ser avaliada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>numero de coordenadas possíveis </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="121" column="5" bodyfile="controller.c" bodystart="248" bodyend="258" declfile="controller.h" declline="121" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a485d82d2b85b67a9ee193acddd809009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isTerminadoCoordenada</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isTerminadoCoordenada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada um coordenada ve se o jogo terminou nessa coordenada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada para ser avaliada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True caso o jogo esteja acabado, False caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="129" column="9" bodyfile="controller.c" bodystart="260" bodyend="268" declfile="controller.h" declline="129" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1aa9b3a1c4d2a475fbd760fac1f3b28f1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int maxValue</definition>
+        <argsstring>(ParMinMax fst, ParMinMax snd)</argsstring>
+        <name>maxValue</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>fst</declname>
+        </param>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>snd</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada dois pares minimax retorna o maior valor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>primeiro parMinMax </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>snd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>segundo parMinMax </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>retorna o maior valor dos pares </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="137" column="5" bodyfile="controller.c" bodystart="270" bodyend="277" declfile="controller.h" declline="137" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a128b38dcb2a855de3a581e7bafef7d11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int minValue</definition>
+        <argsstring>(ParMinMax fst, ParMinMax snd)</argsstring>
+        <name>minValue</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>fst</declname>
+        </param>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>snd</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada dois pares minimax retorna o menor valor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>primeiro parMinMax </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>snd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>segundo parMinMax </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>retorna o menor valor dos pares </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="145" column="5" bodyfile="controller.c" bodystart="279" bodyend="286" declfile="controller.h" declline="145" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a2531345b718e788d15c249101a07a9cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA casasTabDistancia</definition>
+        <argsstring>(int **tabDistancias, COORDENADA c)</argsstring>
+        <name>casasTabDistancia</name>
+        <param>
+          <type>int **</type>
+          <declname>tabDistancias</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada dois pares minimax retorna o menor valor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tabDistancias</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para um tabuleiro de distancias </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada onde se quer iniciar a contagem de distancias do tabuleiro </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lista com as casas a volta vaziass </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="153" column="7" bodyfile="controller.c" bodystart="289" bodyend="304" declfile="controller.h" declline="153" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1aeda3b70005de99a256d1415226516bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int **</type>
+        <definition>int** preencheTabuleiro</definition>
+        <argsstring>(COORDENADA c, int **tabDistancias, int dist)</argsstring>
+        <name>preencheTabuleiro</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int **</type>
+          <declname>tabDistancias</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dist</declname>
+        </param>
+        <briefdescription>
+<para>Função que preenche um tabuleiro de inteiros com a sua distancia a um dado objetivo Neste sentido o tabuleiro de distancias e um tabuleiro criado desde uma casa objetivo ate preencher o tabuleiro todo. Cada casa contem um inteiro com a distância ao respetivo objetivo. Ideia é o jogador mover se para a casa com menor valor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada onde se quer iniciar a contagem de distancias do tabuleiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tabDistancias</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para um tabuleiro de distancias </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dist</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>numero a ser incrementado desde a casa objetivo até ao fim do tabuleiro, ou seja, as respetivas distâncias </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>o tabuleiro de inteiros preenchido </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="164" column="5" bodyfile="controller.c" bodystart="306" bodyend="315" declfile="controller.h" declline="164" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a5893072388bc8bbd789c1af3816cda78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int **</type>
+        <definition>int** initTabDistancias</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>initTabDistancias</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que inicializa um tabuleiro de distâncias. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado atual do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>tabuleiro inicializado e pronto a ser mudado com as respetivas distâncias </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="171" column="5" bodyfile="controller.c" bodystart="317" bodyend="333" declfile="controller.h" declline="171" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a514a6c9a48e50f6591fc3e1e3312a752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int verAproximacao</definition>
+        <argsstring>(ESTADO *e, COORDENADA current, COORDENADA next)</argsstring>
+        <name>verAproximacao</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>current</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+<para>Função que dado um estado e uma coordenada seguinte calcula se essa coordenada se aproxima da casa objetivo para vencer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado atual do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>current</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>que é a coordenada onde se encontra o jogador; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada futura </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 caso o jogador se aproxime da casa objetivo, 0 caso seja uma distancia igual e -1 caso seja uma casa mais distante. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="180" column="5" bodyfile="controller.c" bodystart="335" bodyend="358" declfile="controller.h" declline="180" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1acb90a4f935d175cbea6c1b91e2f6c6b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int calcValorCasa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, int aproximacao, Boolean isMax)</argsstring>
+        <name>calcValorCasa</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aproximacao</declname>
+        </param>
+        <param>
+          <type>Boolean</type>
+          <declname>isMax</declname>
+        </param>
+        <briefdescription>
+<para>Função que que calcula o valor de uma casa num estado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado atual do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada a ser avaliada </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aproximacao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>resultado da função verAproximação </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isMax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>booleano que diz se é o jogador maximizante ou não </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 caso o jogador se aproxime da casa objetivo, 0 caso seja uma distancia igual e -1 caso seja uma casa mais distante. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="190" column="5" bodyfile="controller.c" bodystart="361" bodyend="369" declfile="controller.h" declline="190" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a19ece44cb2e86c2f9638cbfc1787ed8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+        <definition>ParMinMax recAuxMinimax</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, int depth, Boolean isMax, int aproximacao)</argsstring>
+        <name>recAuxMinimax</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <param>
+          <type>Boolean</type>
+          <declname>isMax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aproximacao</declname>
+        </param>
+        <briefdescription>
+<para>Função que faz a recursão do minimax. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado atual do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada a ser avaliada </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>profundidade a ser utilizada pelo algoritmios </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isMax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>booleano que diz se é o jogador maximizante ou não </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aproximacao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>que diz se o jogador se encontra proximo da casa objetivo ou não </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>um <ref refid="structParMinMax" kindref="compound">ParMinMax</ref> com a melhor jogada de acordo com o isMax </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="201" column="11" bodyfile="controller.c" bodystart="372" bodyend="398" declfile="controller.h" declline="201" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA minimax</definition>
+        <argsstring>(ESTADO *e, int depth)</argsstring>
+        <name>minimax</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+<para>Função o melhor valor de uma casa a ser jogada através do algoritmo minimax. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- profundidade de jogadas a ser analisadas </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>coordenada com o melhor valor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="209" column="12" bodyfile="controller.c" bodystart="401" bodyend="424" declfile="controller.h" declline="209" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8h_1aea8f7b95069b38db8db79fda6ec25ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA floodFill</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>floodFill</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função o melhor valor de uma casa a ser jogada através do algoritmo floodfill. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>coordenada com o melhor valor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.h" line="215" column="12" bodyfile="controller.c" bodystart="426" bodyend="451" declfile="controller.h" declline="215" declcolumn="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -419,24 +1242,54 @@
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="data_8h" kindref="compound">data.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>minimax(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth)<sp/>;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" kindref="member">isCasaVizinha</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" kindref="member">gravar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" kindref="member">ler</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref><sp/>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1ae0505dc08991b3c07e97be442e12fdca" kindref="member">isJogadaValida</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1a0d672eef859983f2dd5c08751570a975" kindref="member">isRodeado</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1aa996a19e9f46e1973a0d49094091f7ef" kindref="member">addMovJogador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" kindref="member">isCasaVizinha</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1aeef7aee77236ee9789abdc771481e83d" kindref="member">goToPos</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" kindref="member">gravar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>heuristica);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" kindref="member">ler</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref><sp/>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1aeef7aee77236ee9789abdc771481e83d" kindref="member">goToPos</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>heuristica);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="controller_8h_1a6406281b697cdc5db2bace5c206fe852" kindref="member">movsDisponiveis</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1a77aa8c5a2b42e624245d58fe456d539d" kindref="member">length</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1a485d82d2b85b67a9ee193acddd809009" kindref="member">isTerminadoCoordenada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1aa9b3a1c4d2a475fbd760fac1f3b28f1b" kindref="member">maxValue</ref>(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>fst,<sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>snd);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1a128b38dcb2a855de3a581e7bafef7d11" kindref="member">minValue</ref>(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>fst,<sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>snd);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="controller_8h_1a2531345b718e788d15c249101a07a9cf" kindref="member">casasTabDistancia</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="keywordtype">int</highlight><highlight class="normal">**<sp/><ref refid="controller_8h_1aeda3b70005de99a256d1415226516bfd" kindref="member">preencheTabuleiro</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dist);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**<ref refid="controller_8h_1a5893072388bc8bbd789c1af3816cda78" kindref="member">initTabDistancias</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1a514a6c9a48e50f6591fc3e1e3312a752" kindref="member">verAproximacao</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>current,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>next);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1acb90a4f935d175cbea6c1b91e2f6c6b7" kindref="member">calcValorCasa</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aproximacao,<sp/>Boolean<sp/>isMax);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/><ref refid="controller_8h_1a19ece44cb2e86c2f9638cbfc1787ed8a" kindref="member">recAuxMinimax</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth,<sp/>Boolean<sp/>isMax,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aproximacao);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" kindref="member">minimax</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth)<sp/>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="controller_8h_1aea8f7b95069b38db8db79fda6ec25ec0" kindref="member">floodFill</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);<sp/></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="controller.h"/>
   </compounddef>

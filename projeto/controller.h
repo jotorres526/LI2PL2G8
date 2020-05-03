@@ -104,20 +104,6 @@ Boolean goToPos(ESTADO *e, int n);
 ERROS jog(ESTADO *e, int heuristica);
 
 /**
-\brief Função o melhor valor de uma casa a ser jogada através do algoritmo minimax
-@param e Apontador para o estado
-@param depth - profundidade de jogadas a ser analisadas
-@returns coordenada com o melhor valor
-*/
-COORDENADA minimax(ESTADO *e, int depth) ;
-/**
-\brief Função o melhor valor de uma casa a ser jogada através do algoritmo floodfill
-@param e Apontador para o estado
-@returns coordenada com o melhor valor
-*/
-COORDENADA floodFill(ESTADO *e); 
-
-/**
 \brief Função que cria a lista com todos os movimentos disponíveis a volta de uma casa
 @param e Apontador para o estado
 @param l Lista a ser inserida as coordenadas
@@ -213,4 +199,19 @@ int calcValorCasa(ESTADO *e, COORDENADA c, int aproximacao, Boolean isMax);
 @returns um ParMinMax com a melhor jogada de acordo com o isMax
 */
 ParMinMax recAuxMinimax(ESTADO *e, COORDENADA c, int depth, Boolean isMax, int aproximacao);
+
+/**
+\brief Função o melhor valor de uma casa a ser jogada através do algoritmo minimax
+@param e Apontador para o estado
+@param depth - profundidade de jogadas a ser analisadas
+@returns coordenada com o melhor valor
+*/
+COORDENADA minimax(ESTADO *e, int depth) ;
+/**
+\brief Função o melhor valor de uma casa a ser jogada através do algoritmo floodfill
+@param e Apontador para o estado
+@returns coordenada com o melhor valor
+*/
+COORDENADA floodFill(ESTADO *e); 
+
 #endif

@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structnodo" kind="struct" language="C++" prot="public">
     <compoundname>nodo</compoundname>
+    <includes refid="list_8h" local="no">list.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -11,23 +12,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Apontador para uma valor </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.h" line="13" column="9" bodyfile="list.h" bodystart="13" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structnodo_1a885b76242a618b7fbdd7ac6bea4985c9" prot="public" static="no" mutable="no">
-        <type>int</type>
-        <definition>int nodo::valorNodo</definition>
-        <argsstring></argsstring>
-        <name>valorNodo</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="list.h" line="14" column="8" bodyfile="list.h" bodystart="14" bodyend="-1"/>
+        <location file="list.h" line="17" column="9" bodyfile="list.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structnodo_1aaaabdcb6641ddcdac8990402242b154a" prot="public" static="no" mutable="no">
         <type>struct <ref refid="structnodo" kindref="compound">nodo</ref> *</type>
@@ -37,13 +26,15 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>apontador para o proximo elemento da lista </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="list.h" line="15" column="14" bodyfile="list.h" bodystart="15" bodyend="-1"/>
+        <location file="list.h" line="19" column="14" bodyfile="list.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Tipo de dados para o estado. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -56,11 +47,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="list.h" line="12" column="19" bodyfile="list.h" bodystart="12" bodyend="16"/>
+    <location file="list.h" line="15" column="19" bodyfile="list.h" bodystart="15" bodyend="20"/>
     <listofallmembers>
       <member refid="structnodo_1aaaabdcb6641ddcdac8990402242b154a" prot="public" virt="non-virtual"><scope>nodo</scope><name>proximo</name></member>
       <member refid="structnodo_1ab63adcdb83ea1fdcf4fa10f3cafc4a6a" prot="public" virt="non-virtual"><scope>nodo</scope><name>valor</name></member>
-      <member refid="structnodo_1a885b76242a618b7fbdd7ac6bea4985c9" prot="public" virt="non-virtual"><scope>nodo</scope><name>valorNodo</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

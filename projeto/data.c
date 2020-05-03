@@ -1,3 +1,7 @@
+/**
+@file data.c
+Implementação das funções manipuladores do estado
+*/
 #include "data.h"
 /*******************Manipulação de COORDENADA******************/
 // Recebe uma coluna e uma linha e retorna uma coordenada

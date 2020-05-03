@@ -7,6 +7,8 @@ Definição de tipo de dados para true ou false
 /**
 \brief tipo de dados de true e false para usar em if statements
 */ 
-typedef enum {False = 0, True = 1} Boolean;   
-
+typedef enum {
+    False = 0, //Para verificar quando algo é Falso
+    True = 1 //Para verificar quando algo é Verdadeiro
+} Boolean;
 #endif

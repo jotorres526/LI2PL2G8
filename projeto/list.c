@@ -1,3 +1,7 @@
+/**
+@file list.c
+Implementação das funções manipuladoras de listas 
+*/
 #include "list.h"
 
 LISTA createList() {

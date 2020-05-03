@@ -23,6 +23,12 @@
       <node id="6">
         <label>stdlib.h</label>
       </node>
+      <node id="10">
+        <label>macros/boolean.h</label>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
       <node id="1">
         <label>interface.c</label>
         <link refid="interface_8c"/>
@@ -35,6 +41,9 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="8">
+        <label>math.h</label>
+      </node>
       <node id="3">
         <label>controller.h</label>
         <link refid="controller_8h"/>
@@ -42,18 +51,6 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-      </node>
-      <node id="10">
-        <label>macros/boolean.h</label>
-      </node>
-      <node id="7">
-        <label>string.h</label>
-      </node>
-      <node id="8">
-        <label>math.h</label>
-      </node>
-      <node id="5">
-        <label>stdio.h</label>
       </node>
       <node id="11">
         <label>list.h</label>
@@ -64,6 +61,9 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
       </node>
       <node id="9">
         <label>macros/cycle.h</label>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.c" line="2" column="10" bodyfile="interface.c" bodystart="2" bodyend="-1"/>
+        <location file="interface.c" line="7" column="9" bodyfile="interface.c" bodystart="7" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -93,12 +93,23 @@
           <declname>j</declname>
         </param>
         <briefdescription>
+<para>Função recebe uma jogada e da print da mesma no ecrã </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>jogada a ser realizada. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.c" line="4" column="6" bodyfile="interface.c" bodystart="4" bodyend="18"/>
+        <location file="interface.c" line="9" column="6" bodyfile="interface.c" bodystart="9" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -126,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.c" line="20" column="6" bodyfile="interface.c" bodystart="20" bodyend="31"/>
+        <location file="interface.c" line="25" column="6" bodyfile="interface.c" bodystart="25" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="interface_8c_1a92443a79b13191ed8d1716b220fbd841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -138,12 +149,23 @@
           <declname>e</declname>
         </param>
         <briefdescription>
+<para>Função que recebe um estado e imprime todas a jogads feitas até ao momento utilizando a função log jogadas. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>apontador para o estado do jogo; </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.c" line="33" column="6" bodyfile="interface.c" bodystart="33" bodyend="47"/>
+        <location file="interface.c" line="38" column="6" bodyfile="interface.c" bodystart="38" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="interface_8c_1a24da95ebeede4a540e37790ce8be359b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -179,107 +201,110 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interface.c" line="49" column="5" bodyfile="interface.c" bodystart="49" bodyend="93"/>
+        <location file="interface.c" line="54" column="5" bodyfile="interface.c" bodystart="54" bodyend="98"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>Implementação das funções responsaveis pelo IO </para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="interface_8h" kindref="compound">interface.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUF_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mostraJogada(<ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j)<sp/>{</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c1<sp/>=<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1);</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c2<sp/>=<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2);</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linJ1,<sp/>linJ2;</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>colJ1,<sp/>colJ2;</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>colJ1<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c1)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>linJ1<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c1)<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(c2))<sp/>{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linJ2<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colJ2<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%c%d<sp/>%c%d\n&quot;</highlight><highlight class="normal">,<sp/>colJ1,<sp/>linJ1,<sp/>colJ2,<sp/>linJ2);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%c%d\n&quot;</highlight><highlight class="normal">,<sp/>colJ1,<sp/>linJ1);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>REVERSE_FORI(8)<sp/>{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d<sp/>&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(<ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/>c));</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>abcdefgh\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>logJogadas(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(<ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e))<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/>i);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jog<sp/>%02d:<sp/>&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mostraJogada(j);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>==<sp/><ref refid="data_8h_1a12874adb19d5d154a3af0f3028d17d3b" kindref="member">getNumJogadas</ref>(e))<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e));</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1)))<sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jog<sp/>%02d:<sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>+<sp/>1);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mostraJogada(j);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_8h_1a24da95ebeede4a540e37790ce8be359b" kindref="member">interpretador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>over<sp/>=<sp/>False;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>linha[BUF_SIZE],<sp/>filename[BUF_SIZE];</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>col[2],<sp/>lin[2];</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Bem<sp/>vindo<sp/>ao<sp/>Rastros!\nInstruções:<sp/>Q<sp/>-<sp/>Sair<sp/>|<sp/>|<sp/>gr<sp/>*ficheiro*<sp/>-<sp/>Grava<sp/>jogo<sp/>|<sp/>|<sp/>ler<sp/>*ficheiro*<sp/>-<sp/>Lê<sp/>savefile<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>!over;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;(#%d<sp/>Jogada<sp/>%d<sp/>Player<sp/>%d)&gt;<sp/>&quot;</highlight><highlight class="normal">,<sp/>i,<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>+<sp/>1,<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e));</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fgets(linha,<sp/>BUF_SIZE,<sp/>stdin)<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/></highlight><highlight class="comment">//le<sp/>o<sp/>comando<sp/>e<sp/>retorna<sp/>0<sp/>caso<sp/>nao<sp/>seja<sp/>escrito<sp/>nada</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strlen(linha)<sp/>==<sp/>3<sp/>&amp;&amp;<sp/>sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;%[a-h]%[1-8]&quot;</highlight><highlight class="normal">,<sp/>col,<sp/>lin)<sp/>==<sp/>2)<sp/>{<sp/></highlight><highlight class="comment">//If<sp/>que<sp/>executa<sp/>a<sp/>jogada</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>coord<sp/>=<sp/>{*col<sp/>-<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">,<sp/>*lin<sp/>-<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(e,<sp/>coord)<sp/>==<sp/>OK)<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jogada<sp/>inválida...<sp/>Jogue<sp/>novamente\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;Q\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>para<sp/>sair<sp/>do<sp/>jogo</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Saindo<sp/>do<sp/>jogo...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;gr<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>filename)<sp/>==<sp/>1)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>que<sp/>guarda<sp/>o<sp/>tabuleiro<sp/>atual<sp/>(cria<sp/>um<sp/>&quot;savefile&quot;)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" kindref="member">gravar</ref>(e,<sp/>filename)<sp/>==<sp/>OK)<sp/>printf(</highlight><highlight class="stringliteral">&quot;Guardado<sp/>com<sp/>sucesso\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;ler<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>filename)<sp/>==<sp/>1)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>que<sp/>le<sp/>um<sp/>&quot;savefile&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" kindref="member">ler</ref>(e,<sp/>filename)<sp/>==<sp/>OK)<sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;A<sp/>ler<sp/>tabuleiro...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;movs\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logJogadas(e);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;pos<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>&amp;pos)<sp/>==<sp/>1)<sp/>{</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1aeef7aee77236ee9789abdc771481e83d" kindref="member">goToPos</ref>(e,<sp/>pos))<sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;Introduza<sp/>uma<sp/>jogada<sp/>válida!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;jog\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(e,<sp/>1)<sp/>==<sp/>OK)<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;erro\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;jog2\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(e,<sp/>2)<sp/>==<sp/>OK)<sp/>{</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8h_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
+<codeline lineno="1"></codeline>
+<codeline lineno="5"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="interface_8h" kindref="compound">interface.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//Numero<sp/>de<sp/>chars<sp/>em<sp/>cada<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUF_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8c_1a7f6b458aa0fabff0fae10f97e0476310" kindref="member">mostraJogada</ref>(<ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c1<sp/>=<sp/><ref refid="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c2<sp/>=<sp/><ref refid="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linJ1,<sp/>linJ2;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>colJ1,<sp/>colJ2;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>colJ1<sp/>=<sp/><ref refid="data_8c_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c1)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>linJ1<sp/>=<sp/><ref refid="data_8c_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c1)<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="data_8c_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(c2))<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linJ2<sp/>=<sp/><ref refid="data_8c_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(<ref refid="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colJ2<sp/>=<sp/><ref refid="data_8c_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(<ref refid="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%c%d<sp/>%c%d\n&quot;</highlight><highlight class="normal">,<sp/>colJ1,<sp/>linJ1,<sp/>colJ2,<sp/>linJ2);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%c%d\n&quot;</highlight><highlight class="normal">,<sp/>colJ1,<sp/>linJ1);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>REVERSE_FORI(8)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d<sp/>&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/><ref refid="data_8c_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(<ref refid="data_8c_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/>c));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>abcdefgh\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_8c_1a92443a79b13191ed8d1716b220fbd841" kindref="member">logJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(<ref refid="data_8c_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e))<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8c_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/>i);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jog<sp/>%02d:<sp/>&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1a7f6b458aa0fabff0fae10f97e0476310" kindref="member">mostraJogada</ref>(j);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8c_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>==<sp/><ref refid="data_8c_1a12874adb19d5d154a3af0f3028d17d3b" kindref="member">getNumJogadas</ref>(e))<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8c_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/><ref refid="data_8c_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="data_8c_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1)))<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jog<sp/>%02d:<sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="data_8c_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1a7f6b458aa0fabff0fae10f97e0476310" kindref="member">mostraJogada</ref>(j);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_8c_1a24da95ebeede4a540e37790ce8be359b" kindref="member">interpretador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>over<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>linha[BUF_SIZE],<sp/>filename[BUF_SIZE];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>col[2],<sp/>lin[2];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Bem<sp/>vindo<sp/>ao<sp/>Rastros!\nInstruções:<sp/>Q<sp/>-<sp/>Sair<sp/>|<sp/>|<sp/>gr<sp/>*ficheiro*<sp/>-<sp/>Grava<sp/>jogo<sp/>|<sp/>|<sp/>ler<sp/>*ficheiro*<sp/>-<sp/>Lê<sp/>savefile<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>!over;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;(#%d<sp/>Jogada<sp/>%d<sp/>Player<sp/>%d)&gt;<sp/>&quot;</highlight><highlight class="normal">,<sp/>i,<sp/><ref refid="data_8c_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>+<sp/>1,<sp/><ref refid="data_8c_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fgets(linha,<sp/>BUF_SIZE,<sp/>stdin)<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/></highlight><highlight class="comment">//le<sp/>o<sp/>comando<sp/>e<sp/>retorna<sp/>0<sp/>caso<sp/>nao<sp/>seja<sp/>escrito<sp/>nada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strlen(linha)<sp/>==<sp/>3<sp/>&amp;&amp;<sp/>sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;%[a-h]%[1-8]&quot;</highlight><highlight class="normal">,<sp/>col,<sp/>lin)<sp/>==<sp/>2)<sp/>{<sp/></highlight><highlight class="comment">//If<sp/>que<sp/>executa<sp/>a<sp/>jogada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>coord<sp/>=<sp/>{*col<sp/>-<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">,<sp/>*lin<sp/>-<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(e,<sp/>coord)<sp/>==<sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8c_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<ref refid="controller_8c_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;Jogada<sp/>inválida...<sp/>Jogue<sp/>novamente\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;Q\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>para<sp/>sair<sp/>do<sp/>jogo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Saindo<sp/>do<sp/>jogo...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;gr<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>filename)<sp/>==<sp/>1)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>que<sp/>guarda<sp/>o<sp/>tabuleiro<sp/>atual<sp/>(cria<sp/>um<sp/>&quot;savefile&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1a626d31a8bad5c3f4fa84afc0c5f987ef" kindref="member">gravar</ref>(e,<sp/>filename)<sp/>==<sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>)<sp/>printf(</highlight><highlight class="stringliteral">&quot;Guardado<sp/>com<sp/>sucesso\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;ler<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>filename)<sp/>==<sp/>1)<sp/>{<sp/></highlight><highlight class="comment">//Comando<sp/>que<sp/>le<sp/>um<sp/>&quot;savefile&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1a6b2c21f1f942998df07e3e31c45021c9" kindref="member">ler</ref>(e,<sp/>filename)<sp/>==<sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;A<sp/>ler<sp/>tabuleiro...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;movs\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1a92443a79b13191ed8d1716b220fbd841" kindref="member">logJogadas</ref>(e);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,<sp/></highlight><highlight class="stringliteral">&quot;pos<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>&amp;pos)<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1aeef7aee77236ee9789abdc771481e83d" kindref="member">goToPos</ref>(e,<sp/>pos))<sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;Introduza<sp/>uma<sp/>jogada<sp/>válida!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;jog\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(e,<sp/>1)<sp/>==<sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8c_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<ref refid="controller_8c_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;erro\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(linha,<sp/></highlight><highlight class="stringliteral">&quot;jog2\n&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="controller_8c_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(e,<sp/>2)<sp/>==<sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8c_1aa0b6c1689e60ac852a73d67e066c1df5" kindref="member">mostrar_tabuleiro</ref>(e);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((over<sp/>=<sp/><ref refid="controller_8c_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(e)))<sp/>printf(</highlight><highlight class="stringliteral">&quot;Game<sp/>over!\nParabéns<sp/>jogador<sp/>%d!\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="controller_8c_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(e));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>printf(</highlight><highlight class="stringliteral">&quot;erro\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="interface.c"/>
   </compounddef>
