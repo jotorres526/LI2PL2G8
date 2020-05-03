@@ -8,9 +8,13 @@ Definição do modulo de listas ligadas
 #include <stdio.h>
 #include <stdlib.h>
 #include "macros/boolean.h"
-
+/**
+\brief Tipo de dados para o estado
+*/
 typedef struct nodo {
+   /**Apontador para uma valor*/
    void *valor;
+   /** apontador para o proximo elemento da lista*/
    struct nodo *proximo;
 } NODO, *LISTA;
 

@@ -15,10 +15,15 @@ Definição do estado e das funções que o manipulam
 \brief Tipo de dados para os erros
 */
 typedef enum {
+  /** OK */
   OK, 
+  /** COORDENADA_INVALIDA */
   COORDENADA_INVALIDA, 
+  /**JOGADA_INVALIDA*/
   JOGADA_INVALIDA, 
+ /**ERRO_LER_TAB*/
   ERRO_LER_TAB,
+  /**ERRO_ABRIR_FICHEIRO*/
   ERRO_ABRIR_FICHEIRO,
 } ERROS;
 
@@ -26,10 +31,15 @@ typedef enum {
 \brief Tipo de dados para a casa
 */
 typedef enum {
+  /**Um*/
   UM = '1',
+  /**DOIS*/
   DOIS = '2',
+  /**VAZIO*/
   VAZIO = '.',
+  /**Branca*/
   BRANCA = '*',
+  /**PRETA*/
   PRETA = '#'
 } CASA;
 
@@ -37,7 +47,9 @@ typedef enum {
 \brief Tipo de dados para as coordenadas
 */
 typedef struct {
+  /**Coluna*/
     int coluna;
+  /**Linha*/
     int linha;
 } COORDENADA;
 
@@ -45,7 +57,9 @@ typedef struct {
 \brief Tipo de dados para a jogada
 */
 typedef struct {
+  /**Jogador1*/
     COORDENADA jogador1;
+  /**Jogador2*/
     COORDENADA jogador2;
 } JOGADA;
 
