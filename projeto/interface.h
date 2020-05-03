@@ -13,6 +13,19 @@ Definição da interface e da maneira como o utilizador interage com o programa
 */
 void mostrar_tabuleiro(ESTADO *e);
 
+/** 
+\brief Função recebe uma jogada e da print da mesma no ecrã
+@param j jogada a ser realizada.
+*/
+void mostraJogada(JOGADA j);
+
+/** 
+\brief Função que recebe um estado e imprime todas a jogads feitas até ao momento utilizando a função log jogadas
+@param e apontador para o estado do jogo;
+*/
+
+void logJogadas(ESTADO *e);
+
 /**
 \brief Interpertador de comandos pede ao utilizador para introduzir um comando
 No caso de o comando ser:

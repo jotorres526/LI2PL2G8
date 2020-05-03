@@ -176,7 +176,6 @@ ESTADO *inicializar_estado() {
     return e;
 }
 
-//TESTE
 int getValorPar(ParMinMax p) {
     return p.valor;
 }
