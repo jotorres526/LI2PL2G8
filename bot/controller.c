@@ -125,7 +125,7 @@ ERROS ler(ESTADO *e,  char *filename) {
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
     //Passar o tabuleiro no ficheiro para o estado
     REVERSE_FORI(8){
-        fgets(buffer, 64, fp);
+        if(fgets(buffer, 64, fp));
         FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
     }
     fgetc(fp);
