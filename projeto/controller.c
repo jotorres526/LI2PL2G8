@@ -337,8 +337,6 @@ int verAproximacao(ESTADO *e, COORDENADA current, COORDENADA next) {
     COORDENADA objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7);
     COORDENADA objAdversario = jogador == 2 ? setCoordenada(0, 0) : setCoordenada(7, 7);
     tabDist = preencheTabuleiro(objetivo, tabDist, 1);
-    //verificar se objetivo é alcançavel
-        //se for joga se para lá
     int linhaCurr = getLinha(current), colunaCurr = getColuna(current), 
         linhaNxt = getLinha(next), colunaNxt = getColuna(next);
     int distCurr, distNxt;
