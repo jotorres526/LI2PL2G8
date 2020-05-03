@@ -1,12 +1,17 @@
+/**
+@file controller.c
+Definição da lógica e controlo do estado
+*/
 #include "controller.h"
 #include <string.h>
 
-/* Função deverá receber o estado atual e uma coordenada e  modificaro estado ao jogar na casa correta
-se a jogada for válida. 
-A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
-não seja possível.*/
-
-// Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
+/**
+\brief Verifica se uma dada COORDENADA é acedível a partir da ultima jogada verificando se
+o valor da linha/coluna pertence é "vizinho" dos valores da ultima jogada
+@param e Estado do jogo
+@param c Coordenada a analizar
+@returns True se for vizinha e False se não for vizinha
+*/  
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     COORDENADA posAnt = getUltimaJogada(e);
     Boolean r = False;
@@ -16,7 +21,30 @@ Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     return r;
 }
 
-// Função que ve se não é possivel jogar mais e se a peça branca se encontra presa
+/**
+\brief Verifica se uma coordenada é vizinha da ultima jogada, está a mover-se para uma casa onde nao haja peças brancas ou pretas e se está dentro
+dos boundries do tabuleiro, efetivamente verificando se é um movimento válido
+@param e Estado do jogo
+@param c Coordenada a verificar
+@returns True se for uma jogada válida e False caso contrário
+*/ 
+Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
+    Boolean r = False;
+    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM) &&
+        getColuna(c) < 8 && getColuna(c) >= 0 && getLinha(c) < 8 && getLinha(c) >= 0 &&
+        isCasaVizinha(e, c))
+            r = True;
+    return r;
+}
+
+
+/**
+\brief Partindo do pressuposto que uma peça está rodeada faz um "quadrado" de coordenadas em volta da COORDENADA c e percorre todas as 8 coordenadas.
+Se encontrar uma casa VAZIO; UM ou DOIS é verificado que nessa coordenada a peça não está rodeada
+@param e Estado do jogo
+@param c Coordenada que se quer verificar se está rodeada
+@returns True caso a peça se encontre rodeada e False caso contrário 
+*/
 Boolean isRodeado(ESTADO *e, COORDENADA c) {
     Boolean r = True;
     int linha = getLinha(c);
@@ -31,7 +59,11 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
     return r;
 }
 
-// Função que determina o fim do jogo
+/**
+\brief Verifica se o jogo está terminado vendo a posição da ultima jogada, isto é, caso esteja numa das casas objetivo ou se estiver rodeado
+@param e Estado do jogo
+@returns True se o jogo estiver terminado e False caso contrário
+*/
 Boolean isTerminado(ESTADO *e) {
     Boolean r = False;
     COORDENADA posAnt = getUltimaJogada(e);
@@ -42,15 +74,11 @@ Boolean isTerminado(ESTADO *e) {
     return r;
 }
 
-Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
-    Boolean r = False;
-    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM) &&
-        getColuna(c) < 8 && getColuna(c) >= 0 && getLinha(c) < 8 && getLinha(c) >= 0 &&
-        isCasaVizinha(e, c))
-            r = True;
-    return r;
-}
-
+/**
+\brief Cálcula qual é o jogador atual e dependendo disso adiciona/altera uma jogada no array de jogadas e altera o valor da ultima jogada para a dada COORDENADA
+@param e Estado do jogo
+@param c Coordenada a adicionar ao array
+*/ 
 void addMovJogador(ESTADO *e, COORDENADA c) {
     int position = getPointerJogada(e);
     int jogador = getjogador(e);
@@ -59,6 +87,15 @@ void addMovJogador(ESTADO *e, COORDENADA c) {
     setUltimaJogada(e, c);
 }
 
+/**
+\brief Recebe uma dada coordenada e após validar se é um movimento possível altera o estado do jogo, reposicionando a peça branca;
+altera o array de jogadas para refletir o novo movimento;
+incrementa o numero de jogadas total;
+dá swap no jogador
+@param e Estado do jogo que irá ser alterado
+@param c Coordenada recebida para um jogador se movimentar para lá
+@returns JOGADA_INVALIDA caso a coordenada não passe na validação ou OK caso o estado tenha sido corretamente alterado
+*/
 ERROS jogar(ESTADO *e, COORDENADA c) {
     ERROS r = JOGADA_INVALIDA;
     if (isJogadaValida(e, c)) {
@@ -76,6 +113,13 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     return r;
 }
 
+/**
+\brief Calcula qual o vencedor do jogo, analizando em que situação a ultima jogada se encontrava
+caso esteja numa das coordenadas objetivo ganha o jogador que tinha de jogar para lá
+caso esteja rodeada ganha o jogador que encurralou o adversário
+@param e Estado do jogo
+@returns Inteiro representante do jogador vencedor (1 ou 2)
+*/
 int winner(ESTADO *e) {
     int player = 0;
     COORDENADA posAnt = getUltimaJogada(e);
@@ -88,6 +132,12 @@ int winner(ESTADO *e) {
     return player;
 }
 
+/**
+\brief Cria um ficheiro com um dado nome onde é escrito lá o tabuleiro no seu formato adequado e também a lista de movimentos efetuados
+@param e Estado a ser gravado
+@param filename Nome que se quer dar ao ficheiro
+@returns ERRO_ABRIR_FICHEIRO caso nao tenha sido possível criar o ficheiro ou OK caso o jogo tenha sido gravado com sucesso
+*/
 ERROS gravar(ESTADO *e, char *filename) {
     FILE *fp = fopen(filename, "w");
     JOGADA j;
