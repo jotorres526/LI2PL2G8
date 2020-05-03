@@ -1,0 +1,1203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="data_8c" kind="file" language="C++">
+    <compoundname>data.c</compoundname>
+    <includes refid="data_8h" local="yes">data.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>data.c</label>
+        <link refid="data_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>data.h</label>
+        <link refid="data_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="8">
+        <label>macros/boolean.h</label>
+      </node>
+      <node id="5">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>math.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+      <node id="7">
+        <label>macros/cycle.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="data_8c_1a1999bafee85ae84698b9c2db31b1ba99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA setCoordenada</definition>
+        <argsstring>(int line, int col)</argsstring>
+        <name>setCoordenada</name>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+<para>Função que cria uma coordenada as coordenadas respetivas para a coluna e linha. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- coordenada respetiva para a coluna </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- coordenada respetiva para a linha </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Coordenada criada </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="4" column="12" bodyfile="data.c" bodystart="4" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a2d1d1300cb689bfade0c8ab736a5c2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA getCoordenada</definition>
+        <argsstring>(JOGADA j, int jogador)</argsstring>
+        <name>getCoordenada</name>
+        <param>
+          <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>jogador</declname>
+        </param>
+        <briefdescription>
+<para>Função que devolve a coordenada de uma jogada, ou seja, a coordenada do jogador 1 ou jogador 2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- jogada a ser analisada. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>jogador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- qual o jogador que se pretende obter a respetiva coordenada da jogada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casa </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="11" column="12" bodyfile="data.c" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a0183a44bde7867f6c417e584afa8e56e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getColuna</definition>
+        <argsstring>(COORDENADA c)</argsstring>
+        <name>getColuna</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada um coordenada devolve o parâmetro da coluna. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>-coordenada necessária </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Parâmetro da coluna </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="16" column="5" bodyfile="data.c" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a79cea1ec53fca591b4803ac0393bdaee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getLinha</definition>
+        <argsstring>(COORDENADA c)</argsstring>
+        <name>getLinha</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada um coordenada devolve o parâmetro da linha. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- coordenada necessária </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Parâmetro da linha </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="20" column="5" bodyfile="data.c" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1ab4332447f942e9a8268ccce3e0d5854c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA createNullCoord</definition>
+        <argsstring>()</argsstring>
+        <name>createNullCoord</name>
+        <briefdescription>
+<para>Funcao que cria uma coordenada Nula Serve maioritariamente para o caso de criar uma jogada mas sem o jogador 2 ter ainda jogado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Uma coordenada onde a coluna e a linha são -1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="24" column="12" bodyfile="data.c" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1ae1315370ef7e22e1cbd289d8a08b99b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isNullCoord</definition>
+        <argsstring>(COORDENADA c)</argsstring>
+        <name>isNullCoord</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Verifica se uma coordenada é null. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada a verificar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True no caso de a coordenada ser null e False caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="31" column="9" bodyfile="data.c" bodystart="31" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+        <definition>JOGADA createJogada</definition>
+        <argsstring>(COORDENADA c1, COORDENADA c2)</argsstring>
+        <name>createJogada</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c2</declname>
+        </param>
+        <briefdescription>
+<para>Função que dada duas coordenadas cria uma <ref refid="structJOGADA" kindref="compound">JOGADA</ref> e retorna a respetiva jogada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Primeira coordenada </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Segunda coordenada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structJOGADA" kindref="compound">JOGADA</ref> adicionada </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="39" column="8" bodyfile="data.c" bodystart="39" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a252b653cecd65225969ef0fbc457d226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+        <definition>JOGADA getJogada</definition>
+        <argsstring>(ESTADO *e, int idx)</argsstring>
+        <name>getJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Função que recebe uma jogada num determinado indice. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Indice da jogada no array de jogadas </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Jogada obtida </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="49" column="8" bodyfile="data.c" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a8d7adf2965f060b0834e87e1aed7e209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA getUltimaJogada</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>getUltimaJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que obtém a ultima jogada realizada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Coordenada da ultima jogada </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="54" column="12" bodyfile="data.c" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a261951f5a3b69e5ffa6edb742f7fd5e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUltimaJogada</definition>
+        <argsstring>(ESTADO *e, COORDENADA c1)</argsstring>
+        <name>setUltimaJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c1</declname>
+        </param>
+        <briefdescription>
+<para>Função que coloca a ultima jogada no estado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Coordenada da ultima jogada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="60" column="6" bodyfile="data.c" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a5156aa8d30673f3bd7b1190fd04103de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addToJogadas</definition>
+        <argsstring>(ESTADO *e, JOGADA j)</argsstring>
+        <name>addToJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Função que adiciona um <ref refid="structJOGADA" kindref="compound">JOGADA</ref> j ao estado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Jogada a ser adicionada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="68" column="6" bodyfile="data.c" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1ae893525430d4ceb49841b95443a96728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void editJogadas</definition>
+        <argsstring>(ESTADO *e, JOGADA j, int idx)</argsstring>
+        <name>editJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structJOGADA" kindref="compound">JOGADA</ref></type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Troca a jogada num dado indice por outra. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nova jogada que irá tomar o lugar da antiga </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indice da jogada que sera para trocar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="73" column="6" bodyfile="data.c" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a12874adb19d5d154a3af0f3028d17d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getNumJogadas</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>getNumJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que retorna o numero de jogadas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>numero de jogadas realizadas até ao momento </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="78" column="5" bodyfile="data.c" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1afb2751df87d43bd3a78dccb7c6aa0cc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setNumJogadas</definition>
+        <argsstring>(ESTADO *e, int num)</argsstring>
+        <name>setNumJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>Altera o numero de jogadas atual para um dado numero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Novo numero de jogadas </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="82" column="6" bodyfile="data.c" bodystart="82" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a9aceecbb9febd75affa41ed245740268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void incNumJogadas</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>incNumJogadas</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que incrementa o numero de jogadas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="86" column="6" bodyfile="data.c" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1aa6737cfda62eb8368073d1457962ea36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getPointerJogada</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>getPointerJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função usada para obter o pointer da posiçao do estado no array de jogadas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Valor do pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="90" column="5" bodyfile="data.c" bodystart="90" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a32b3e19b6762b1ab390a7b37058bcac4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setPointerJogada</definition>
+        <argsstring>(ESTADO *e, int num)</argsstring>
+        <name>setPointerJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>Altera o valor do pointer que indica a jogada atual. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Novo valor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="94" column="6" bodyfile="data.c" bodystart="94" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a9d58c94323f44719b333380934c1a57c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void incPointerJogada</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>incPointerJogada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Incrementa o pointer da posicao do estado no array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="98" column="6" bodyfile="data.c" bodystart="98" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a91f22f1ec4a44d41ae7dbcc449157d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref></type>
+        <definition>CASA getCasa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>getCasa</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que acede ao estado e ve qual a casa que se encontra numa determinada coordenada c. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Coordenada a procurar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casa que está na respetiva coordenada </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="104" column="6" bodyfile="data.c" bodystart="104" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a6f0eddb6649f61e6fa2293252f6dd749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setCasa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, CASA casa)</argsstring>
+        <name>setCasa</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref></type>
+          <declname>casa</declname>
+        </param>
+        <briefdescription>
+<para>Função que coloca uma casa numa determinada coordenada no estado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- coordenada </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>casa</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Tipo de casa a ser colocado em c </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="113" column="6" bodyfile="data.c" bodystart="113" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a7ad8db36a0e0e59670e1bc940fe6b09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void swapJogador</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>swapJogador</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que acede ao estado e muda o jogador, caso seja 1 muda para 2 e vice-versa. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="122" column="6" bodyfile="data.c" bodystart="122" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a10993347e610b194752a0afda93e2d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getjogador</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>getjogador</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que retorna qual é o jogador que está a jogar atual. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado inicial </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Jogador atual </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="130" column="5" bodyfile="data.c" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a7ecad922782940ee6ed0f40106330c63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setJogador</definition>
+        <argsstring>(ESTADO *e, int jogador)</argsstring>
+        <name>setJogador</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>jogador</declname>
+        </param>
+        <briefdescription>
+<para>Funcao que altera o jogador atual. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>jogador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- O novo jogador (se for diferente de 1 ou 2 o jogador mantem se o mesmo) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="135" column="6" bodyfile="data.c" bodystart="135" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1abbe3b034f746515b4d678e3526c8d97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void resetEstado</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>resetEstado</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Retorna alguns valores do estado para o inicial. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado que será &quot;reset&quot; </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="139" column="6" bodyfile="data.c" bodystart="139" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1aa2205e147ba0ada94666920611ebdd3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void renicializaTab</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>renicializaTab</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Retorna o tabuleiro para o seu valor inicial. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="146" column="6" bodyfile="data.c" bodystart="146" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a7e0c7e26fb685d9ab501e19b05e6954f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+        <definition>ESTADO* inicializar_estado</definition>
+        <argsstring>()</argsstring>
+        <name>inicializar_estado</name>
+        <briefdescription>
+<para>Inicializa o estado do jogo A peça branca começa na coluna 4 da linha 4 e considera se essa a ultima jogada Todo o resto do tabuleiro é inicializado a VAZIO O tabuleiro é representado por um array bidimensional do tipo tab[linha][coluna]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Novo estado do jogo </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="163" column="8" bodyfile="data.c" bodystart="163" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a77c9702f499caf9798fcd36d55793151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getValorPar</definition>
+        <argsstring>(ParMinMax p)</argsstring>
+        <name>getValorPar</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="180" column="5" bodyfile="data.c" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1abbbbdbf817be736feef225d35dc688de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA getCoordPar</definition>
+        <argsstring>(ParMinMax p)</argsstring>
+        <name>getCoordPar</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="183" column="12" bodyfile="data.c" bodystart="183" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="data_8c_1a70f2217fe89835e02134d028edcab95e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+        <definition>ParMinMax setPar</definition>
+        <argsstring>(int valor, COORDENADA c)</argsstring>
+        <name>setPar</name>
+        <param>
+          <type>int</type>
+          <declname>valor</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="data.c" line="187" column="11" bodyfile="data.c" bodystart="187" bodyend="192"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="data_8h" kindref="compound">data.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*******************Manipulação<sp/>de<sp/>COORDENADA******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Recebe<sp/>uma<sp/>coluna<sp/>e<sp/>uma<sp/>linha<sp/>e<sp/>retorna<sp/>uma<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>c.coluna<sp/>=<sp/>col;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>c.linha<sp/>=<sp/>line;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref><sp/>(<ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogador)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(jogador==1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>j.jogador1;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>j.jogador2;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.coluna;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.linha;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>r;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>r.coluna<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>r.linha<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">Boolean<sp/><ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(c.coluna<sp/>==<sp/>-1<sp/>&amp;&amp;<sp/>c.linha<sp/>==<sp/>-1)<sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*******************Manipulação<sp/>de<sp/>JOGADA******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//Recebe<sp/>as<sp/>coordenadas<sp/>do<sp/>jogador1<sp/>e<sp/>do<sp/>jogador2<sp/>respetivamente<sp/>para<sp/>criar<sp/>uma<sp/>nova<sp/>jogada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c1,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c2)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>;<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>.jogador1.coluna<sp/>=<sp/>c1.coluna;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>.jogador1.linha<sp/>=<sp/>c1.linha;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>.jogador2.coluna<sp/>=<sp/>c2.coluna;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>.jogador2.linha<sp/>=<sp/>c2.linha;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//Retorna<sp/>a<sp/>jogada<sp/>idx<sp/>+<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1afae43b87a488fad0f2b56a18bad31d18" kindref="member">jogadas</ref>[idx];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//Retorna<sp/>a<sp/>ultima<sp/>jogada<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref><sp/>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1a4896a5c5c1f40b43fb795623327e3f47" kindref="member">ultima_jogada</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//Recebe<sp/>o<sp/>estado<sp/>atual<sp/>e<sp/>uma<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>a<sp/>ultima_jogada<sp/>do<sp/>estado<sp/>para<sp/>a<sp/>nova<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c1)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>-&gt;<sp/>ultima_jogada<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(c1.linha,<sp/>c1.coluna);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//Recebe:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//O<sp/>estado<sp/>atual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Uma<sp/>jogada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//Adiciona<sp/>a<sp/>jogada<sp/>a<sp/>lista<sp/>de<sp/>jogadas<sp/>e<sp/>incrementa<sp/>o<sp/>numero<sp/>de<sp/>jogadas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a5156aa8d30673f3bd7b1190fd04103de" kindref="member">addToJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref><sp/>&lt;<sp/>32)<sp/>e-&gt;<ref refid="structESTADO_1afae43b87a488fad0f2b56a18bad31d18" kindref="member">jogadas</ref>[e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref>]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//Troca<sp/>a<sp/>jogada<sp/>na<sp/>posicao<sp/>i<sp/>pela<sp/>JOGADA<sp/>j</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1ae893525430d4ceb49841b95443a96728" kindref="member">editJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref>*<sp/>e,<sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1afae43b87a488fad0f2b56a18bad31d18" kindref="member">jogadas</ref>[idx]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//Retorna<sp/>o<sp/>numero<sp/>de<sp/>jogadas<sp/>efetuadas(Cada<sp/>jogada<sp/>tem<sp/>o<sp/>movimento<sp/>dos<sp/>dois<sp/>jogadores)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a12874adb19d5d154a3af0f3028d17d3b" kindref="member">getNumJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1afb2751df87d43bd3a78dccb7c6aa0cc0" kindref="member">setNumJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref><sp/>=<sp/>num;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a9aceecbb9febd75affa41ed245740268" kindref="member">incNumJogadas</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref>++;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1a1dbc6b513f27065f40d17af021699015" kindref="member">pointer_jogada</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a32b3e19b6762b1ab390a7b37058bcac4" kindref="member">setPointerJogada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a1dbc6b513f27065f40d17af021699015" kindref="member">pointer_jogada</ref><sp/>=<sp/>num;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a9d58c94323f44719b333380934c1a57c" kindref="member">incPointerJogada</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a1dbc6b513f27065f40d17af021699015" kindref="member">pointer_jogada</ref>++;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*******************Manipulação<sp/>de<sp/>CASA******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//Retorna<sp/>o<sp/>estado<sp/>atual<sp/>da<sp/>casa<sp/>na<sp/>coordenada<sp/>c<sp/>(Branca,<sp/>Preta<sp/>ou<sp/>Vazia)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1ab56f0f1be16954d3768b4174d14c087d" kindref="member">tab</ref>[c.linha][c.coluna];</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//Recebe:<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//O<sp/>estado<sp/>atual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//1<sp/>coordenada<sp/>do<sp/>tabuleiro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//1<sp/>casa<sp/>que<sp/>pode<sp/>ser:<sp/>{VAZIO,<sp/>BRANCA,<sp/>PRETA}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>o<sp/>tabuleiro<sp/>na<sp/>coordenada<sp/>&apos;c&apos;<sp/>com<sp/>o<sp/>valor<sp/>de<sp/>&apos;casa&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>casa)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1ab56f0f1be16954d3768b4174d14c087d" kindref="member">tab</ref>[c.linha][c.coluna]<sp/>=<sp/>casa;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">/*******************Manipulação<sp/>de<sp/>jogador******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//Recebe<sp/>o<sp/>estado<sp/>atual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//Troca<sp/>o<sp/>jogador<sp/>atual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Se<sp/>o<sp/>jogador<sp/>atual<sp/>for<sp/>o<sp/>1<sp/>troca<sp/>para<sp/>o<sp/>jogador<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Caso<sp/>contrario<sp/>troca<sp/>para<sp/>o<sp/>jogador<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a7ad8db36a0e0e59670e1bc940fe6b09d" kindref="member">swapJogador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref><sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Função<sp/>que<sp/>retorna<sp/>o<sp/>jogador<sp/>atual<sp/>que<sp/>vai<sp/>jogar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Muda<sp/>o<sp/>jogador<sp/>atual<sp/>para<sp/>&apos;jog&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1a7ecad922782940ee6ed0f40106330c63" kindref="member">setJogador</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogador)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(jogador<sp/>==<sp/>1<sp/>||<sp/>jogador<sp/>==<sp/>2)<sp/>e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref><sp/>=<sp/>jogador;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1abbe3b034f746515b4d678e3526c8d97d" kindref="member">resetEstado</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(32)<sp/>e-&gt;jogadas[i]<sp/>=<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>(),<ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>-&gt;<sp/>jogador_atual<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>-&gt;<sp/>num_jogadas<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;pointer_jogada<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="data_8h_1aa2205e147ba0ada94666920611ebdd3f" kindref="member">renicializaTab</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(8)<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/>c,<sp/>VAZIO);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(4,<sp/>4),<sp/>BRANCA);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(7,<sp/>7),DOIS);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(0,<sp/>0),UM);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">/*******************Inicializacao******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//Inicializa<sp/>o<sp/>estado<sp/>do<sp/>jogo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//A<sp/>peça<sp/>branca<sp/>começa<sp/>na<sp/>coluna<sp/>4<sp/>da<sp/>linha<sp/>4<sp/>e<sp/>considera<sp/>se<sp/>essa<sp/>a<sp/>ultima<sp/>jogada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//Todo<sp/>o<sp/>resto<sp/>do<sp/>tabuleiro<sp/>é<sp/>inicializado<sp/>a<sp/>VAZIO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//O<sp/>tabuleiro<sp/>é<sp/>representado<sp/>por<sp/>um<sp/>array<sp/>bidimensional<sp/>do<sp/>tipo<sp/>tab[linha][coluna]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*<ref refid="data_8h_1a7e0c7e26fb685d9ab501e19b05e6954f" kindref="member">inicializar_estado</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e<sp/>=<sp/>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*)<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structESTADO" kindref="compound">ESTADO</ref>));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a1dbc6b513f27065f40d17af021699015" kindref="member">pointer_jogada</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>e-&gt;<ref refid="structESTADO_1a4896a5c5c1f40b43fb795623327e3f47" kindref="member">ultima_jogada</ref><sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(4,<sp/>4);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(32)<sp/>e-&gt;jogadas[i]<sp/>=<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>(),<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>());</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(8)<sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j),<sp/>VAZIO);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(4,<sp/>4),<sp/>BRANCA);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(7,<sp/>7),<sp/>DOIS);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(0,<sp/>0),<sp/>UM);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>e;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">//TESTE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getValorPar(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p.valor;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>getCoordPar(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p.c;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>setPar(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valor,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>p;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>p.valor<sp/>=<sp/>valor;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>p.c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="data.c"/>
+  </compounddef>
+</doxygen>
