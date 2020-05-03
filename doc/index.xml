@@ -180,7 +180,7 @@
   </compound>
   <compound refid="list_8h" kind="file"><name>list.h</name>
     <member refid="list_8h_1ab352ead3fb06267f3afdd032d67c189c" kind="typedef"><name>NODO</name></member>
-    <member refid="list_8h_1a2ed03b19209dd10718380b31b09a69f5" kind="typedef"><name>LISTA</name></member>
+    <member refid="list_8h_1a853ddea61d450761bc94933207e4833d" kind="typedef"><name>LISTA</name></member>
     <member refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kind="function"><name>createList</name></member>
     <member refid="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" kind="function"><name>insertHead</name></member>
     <member refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kind="function"><name>getHead</name></member>

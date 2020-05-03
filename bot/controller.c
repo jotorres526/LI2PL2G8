@@ -1,12 +1,10 @@
+/**
+@file controller.c
+Definição da lógica e controlo do estado
+*/
 #include "controller.h"
 #include <string.h>
 
-/* Função deverá receber o estado atual e uma coordenada e  modificaro estado ao jogar na casa correta
-se a jogada for válida. 
-A função devolve verdadeiro (valor diferente de zero) se for possível jogar e falso (zero) caso
-não seja possível.*/
-
-// Função que verifica se uma jogada é válida, isto é, se a proxima jogada a ser realizada é vizinha da posição anterior
 Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     COORDENADA posAnt = getUltimaJogada(e);
     Boolean r = False;
@@ -16,7 +14,15 @@ Boolean isCasaVizinha(ESTADO *e, COORDENADA c) {
     return r;
 }
 
-// Função que ve se não é possivel jogar mais e se a peça branca se encontra presa
+Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
+    Boolean r = False;
+    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM) &&
+        getColuna(c) < 8 && getColuna(c) >= 0 && getLinha(c) < 8 && getLinha(c) >= 0 &&
+        isCasaVizinha(e, c))
+            r = True;
+    return r;
+}
+
 Boolean isRodeado(ESTADO *e, COORDENADA c) {
     Boolean r = True;
     int linha = getLinha(c);
@@ -31,7 +37,6 @@ Boolean isRodeado(ESTADO *e, COORDENADA c) {
     return r;
 }
 
-// Função que determina o fim do jogo
 Boolean isTerminado(ESTADO *e) {
     Boolean r = False;
     COORDENADA posAnt = getUltimaJogada(e);
@@ -39,15 +44,6 @@ Boolean isTerminado(ESTADO *e) {
         (getLinha(posAnt) == 0 && getColuna(posAnt) == 0) ||
         (isRodeado(e, posAnt))) 
         r = True;
-    return r;
-}
-
-Boolean isJogadaValida(ESTADO *e, COORDENADA c) {
-    Boolean r = False;
-    if ((getCasa(e,c) == VAZIO || getCasa(e,c) == DOIS || getCasa(e,c) == UM) &&
-        getColuna(c) < 8 && getColuna(c) >= 0 && getLinha(c) < 8 && getLinha(c) >= 0 &&
-        isCasaVizinha(e, c))
-            r = True;
     return r;
 }
 
@@ -125,8 +121,8 @@ ERROS ler(ESTADO *e,  char *filename) {
     if(fp == NULL) return ERRO_ABRIR_FICHEIRO;
     //Passar o tabuleiro no ficheiro para o estado
     REVERSE_FORI(8){
-        if(fgets(buffer, 64, fp));
-        FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
+        if(fgets(buffer, 64, fp))
+            FORJ(8) setCasa(e, setCoordenada(i, j), buffer[j]);
     }
     fgetc(fp);
     resetEstado(e);
@@ -287,8 +283,6 @@ int verAproximacao(ESTADO *e, COORDENADA current, COORDENADA next) {
     COORDENADA objetivo = jogador == 1 ? setCoordenada(0, 0) : setCoordenada(7, 7);
     COORDENADA objAdversario = jogador == 2 ? setCoordenada(0, 0) : setCoordenada(7, 7);
     tabDist = preencheTabuleiro(objetivo, tabDist, 1);
-    //verificar se objetivo é alcançavel
-        //se for joga se para lá
     int linhaCurr = getLinha(current), colunaCurr = getColuna(current), 
         linhaNxt = getLinha(next), colunaNxt = getColuna(next);
     int distCurr, distNxt;

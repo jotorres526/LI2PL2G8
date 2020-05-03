@@ -17,7 +17,11 @@ typedef struct nodo {
    void *valor;
    /** apontador para o proximo elemento da lista*/
    struct nodo *proximo;
-} NODO, *LISTA; 
+}
+/**Struct de uma lista*/
+NODO, 
+/**Apontador da lista*/
+*LISTA; 
 
 
 /**

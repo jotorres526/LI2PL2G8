@@ -32,7 +32,7 @@
     </incdepgraph>
       <sectiondef kind="func">
       <memberdef kind="function" id="list_8c_1afeac446323ce0922fec8d04015bcc59f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA createList</definition>
         <argsstring>()</argsstring>
         <name>createList</name>
@@ -49,12 +49,12 @@
         <location file="list.c" line="7" column="7" bodyfile="list.c" bodystart="7" bodyend="10"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1abd58a698d9cbc9bfea706d5c92e3b1fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA insertHead</definition>
         <argsstring>(LISTA l, void *valor)</argsstring>
         <name>insertHead</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <param>
@@ -96,7 +96,7 @@
         <argsstring>(LISTA l)</argsstring>
         <name>getHead</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <briefdescription>
@@ -121,12 +121,12 @@
         <location file="list.c" line="20" column="6" bodyfile="list.c" bodystart="20" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a9cba525d21f684e649d05ffb6344f5bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA tail</definition>
         <argsstring>(LISTA l)</argsstring>
         <name>tail</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <briefdescription>
@@ -151,12 +151,12 @@
         <location file="list.c" line="25" column="7" bodyfile="list.c" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a83597a1719c87863358df50d9dbea96a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA deleteHead</definition>
         <argsstring>(LISTA l)</argsstring>
         <name>deleteHead</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <briefdescription>
@@ -186,7 +186,7 @@
         <argsstring>(LISTA l)</argsstring>
         <name>isEmpty</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <briefdescription>
@@ -211,12 +211,12 @@
         <location file="list.c" line="39" column="5" bodyfile="list.c" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a07639e60402b3f928078986140d5c122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA setHead</definition>
         <argsstring>(LISTA l, void *valor)</argsstring>
         <name>setHead</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <param>
@@ -253,16 +253,16 @@
         <location file="list.c" line="44" column="7" bodyfile="list.c" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1ace1c4c45f24919426a1c6c46ee93e031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA setNext</definition>
         <argsstring>(LISTA l, LISTA x)</argsstring>
         <name>setNext</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>x</declname>
         </param>
         <briefdescription>
@@ -296,12 +296,12 @@
         <location file="list.c" line="50" column="7" bodyfile="list.c" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="list_8c_1a2e5b441f1105c68977dd980e6222fd70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA getNext</definition>
         <argsstring>(LISTA l)</argsstring>
         <name>getNext</name>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <briefdescription>

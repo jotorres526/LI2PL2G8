@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="17" column="9" bodyfile="controller.c" bodystart="31" bodyend="38" declfile="controller.h" declline="17" declcolumn="9"/>
+        <location file="controller.h" line="17" column="9" bodyfile="controller.c" bodystart="17" bodyend="24" declfile="controller.h" declline="17" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a0d672eef859983f2dd5c08751570a975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="26" column="9" bodyfile="controller.c" bodystart="48" bodyend="60" declfile="controller.h" declline="26" declcolumn="9"/>
+        <location file="controller.h" line="26" column="9" bodyfile="controller.c" bodystart="26" bodyend="38" declfile="controller.h" declline="26" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aa996a19e9f46e1973a0d49094091f7ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="33" column="6" bodyfile="controller.c" bodystart="82" bodyend="88" declfile="controller.h" declline="33" declcolumn="6"/>
+        <location file="controller.h" line="33" column="6" bodyfile="controller.c" bodystart="50" bodyend="56" declfile="controller.h" declline="33" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -249,33 +249,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>1 no caso de a jogada ser válida e 0 no caso contrário</para>
-</simplesect>
-Definição da função que realiza as jogadas. Nesta função são realizadas as seguintes tarefas: Verifica se a coordenada introduzida é vizinha, se está vazia e se está dentro do tabuleiro. Visto isto caso seja o jogador 1 a jogar , coloca a jogada no parametro ultima jogada e troca para o jogador 2. Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jogador e ainda coloca no array de jogadas. Caso a jogada não seja possível retorna 1.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>e</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Estado do jogo que irá ser alterado </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>c</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Coordenada recebida para um jogador se movimentar para lá </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>JOGADA_INVALIDA caso a coordenada não passe na validação ou OK caso o estado tenha sido corretamente alterado </para>
+<simplesect kind="return"><para>1 no caso de a jogada ser válida e 0 no caso contrário </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="46" column="7" bodyfile="controller.c" bodystart="99" bodyend="114" declfile="controller.h" declline="46" declcolumn="7"/>
+        <location file="controller.h" line="46" column="7" bodyfile="controller.c" bodystart="58" bodyend="73" declfile="controller.h" declline="46" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -299,25 +279,13 @@ Definição da função que realiza as jogadas. Nesta função são realizadas a
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>True no caso de o jogo ter terminado, False caso contrário</para>
-</simplesect>
-Função que determina se o Jogo está terminado. Neste sentido verifica se o algum jogador chegou a casa UM ou DOIS. Caso chegue retorna True caso contrário falso.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>e</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Estado do jogo </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>True se o jogo estiver terminado e False caso contrário </para>
+<simplesect kind="return"><para>True no caso de o jogo ter terminado, False caso contrário </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="55" column="9" bodyfile="controller.c" bodystart="67" bodyend="75" declfile="controller.h" declline="55" declcolumn="9"/>
+        <location file="controller.h" line="55" column="9" bodyfile="controller.c" bodystart="40" bodyend="48" declfile="controller.h" declline="55" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -353,33 +321,13 @@ Função que determina se o Jogo está terminado. Neste sentido verifica se o al
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>True no caso de c ser vizinha da posição atual, False caso contrário</para>
-</simplesect>
-Função que verifica se a jogada a ser realizada é vizinha da casa anterior. Retorna True caso seja, False caso contrário.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>e</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Estado do jogo </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>c</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Coordenada a analizar </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>True se for vizinha e False se não for vizinha </para>
+<simplesect kind="return"><para>True no caso de c ser vizinha da posição atual, False caso contrário </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="64" column="9" bodyfile="controller.c" bodystart="15" bodyend="22" declfile="controller.h" declline="64" declcolumn="9"/>
+        <location file="controller.h" line="64" column="9" bodyfile="controller.c" bodystart="8" bodyend="15" declfile="controller.h" declline="64" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -415,33 +363,13 @@ Função que verifica se a jogada a ser realizada é vizinha da casa anterior. R
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário</para>
-</simplesect>
-Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>e</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Estado a ser gravado </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>filename</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Nome que se quer dar ao ficheiro </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ERRO_ABRIR_FICHEIRO caso nao tenha sido possível criar o ficheiro ou OK caso o jogo tenha sido gravado com sucesso </para>
+<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="72" column="7" bodyfile="controller.c" bodystart="141" bodyend="168" declfile="controller.h" declline="72" declcolumn="7"/>
+        <location file="controller.h" line="72" column="7" bodyfile="controller.c" bodystart="87" bodyend="114" declfile="controller.h" declline="72" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -483,7 +411,7 @@ Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.</p
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="80" column="7" bodyfile="controller.c" bodystart="170" bodyend="202" declfile="controller.h" declline="80" declcolumn="7"/>
+        <location file="controller.h" line="80" column="7" bodyfile="controller.c" bodystart="116" bodyend="148" declfile="controller.h" declline="80" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -507,25 +435,13 @@ Função que grava o tabuleiro no seu estado atual para um ficheiro de texto.</p
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>O jogador vencedor</para>
-</simplesect>
-Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rodeado.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>e</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Estado do jogo </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>Inteiro representante do jogador vencedor (1 ou 2) </para>
+<simplesect kind="return"><para>O jogador vencedor </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="88" column="5" bodyfile="controller.c" bodystart="123" bodyend="133" declfile="controller.h" declline="88" declcolumn="5"/>
+        <location file="controller.h" line="88" column="5" bodyfile="controller.c" bodystart="75" bodyend="85" declfile="controller.h" declline="88" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aeef7aee77236ee9789abdc771481e83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -567,7 +483,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="96" column="9" bodyfile="controller.c" bodystart="205" bodyend="228" declfile="controller.h" declline="96" declcolumn="9"/>
+        <location file="controller.h" line="96" column="9" bodyfile="controller.c" bodystart="151" bodyend="174" declfile="controller.h" declline="96" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
@@ -609,10 +525,10 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="104" column="7" bodyfile="controller.c" bodystart="453" bodyend="458" declfile="controller.h" declline="104" declcolumn="7"/>
+        <location file="controller.h" line="104" column="7" bodyfile="controller.c" bodystart="399" bodyend="404" declfile="controller.h" declline="104" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a6406281b697cdc5db2bace5c206fe852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA movsDisponiveis</definition>
         <argsstring>(ESTADO *e, LISTA l, COORDENADA c)</argsstring>
         <name>movsDisponiveis</name>
@@ -621,7 +537,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
           <declname>e</declname>
         </param>
         <param>
-          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
           <declname>l</declname>
         </param>
         <param>
@@ -663,7 +579,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="113" column="7" bodyfile="controller.c" bodystart="231" bodyend="246" declfile="controller.h" declline="113" declcolumn="7"/>
+        <location file="controller.h" line="113" column="7" bodyfile="controller.c" bodystart="177" bodyend="192" declfile="controller.h" declline="113" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a77aa8c5a2b42e624245d58fe456d539d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -705,7 +621,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="121" column="5" bodyfile="controller.c" bodystart="248" bodyend="258" declfile="controller.h" declline="121" declcolumn="5"/>
+        <location file="controller.h" line="121" column="5" bodyfile="controller.c" bodystart="194" bodyend="204" declfile="controller.h" declline="121" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a485d82d2b85b67a9ee193acddd809009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Boolean</type>
@@ -747,7 +663,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="129" column="9" bodyfile="controller.c" bodystart="260" bodyend="268" declfile="controller.h" declline="129" declcolumn="9"/>
+        <location file="controller.h" line="129" column="9" bodyfile="controller.c" bodystart="206" bodyend="214" declfile="controller.h" declline="129" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aa9b3a1c4d2a475fbd760fac1f3b28f1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -789,7 +705,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="137" column="5" bodyfile="controller.c" bodystart="270" bodyend="277" declfile="controller.h" declline="137" declcolumn="5"/>
+        <location file="controller.h" line="137" column="5" bodyfile="controller.c" bodystart="216" bodyend="223" declfile="controller.h" declline="137" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a128b38dcb2a855de3a581e7bafef7d11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -831,10 +747,10 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="145" column="5" bodyfile="controller.c" bodystart="279" bodyend="286" declfile="controller.h" declline="145" declcolumn="5"/>
+        <location file="controller.h" line="145" column="5" bodyfile="controller.c" bodystart="225" bodyend="232" declfile="controller.h" declline="145" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a2531345b718e788d15c249101a07a9cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <type><ref refid="list_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
         <definition>LISTA casasTabDistancia</definition>
         <argsstring>(int **tabDistancias, COORDENADA c)</argsstring>
         <name>casasTabDistancia</name>
@@ -873,7 +789,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="153" column="7" bodyfile="controller.c" bodystart="289" bodyend="304" declfile="controller.h" declline="153" declcolumn="7"/>
+        <location file="controller.h" line="153" column="7" bodyfile="controller.c" bodystart="235" bodyend="250" declfile="controller.h" declline="153" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aeda3b70005de99a256d1415226516bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int **</type>
@@ -927,7 +843,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="164" column="5" bodyfile="controller.c" bodystart="306" bodyend="315" declfile="controller.h" declline="164" declcolumn="5"/>
+        <location file="controller.h" line="164" column="5" bodyfile="controller.c" bodystart="252" bodyend="261" declfile="controller.h" declline="164" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a5893072388bc8bbd789c1af3816cda78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int **</type>
@@ -957,7 +873,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="171" column="5" bodyfile="controller.c" bodystart="317" bodyend="333" declfile="controller.h" declline="171" declcolumn="5"/>
+        <location file="controller.h" line="171" column="5" bodyfile="controller.c" bodystart="263" bodyend="279" declfile="controller.h" declline="171" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a514a6c9a48e50f6591fc3e1e3312a752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1011,7 +927,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="180" column="5" bodyfile="controller.c" bodystart="335" bodyend="358" declfile="controller.h" declline="180" declcolumn="5"/>
+        <location file="controller.h" line="180" column="5" bodyfile="controller.c" bodystart="281" bodyend="304" declfile="controller.h" declline="180" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1acb90a4f935d175cbea6c1b91e2f6c6b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1077,7 +993,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="190" column="5" bodyfile="controller.c" bodystart="361" bodyend="369" declfile="controller.h" declline="190" declcolumn="5"/>
+        <location file="controller.h" line="190" column="5" bodyfile="controller.c" bodystart="307" bodyend="315" declfile="controller.h" declline="190" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a19ece44cb2e86c2f9638cbfc1787ed8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
@@ -1155,7 +1071,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="201" column="11" bodyfile="controller.c" bodystart="372" bodyend="398" declfile="controller.h" declline="201" declcolumn="11"/>
+        <location file="controller.h" line="201" column="11" bodyfile="controller.c" bodystart="318" bodyend="344" declfile="controller.h" declline="201" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1a803a1348e8f01768ac925fcd37e516d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
@@ -1197,7 +1113,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="209" column="12" bodyfile="controller.c" bodystart="401" bodyend="424" declfile="controller.h" declline="209" declcolumn="12"/>
+        <location file="controller.h" line="209" column="12" bodyfile="controller.c" bodystart="347" bodyend="370" declfile="controller.h" declline="209" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="controller_8h_1aea8f7b95069b38db8db79fda6ec25ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
@@ -1227,7 +1143,7 @@ Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="controller.h" line="215" column="12" bodyfile="controller.c" bodystart="426" bodyend="451" declfile="controller.h" declline="215" declcolumn="12"/>
+        <location file="controller.h" line="215" column="12" bodyfile="controller.c" bodystart="372" bodyend="397" declfile="controller.h" declline="215" declcolumn="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

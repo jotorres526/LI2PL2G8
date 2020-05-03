@@ -3,7 +3,7 @@
 Implementação das funções responsaveis pelo IO
 */
 #include "interface.h"
-//Numero de chars em cada buffer
+/**Numero de chars em cada buffer*/
 #define BUF_SIZE 1024
 
 void mostraJogada(JOGADA j) {
