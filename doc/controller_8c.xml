@@ -1,0 +1,1161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="controller_8c" kind="file" language="C++">
+    <compoundname>controller.c</compoundname>
+    <includes refid="controller_8h" local="yes">controller.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>data.h</label>
+        <link refid="data_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>controller.c</label>
+        <link refid="controller_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>macros/boolean.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>math.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+      <node id="10">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>macros/cycle.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="controller_8c_1a08e1666ed90ac193eb2544c4fd357e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isCasaVizinha</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isCasaVizinha</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica se a jogada a ser realizada é vizinha da casa anterior. Retorna True caso seja, False caso contrário. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordanada da casa atual </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True no caso de c ser vizinha da posição atual, False caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="10" column="9" bodyfile="controller.c" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a0d672eef859983f2dd5c08751570a975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isRodeado</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isRodeado</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="20" column="9" bodyfile="controller.c" bodystart="20" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1ac67c4b1a7c831bdbd9e0a38ad074ea17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isTerminado</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>isTerminado</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que determina se o Jogo está terminado. Neste sentido verifica se o algum jogador chegou a casa UM ou DOIS. Caso chegue retorna True caso contrário falso. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True no caso de o jogo ter terminado, False caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="35" column="9" bodyfile="controller.c" bodystart="35" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1ae0505dc08991b3c07e97be442e12fdca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isJogadaValida</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isJogadaValida</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="45" column="9" bodyfile="controller.c" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1aa996a19e9f46e1973a0d49094091f7ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addMovJogador</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>addMovJogador</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="54" column="6" bodyfile="controller.c" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a40267453816c8fee2f1b6e11dacb2929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
+        <definition>ERROS jogar</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>jogar</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Definição da função que realiza as jogadas. Nesta função são realizadas as seguintes tarefas: Verifica se a coordenada introduzida é vizinha, se está vazia e se está dentro do tabuleiro. Visto isto caso seja o jogador 1 a jogar , coloca a jogada no parametro ultima jogada e troca para o jogador 2. Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jogador e ainda coloca no array de jogadas. Caso a jogada não seja possível retorna 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>estado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordenada </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 no caso de a jogada ser válida e 0 no caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="62" column="7" bodyfile="controller.c" bodystart="62" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1ae7e229be0513d84bfae07481bb8461cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int winner</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>winner</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que determina qual foi o jogador que venceu o jogo. Avalia portanto se o jogador se encontra na casa UM ou casa DOIS ou se está rodeado. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>O jogador vencedor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="79" column="5" bodyfile="controller.c" bodystart="79" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a626d31a8bad5c3f4fa84afc0c5f987ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
+        <definition>ERROS gravar</definition>
+        <argsstring>(ESTADO *e, char *filename)</argsstring>
+        <name>gravar</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Função que grava o tabuleiro no seu estado atual para um ficheiro de texto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nome do ficheiro que sera gravado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="91" column="7" bodyfile="controller.c" bodystart="91" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a6b2c21f1f942998df07e3e31c45021c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
+        <definition>ERROS ler</definition>
+        <argsstring>(ESTADO *e, char *filename)</argsstring>
+        <name>ler</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Função que lê um ficheiro e converte cada linha do mesmo para uma linha de tabuleiro do Estado do jogo. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nome do ficheiro para ler </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK no caso de ter gravado com sucesso, ERRO_ABRIR_FICHEIRO caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="120" column="7" bodyfile="controller.c" bodystart="120" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1aeef7aee77236ee9789abdc771481e83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean goToPos</definition>
+        <argsstring>(ESTADO *e, int n)</argsstring>
+        <name>goToPos</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Faz o jogo se movimentar entre jogadas podendo ir desde a jogada 0 até à ultima jogada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Estado do jogo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Jogada a partir de onde se vai continuar o jogo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True caso seja possivel e False caso contrario </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="155" column="9" bodyfile="controller.c" bodystart="155" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a6406281b697cdc5db2bace5c206fe852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA movsDisponiveis</definition>
+        <argsstring>(ESTADO *e, LISTA l, COORDENADA c)</argsstring>
+        <name>movsDisponiveis</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="181" column="7" bodyfile="controller.c" bodystart="181" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a77aa8c5a2b42e624245d58fe456d539d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int length</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>length</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="198" column="5" bodyfile="controller.c" bodystart="198" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a485d82d2b85b67a9ee193acddd809009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean isTerminadoCoordenada</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>isTerminadoCoordenada</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="210" column="9" bodyfile="controller.c" bodystart="210" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1aa9b3a1c4d2a475fbd760fac1f3b28f1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int maxValue</definition>
+        <argsstring>(ParMinMax fst, ParMinMax snd)</argsstring>
+        <name>maxValue</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>fst</declname>
+        </param>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>snd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="220" column="5" bodyfile="controller.c" bodystart="220" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a128b38dcb2a855de3a581e7bafef7d11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int minValue</definition>
+        <argsstring>(ParMinMax fst, ParMinMax snd)</argsstring>
+        <name>minValue</name>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>fst</declname>
+        </param>
+        <param>
+          <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+          <declname>snd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="229" column="5" bodyfile="controller.c" bodystart="229" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a2531345b718e788d15c249101a07a9cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA casasTabDistancia</definition>
+        <argsstring>(int **tabDistancias, COORDENADA c)</argsstring>
+        <name>casasTabDistancia</name>
+        <param>
+          <type>int **</type>
+          <declname>tabDistancias</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="239" column="7" bodyfile="controller.c" bodystart="239" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1aeda3b70005de99a256d1415226516bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int **</type>
+        <definition>int** preencheTabuleiro</definition>
+        <argsstring>(COORDENADA c, int **tabDistancias, int dist)</argsstring>
+        <name>preencheTabuleiro</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int **</type>
+          <declname>tabDistancias</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="256" column="5" bodyfile="controller.c" bodystart="256" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a5893072388bc8bbd789c1af3816cda78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int **</type>
+        <definition>int** initTabDistancias</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>initTabDistancias</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="267" column="5" bodyfile="controller.c" bodystart="267" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a514a6c9a48e50f6591fc3e1e3312a752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int verAproximacao</definition>
+        <argsstring>(ESTADO *e, COORDENADA current, COORDENADA next)</argsstring>
+        <name>verAproximacao</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>current</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="285" column="5" bodyfile="controller.c" bodystart="285" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1acb90a4f935d175cbea6c1b91e2f6c6b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int calcValorCasa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, int aproximacao, Boolean isMax)</argsstring>
+        <name>calcValorCasa</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aproximacao</declname>
+        </param>
+        <param>
+          <type>Boolean</type>
+          <declname>isMax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="313" column="5" bodyfile="controller.c" bodystart="313" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a19ece44cb2e86c2f9638cbfc1787ed8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structParMinMax" kindref="compound">ParMinMax</ref></type>
+        <definition>ParMinMax recAuxMinimax</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, int depth, Boolean isMax, int aproximacao)</argsstring>
+        <name>recAuxMinimax</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <param>
+          <type>Boolean</type>
+          <declname>isMax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aproximacao</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="324" column="11" bodyfile="controller.c" bodystart="324" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a803a1348e8f01768ac925fcd37e516d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA minimax</definition>
+        <argsstring>(ESTADO *e, int depth)</argsstring>
+        <name>minimax</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="353" column="12" bodyfile="controller.c" bodystart="353" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1aea8f7b95069b38db8db79fda6ec25ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA floodFill</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>floodFill</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="378" column="12" bodyfile="controller.c" bodystart="378" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="controller_8c_1a3ac810d276df222ff6be8cce3748f24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref></type>
+        <definition>ERROS jog</definition>
+        <argsstring>(ESTADO *e, int heuristica)</argsstring>
+        <name>jog</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>heuristica</declname>
+        </param>
+        <briefdescription>
+<para>Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>jogador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Jogador que está a jogar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Coordenada que aproxima o jogador da vitorias </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="controller.c" line="405" column="7" bodyfile="controller.c" bodystart="405" bodyend="410"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="controller_8h" kindref="compound">controller.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Função<sp/>deverá<sp/>receber<sp/>o<sp/>estado<sp/>atual<sp/>e<sp/>uma<sp/>coordenada<sp/>e<sp/><sp/>modificaro<sp/>estado<sp/>ao<sp/>jogar<sp/>na<sp/>casa<sp/>correta</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">se<sp/>a<sp/>jogada<sp/>for<sp/>válida.<sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="comment">A<sp/>função<sp/>devolve<sp/>verdadeiro<sp/>(valor<sp/>diferente<sp/>de<sp/>zero)<sp/>se<sp/>for<sp/>possível<sp/>jogar<sp/>e<sp/>falso<sp/>(zero)<sp/>caso</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">não<sp/>seja<sp/>possível.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Função<sp/>que<sp/>verifica<sp/>se<sp/>uma<sp/>jogada<sp/>é<sp/>válida,<sp/>isto<sp/>é,<sp/>se<sp/>a<sp/>proxima<sp/>jogada<sp/>a<sp/>ser<sp/>realizada<sp/>é<sp/>vizinha<sp/>da<sp/>posição<sp/>anterior</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" kindref="member">isCasaVizinha</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>posAnt<sp/>=<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>-<sp/>1<sp/>&lt;=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/><sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>-<sp/>1<sp/>&lt;=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>+<sp/>1<sp/>&gt;=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/><sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>+<sp/>1<sp/>&gt;=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c))</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Função<sp/>que<sp/>ve<sp/>se<sp/>não<sp/>é<sp/>possivel<sp/>jogar<sp/>mais<sp/>e<sp/>se<sp/>a<sp/>peça<sp/>branca<sp/>se<sp/>encontra<sp/>presa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">Boolean<sp/>isRodeado(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linha<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>coluna<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>linha<sp/>-<sp/>1;<sp/>r<sp/>&amp;&amp;<sp/>i<sp/>&lt;=<sp/>linha<sp/>+<sp/>1;<sp/>i++)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>coluna<sp/>-<sp/>1;<sp/>r<sp/>&amp;&amp;<sp/>j<sp/>&lt;=<sp/>coluna<sp/>+<sp/>1;<sp/>j++)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>j<sp/>&lt;<sp/>8)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>coord<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>casa<sp/>=<sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/>coord);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((casa<sp/>==<sp/>VAZIO<sp/>||<sp/>casa<sp/>==<sp/>DOIS<sp/>||<sp/>casa<sp/>==<sp/>UM)<sp/>&amp;&amp;<sp/>(linha<sp/>!=<sp/>i<sp/>||<sp/>coluna<sp/>!=<sp/>j))<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Função<sp/>que<sp/>determina<sp/>o<sp/>fim<sp/>do<sp/>jogo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1ac67c4b1a7c831bdbd9e0a38ad074ea17" kindref="member">isTerminado</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>posAnt<sp/>=<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>==<sp/>7<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>==<sp/>7)<sp/>||</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>==<sp/>0)<sp/>||</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(isRodeado(e,<sp/>posAnt)))<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">Boolean<sp/>isJogadaValida(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,c)<sp/>==<sp/>VAZIO<sp/>||<sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,c)<sp/>==<sp/>DOIS<sp/>||<sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,c)<sp/>==<sp/>UM)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c)<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c)<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/>&gt;=<sp/>0<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="controller_8h_1a08e1666ed90ac193eb2544c4fd357e25" kindref="member">isCasaVizinha</ref>(e,<sp/>c))</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addMovJogador(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>position<sp/>=<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogador<sp/>=<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j<sp/>=<sp/>(jogador<sp/>==<sp/>1)<sp/>?<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(c,<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>())<sp/>:<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e),<sp/>c);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1ae893525430d4ceb49841b95443a96728" kindref="member">editJogadas</ref>(e,<sp/>j,<sp/>position);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(e,<sp/>c);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/>r<sp/>=<sp/>JOGADA_INVALIDA;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isJogadaValida(e,<sp/>c))<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e),<sp/>PRETA);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/>c,<sp/>BRANCA);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addMovJogador(e,<sp/>c);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e)<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a9d58c94323f44719b333380934c1a57c" kindref="member">incPointerJogada</ref>(e);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1ae893525430d4ceb49841b95443a96728" kindref="member">editJogadas</ref>(e,<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>(),<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>()),<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1afb2751df87d43bd3a78dccb7c6aa0cc0" kindref="member">setNumJogadas</ref>(e,<sp/><ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e));<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a7ad8db36a0e0e59670e1bc940fe6b09d" kindref="member">swapJogador</ref>(e);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>OK;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1ae7e229be0513d84bfae07481bb8461cc" kindref="member">winner</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>player<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>posAnt<sp/>=<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>==<sp/>0)<sp/>player<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(posAnt)<sp/>==<sp/>7<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(posAnt)<sp/>==<sp/>7)<sp/>player<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(isRodeado(e,<sp/>posAnt))<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a7ad8db36a0e0e59670e1bc940fe6b09d" kindref="member">swapJogador</ref>(e);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>player<sp/>=<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>player;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a626d31a8bad5c3f4fa84afc0c5f987ef" kindref="member">gravar</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*fp<sp/>=<sp/>fopen(filename,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fp<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERRO_ABRIR_FICHEIRO;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>REVERSE_FORI(8)<sp/>{<sp/><sp/><sp/></highlight><highlight class="comment">//Ciclo<sp/>que<sp/>guarda<sp/>o<sp/>tabuleiro<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fputc(<ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j)),<sp/>fp);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fputc(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">,<sp/>fp);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>fputc(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">,<sp/>fp);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(<ref refid="data_8h_1aa6737cfda62eb8368073d1457962ea36" kindref="member">getPointerJogada</ref>(e)<sp/>+<sp/>1)<sp/>{<sp/><sp/></highlight><highlight class="comment">//Guarda<sp/>as<sp/>jogadas<sp/>no<sp/>ficheiro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/>i);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1)))<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linJ1,<sp/>linJ2;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>colJ1,<sp/>colJ2;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linJ1<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1))<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colJ1<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1))<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2)))<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linJ2<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colJ2<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2))<sp/>+<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;%02d:<sp/>%c%d<sp/>%c%d\n&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1,<sp/>colJ1,<sp/>linJ1,<sp/>colJ2,<sp/>linJ2);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;%02d:<sp/>%c%d\n&quot;</highlight><highlight class="normal">,<sp/>i<sp/>+<sp/>1,<sp/>colJ1,<sp/>linJ1);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fp);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a6b2c21f1f942998df07e3e31c45021c9" kindref="member">ler</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filename)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*fp<sp/>=<sp/>fopen(filename,<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c1,<sp/>c2;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[64],<sp/>jog1[32],<sp/>jog2[32];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogada;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fp<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERRO_ABRIR_FICHEIRO;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Passar<sp/>o<sp/>tabuleiro<sp/>no<sp/>ficheiro<sp/>para<sp/>o<sp/>estado</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>REVERSE_FORI(8){</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fgets(buffer,<sp/>64,<sp/>fp);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j),<sp/>buffer[j]);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>fgetc(fp);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="data_8h_1abbe3b034f746515b4d678e3526c8d97d" kindref="member">resetEstado</ref>(e);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>while(fgets(buffer,<sp/>64,<sp/>fp))<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Partir<sp/>a<sp/>linha<sp/>de<sp/>jogadas<sp/>em<sp/>pedaços<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scanned<sp/>=<sp/>sscanf(buffer,<sp/></highlight><highlight class="stringliteral">&quot;%02d:<sp/>%s<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>&amp;jogada,<sp/>jog1,<sp/>jog2);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c1<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(jog1[1]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">,<sp/>jog1[0]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c2<sp/>=<sp/>(scanned<sp/>==<sp/>3)<sp/>?<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(jog2[1]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">,<sp/>jog2[0]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">)<sp/>:<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a5156aa8d30673f3bd7b1190fd04103de" kindref="member">addToJogadas</ref>(e,<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(c1,<sp/>c2));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(c2))<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a9aceecbb9febd75affa41ed245740268" kindref="member">incNumJogadas</ref>(e);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a9d58c94323f44719b333380934c1a57c" kindref="member">incPointerJogada</ref>(e);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(e,<sp/>c2);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a7ecad922782940ee6ed0f40106330c63" kindref="member">setJogador</ref>(e,<sp/>1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(e,<sp/>c1);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a7ecad922782940ee6ed0f40106330c63" kindref="member">setJogador</ref>(e,<sp/>2);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fp);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">Boolean<sp/><ref refid="controller_8h_1aeef7aee77236ee9789abdc771481e83d" kindref="member">goToPos</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structJOGADA" kindref="compound">JOGADA</ref><sp/>j<sp/>=<sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/>n-1);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&lt;=<sp/><ref refid="data_8h_1a12874adb19d5d154a3af0f3028d17d3b" kindref="member">getNumJogadas</ref>(e)<sp/>&amp;&amp;<sp/>n<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>!<ref refid="data_8h_1ae1315370ef7e22e1cbd289d8a08b99b2" kindref="member">isNullCoord</ref>(<ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,2)))<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a7ecad922782940ee6ed0f40106330c63" kindref="member">setJogador</ref>(e,1);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a32b3e19b6762b1ab390a7b37058bcac4" kindref="member">setPointerJogada</ref>(e,<sp/>n);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1aa2205e147ba0ada94666920611ebdd3f" kindref="member">renicializaTab</ref>(e);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>==<sp/><ref refid="data_8h_1a12874adb19d5d154a3af0f3028d17d3b" kindref="member">getNumJogadas</ref>(e))<sp/><ref refid="data_8h_1ae893525430d4ceb49841b95443a96728" kindref="member">editJogadas</ref>(e,<sp/><ref refid="data_8h_1a3697cf4d8e8eeafdc4e31dbdfd6c45bb" kindref="member">createJogada</ref>(<ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>(),<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>()),<sp/>n);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(4,4),PRETA);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORI(n)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/><ref refid="data_8h_1a252b653cecd65225969ef0fbc457d226" kindref="member">getJogada</ref>(e,<sp/>i);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>1),<sp/>PRETA);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2),<sp/>PRETA);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a6f0eddb6649f61e6fa2293252f6dd749" kindref="member">setCasa</ref>(e,<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2),<sp/>BRANCA);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(e,<sp/><ref refid="data_8h_1a2d1d1300cb689bfade0c8ab736a5c2ed" kindref="member">getCoordenada</ref>(j,<sp/>2));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1a261951f5a3b69e5ffa6edb742f7fd5e8" kindref="member">setUltimaJogada</ref>(e,<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(4,<sp/>4));</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}<sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">//Estado<sp/>para<sp/>verificar<sp/>quais<sp/>as<sp/>jogadas<sp/>acediveis<sp/>a<sp/>partir<sp/>de<sp/>uma<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>movsDisponiveis(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linha<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>coluna<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>linha<sp/>-<sp/>1;<sp/>i<sp/>&lt;=<sp/>linha<sp/>+<sp/>1;<sp/>i++)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>coluna<sp/>-<sp/>1;<sp/>j<sp/>&lt;=<sp/>coluna<sp/>+<sp/>1;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>j<sp/>&lt;<sp/>8)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>*coord<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref>));</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*coord<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>casa<sp/>=<sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/>*coord);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((casa<sp/>==<sp/>VAZIO<sp/>||<sp/>casa<sp/>==<sp/>UM<sp/>||<sp/>casa<sp/>==<sp/>DOIS)<sp/>&amp;&amp;<sp/>(linha<sp/>!=<sp/>i<sp/>||<sp/>coluna<sp/>!=<sp/>j))<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/><ref refid="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" kindref="member">insertHead</ref>(l,<sp/>coord);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>free(coord);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>pt<sp/>=<sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>(),<sp/>tmp;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>pt<sp/>=<sp/>movsDisponiveis(e,<sp/>pt,<sp/>c);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/>pt;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(tmp)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>length++;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(tmp);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>length;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">Boolean<sp/>isTerminadoCoordenada(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>r<sp/>=<sp/>False;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>casasRodeadoras<sp/>=<sp/>length(e,<sp/>c);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/>==<sp/>7<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c)<sp/>==<sp/>7)<sp/>||</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c)<sp/>==<sp/>0)<sp/>||</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(isRodeado(e,c)))<sp/></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>True;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxValue(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>fst,<sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>snd)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val1<sp/>=<sp/>getValorPar(fst);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val2<sp/>=<sp/>getValorPar(snd);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(val1<sp/>&lt;<sp/>val2)<sp/>r<sp/>=<sp/>val2;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>val1;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;<sp/></highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minValue(<ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>fst,<sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>snd)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val1<sp/>=<sp/>getValorPar(fst),</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val2<sp/>=<sp/>getValorPar(snd);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(val2<sp/>&lt;<sp/>val1)<sp/>r<sp/>=<sp/>val2;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>val1;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;<sp/></highlight></codeline>
+<codeline lineno="236"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment">//Estado<sp/>para<sp/>verificar<sp/>quais<sp/>as<sp/>jogadas<sp/>acediveis<sp/>a<sp/>partir<sp/>de<sp/>uma<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>casasTabDistancia(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linha<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(c),<sp/>coluna<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(c);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l<sp/>=<sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>linha<sp/>-<sp/>1;<sp/>i<sp/>&lt;=<sp/>linha<sp/>+<sp/>1;<sp/>i++)</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>coluna<sp/>-<sp/>1;<sp/>j<sp/>&lt;=<sp/>coluna<sp/>+<sp/>1;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>j<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>(linha<sp/>!=<sp/>i<sp/>||<sp/>coluna<sp/>!=<sp/>j))<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>casa<sp/>=<sp/>tabDistancias[i][j];</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(casa<sp/>==<sp/>-1<sp/>||<sp/>casa<sp/>==<sp/>99)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>*coord<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref>));</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*coord<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/><ref refid="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" kindref="member">insertHead</ref>(l,<sp/>coord);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">**<sp/>preencheTabuleiro(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dist)<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>proxCoordenadas<sp/>=<sp/>casasTabDistancia(tabDistancias,<sp/>c);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(proxCoordenadas)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>*h<sp/>=<sp/><ref refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(proxCoordenadas);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tabDistancias[<ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(*h)][<ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(*h)]<sp/>=<sp/>dist;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tabDistancias<sp/>=<sp/>preencheTabuleiro(*h,<sp/>tabDistancias,<sp/>dist<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proxCoordenadas<sp/>=<sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(proxCoordenadas);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tabDistancias;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**initTabDistancias(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)<sp/>*<sp/>8);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogador<sp/>=<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(8)<sp/>{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tabDistancias[i]<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>*<sp/>8);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FORJ(8)<sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>coordAux<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="data_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>casa<sp/>=<sp/><ref refid="data_8h_1a91f22f1ec4a44d41ae7dbcc449157d47" kindref="member">getCasa</ref>(e,<sp/>coordAux);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(casa<sp/>==<sp/>UM<sp/>||<sp/>casa<sp/>==<sp/>DOIS)<sp/>tabDistancias[i][j]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(casa<sp/>==<sp/>PRETA)<sp/>tabDistancias[i][j]<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>tabDistancias[i][j]<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(jogador<sp/>==<sp/>1)<sp/>tabDistancias[7][7]<sp/>=<sp/>99;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>tabDistancias[0][0]<sp/>=<sp/>99;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tabDistancias;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>verAproximacao(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>current,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>next)<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>0,<sp/>**tabDist<sp/>=<sp/>initTabDistancias(e),<sp/>jogador<sp/>=<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>objetivo<sp/>=<sp/>jogador<sp/>==<sp/>1<sp/>?<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(0,<sp/>0)<sp/>:<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(7,<sp/>7);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>objAdversario<sp/>=<sp/>jogador<sp/>==<sp/>2<sp/>?<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(0,<sp/>0)<sp/>:<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(7,<sp/>7);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>tabDist<sp/>=<sp/>preencheTabuleiro(objetivo,<sp/>tabDist,<sp/>1);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//verificar<sp/>se<sp/>objetivo<sp/>é<sp/>alcançavel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//se<sp/>for<sp/>joga<sp/>se<sp/>para<sp/>lá</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linhaCurr<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(current),<sp/>colunaCurr<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(current),<sp/></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linhaNxt<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(next),<sp/>colunaNxt<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(next);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>distCurr,<sp/>distNxt;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tabDist[linhaCurr][colunaCurr]<sp/>!=<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distCurr<sp/>=<sp/>tabDist[linhaCurr][colunaCurr];</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distNxt<sp/>=<sp/>tabDist[linhaNxt][colunaNxt];</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(distCurr<sp/>&lt;<sp/><sp/>distNxt)<sp/>r<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(distCurr<sp/>&gt;<sp/>distNxt)<sp/>r<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tabDist<sp/>=<sp/>preencheTabuleiro(objAdversario,<sp/>tabDist,<sp/>1);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distCurr<sp/>=<sp/>tabDist[linhaCurr][colunaCurr];</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distNxt<sp/>=<sp/>tabDist[linhaNxt][colunaNxt];</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(distCurr<sp/>&gt;<sp/><sp/>distNxt)<sp/>r<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(distCurr<sp/>&lt;<sp/>distNxt)<sp/>r<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(8)<sp/>free(tabDist[i]);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>free(tabDist);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>r;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="comment">//aproximacao<sp/>tem<sp/>valores<sp/>1;<sp/>0<sp/>ou<sp/>-1<sp/>dependo<sp/>se<sp/>se<sp/>aproxima<sp/>ou<sp/>não<sp/>do<sp/>objetivo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>calcValorCasa(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aproximacao,<sp/>Boolean<sp/>isMax)<sp/>{</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r,<sp/>isCasaParidade<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((length(e,<sp/>c)<sp/>%<sp/>2)<sp/>==<sp/>0)<sp/>isCasaParidade<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>terminado<sp/>=<sp/>isTerminadoCoordenada(e,<sp/>c);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(terminado<sp/>&amp;&amp;<sp/>isMax)<sp/>r<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(terminado<sp/>&amp;&amp;<sp/>!isMax)<sp/>r<sp/>=<sp/>-100;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>30<sp/>*<sp/>isCasaParidade<sp/>+<sp/>60<sp/>*<sp/>aproximacao;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="comment">/*Retorna<sp/>struct<sp/>com<sp/>um<sp/>valor<sp/>e<sp/>uma<sp/>coordenada*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>recAuxMinimax(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth,<sp/>Boolean<sp/>isMax,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aproximacao){</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>aux,<sp/>r;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>nxtLevel<sp/>=<sp/>isMax<sp/>?<sp/>False<sp/>:<sp/>True;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>r<sp/>=<sp/>isMax<sp/>?<sp/>setPar(-101,<sp/>c)<sp/>:<sp/>setPar(101,<sp/>c);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minMax;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>Boolean<sp/>terminado<sp/>=<sp/>isTerminadoCoordenada(e,<sp/>c);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(terminado<sp/>&amp;&amp;<sp/>isMax)<sp/>r<sp/>=<sp/>setPar(100,<sp/>c);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(terminado<sp/>&amp;&amp;<sp/>!isMax)<sp/>r<sp/>=<sp/>setPar(-100,<sp/>c);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(depth<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>proxCoords<sp/>=<sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>();</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proxCoords<sp/>=<sp/>movsDisponiveis(e,<sp/>proxCoords,<sp/>c);<sp/></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(proxCoords)<sp/>{</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>*head<sp/>=<sp/><ref refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(proxCoords);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux<sp/>=<sp/>recAuxMinimax(e,<sp/>*head,<sp/>depth<sp/>-<sp/>1,<sp/>nxtLevel,<sp/>aproximacao);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minMax<sp/>=<sp/>isMax<sp/>?<sp/>maxValue(r,<sp/>aux)<sp/>:<sp/>minValue(r,<sp/>aux);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(isMax)</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>minMax<sp/>&gt;<sp/>getValorPar(r)<sp/>?<sp/>setPar(minMax,<sp/>c)<sp/>:<sp/>r;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>minMax<sp/>&lt;<sp/>getValorPar(r)<sp/>?<sp/>setPar(minMax,<sp/>c)<sp/>:<sp/>r;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proxCoords<sp/>=<sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(proxCoords);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valor<sp/>=<sp/>calcValorCasa(e,<sp/>c,<sp/>aproximacao,<sp/>isMax);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>setPar(valor,<sp/>c);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;<sp/></highlight></codeline>
+<codeline lineno="350"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight><highlight class="comment">//Retorna<sp/>a<sp/>coordenada<sp/>para<sp/>a<sp/>qual<sp/>devemos<sp/>jogar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>minimax(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth)<sp/>{</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>r<sp/>=<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>();</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aproximacao;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(depth<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minMax;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>possiveisJogadas<sp/>=<sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>();</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structParMinMax" kindref="compound">ParMinMax</ref><sp/>next,<sp/>max<sp/>=<sp/>setPar(-102,<sp/><ref refid="data_8h_1ab4332447f942e9a8268ccce3e0d5854c" kindref="member">createNullCoord</ref>());<sp/></highlight><highlight class="comment">//Estes<sp/>valores<sp/>tem<sp/>de<sp/>ser<sp/>menor<sp/>que<sp/>na<sp/>auxiliar<sp/>pois<sp/>precisa<sp/>ser<sp/>overwritten</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>casaAtual<sp/>=<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>possiveisJogadas<sp/>=<sp/>movsDisponiveis(e,<sp/>possiveisJogadas,<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e));</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Para<sp/>cada<sp/>elemento<sp/>aplicar<sp/>recursivamente<sp/>um<sp/>auxiliar<sp/>do<sp/>minimax<sp/>que<sp/>retorna</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//um<sp/>par<sp/>com<sp/>o<sp/>valor<sp/>e<sp/>a<sp/>coordenada</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(possiveisJogadas)<sp/>{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>*head<sp/>=<sp/><ref refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(possiveisJogadas);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aproximacao<sp/>=<sp/>verAproximacao(e,<sp/>casaAtual,<sp/>*head);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next<sp/>=<sp/>recAuxMinimax(e,<sp/>*head,<sp/>depth<sp/>-<sp/>1,<sp/>True,<sp/>aproximacao);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minMax<sp/>=<sp/>maxValue(max,<sp/>next);</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(minMax<sp/>&gt;<sp/>getValorPar(max))</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max<sp/>=<sp/>setPar(minMax,<sp/>*head);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>possiveisJogadas<sp/>=<sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(possiveisJogadas);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>getCoordPar(max);</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>floodFill(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e)<sp/>{</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Incializar<sp/>um<sp/>tabuleiro<sp/>com<sp/>as<sp/>distancias<sp/>ao<sp/>objetivo<sp/>do<sp/>jogador<sp/>atual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>**tabDistancias<sp/>=<sp/>initTabDistancias(e),<sp/>jogador<sp/>=<sp/><ref refid="data_8h_1a10993347e610b194752a0afda93e2d47" kindref="member">getjogador</ref>(e);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>casaAtual<sp/>=<sp/><ref refid="data_8h_1a8d7adf2965f060b0834e87e1aed7e209" kindref="member">getUltimaJogada</ref>(e),<sp/></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>objetivo<sp/>=<sp/>jogador<sp/>==<sp/>1<sp/>?<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(0,<sp/>0)<sp/>:<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(7,<sp/>7),</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r;</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/>tabDistancias<sp/>=<sp/>preencheTabuleiro(objetivo,<sp/>tabDistancias,<sp/>1);</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linha<sp/>=<sp/><ref refid="data_8h_1a79cea1ec53fca591b4803ac0393bdaee" kindref="member">getLinha</ref>(casaAtual),<sp/>coluna<sp/>=<sp/><ref refid="data_8h_1a0183a44bde7867f6c417e584afa8e56e" kindref="member">getColuna</ref>(casaAtual),<sp/>min<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>linha<sp/>-<sp/>1;<sp/>i<sp/>&lt;=<sp/>linha<sp/>+<sp/>1;<sp/>i++)</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>coluna<sp/>-<sp/>1;<sp/>j<sp/>&lt;=<sp/>coluna<sp/>+<sp/>1;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>j<sp/>&lt;<sp/>8<sp/>&amp;&amp;<sp/>(linha<sp/>!=<sp/>i<sp/>||<sp/>coluna<sp/>!=<sp/>j))<sp/>{</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(jogador<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>tabDistancias[i][j]<sp/>&lt;<sp/>min)<sp/>{</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>=<sp/>tabDistancias[i][j];</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(jogador<sp/>==<sp/>2<sp/>&amp;&amp;<sp/>tabDistancias[i][j]<sp/>&lt;=<sp/>min)<sp/>{</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>=<sp/>tabDistancias[i][j];</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/><ref refid="data_8h_1a1999bafee85ae84698b9c2db31b1ba99" kindref="member">setCoordenada</ref>(i,<sp/>j);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/>FORI(8)<sp/>free(tabDistancias[i]);<sp/></highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/>free(tabDistancias);</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>r;</highlight></codeline>
+<codeline lineno="403"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><ref refid="data_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref><sp/><ref refid="controller_8h_1a3ac810d276df222ff6be8cce3748f24c" kindref="member">jog</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>heuristica)<sp/>{</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>nextMove;</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(heuristica<sp/>==<sp/>1)<sp/>nextMove<sp/>=<sp/>minimax(e,<sp/>4);<sp/></highlight><highlight class="comment">//a<sp/>partir<sp/>de<sp/>7<sp/>depth<sp/>fica<sp/>mto<sp/>custoso</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(heuristica<sp/>==<sp/>2)<sp/>nextMove<sp/>=<sp/>floodFill(e);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="controller_8h_1a40267453816c8fee2f1b6e11dacb2929" kindref="member">jogar</ref>(e,<sp/>nextMove);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="controller.c"/>
+  </compounddef>
+</doxygen>

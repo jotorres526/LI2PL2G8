@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="list_8h" kind="file" language="C++">
+    <compoundname>list.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="yes">macros/boolean.h</includes>
+    <includedby refid="controller_8h" local="yes">controller.h</includedby>
+    <includedby refid="list_8c" local="yes">list.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>macros/boolean.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="1">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>interface.h</label>
+        <link refid="interface_8h"/>
+      </node>
+      <node id="2">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structnodo" prot="public">nodo</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="list_8h_1ab352ead3fb06267f3afdd032d67c189c" prot="public" static="no">
+        <type>struct <ref refid="structnodo" kindref="compound">nodo</ref></type>
+        <definition>typedef struct nodo NODO</definition>
+        <argsstring></argsstring>
+        <name>NODO</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="16" column="6"/>
+      </memberdef>
+      <memberdef kind="typedef" id="list_8h_1a2ed03b19209dd10718380b31b09a69f5" prot="public" static="no">
+        <type>struct <ref refid="structnodo" kindref="compound">nodo</ref> *</type>
+        <definition>typedef struct nodo * LISTA</definition>
+        <argsstring></argsstring>
+        <name>LISTA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="16" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="list_8h_1afeac446323ce0922fec8d04015bcc59f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA createList</definition>
+        <argsstring>()</argsstring>
+        <name>createList</name>
+        <briefdescription>
+<para>Função que cria uma lista vazia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Uma lista vazia </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="23" column="7" bodyfile="list.c" bodystart="3" bodyend="6" declfile="list.h" declline="23" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA insertHead</definition>
+        <argsstring>(LISTA l, void *valor)</argsstring>
+        <name>insertHead</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>valor</declname>
+        </param>
+        <briefdescription>
+<para>Função que insere uma cabeça numa lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>*valor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- valor a ser inserido </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo inicio da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="31" column="7" bodyfile="list.c" bodystart="8" bodyend="14" declfile="list.h" declline="31" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* getHead</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>getHead</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Função que insere uma cabeça numa lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>devolve o valor da cabeça da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="38" column="6" bodyfile="list.c" bodystart="16" bodyend="18" declfile="list.h" declline="38" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a9cba525d21f684e649d05ffb6344f5bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA tail</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>tail</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Função que retira a cabeça numa lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>devolve a cauda da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="45" column="7" bodyfile="list.c" bodystart="21" bodyend="24" declfile="list.h" declline="45" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a83597a1719c87863358df50d9dbea96a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA deleteHead</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>deleteHead</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Função que remove a cabeça numa lista e liberta o espaço. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo inicio da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="52" column="7" bodyfile="list.c" bodystart="27" bodyend="32" declfile="list.h" declline="52" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a258dee7c10b15d6e8b17210b7c9ff305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isEmpty</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>isEmpty</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Função que ve se uma lista é vazia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 se for vazio, 0 caso contrário </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="59" column="5" bodyfile="list.c" bodystart="35" bodyend="37" declfile="list.h" declline="59" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a3339c3e08ff433a32159d194d83d93b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA setValorNodo</definition>
+        <argsstring>(LISTA l, int x)</argsstring>
+        <name>setValorNodo</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Função que insere uma cabeça numa lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- valor a ser inserido no campo de valornodo </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>inicio da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="67" column="7" bodyfile="list.c" bodystart="40" bodyend="43" declfile="list.h" declline="67" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a87a20a915543f7a57906892954da586e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getValorNodo</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>getValorNodo</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Função que devolde o valorNodo da lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para verificar </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo inicio da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="74" column="5" bodyfile="list.c" bodystart="45" bodyend="47" declfile="list.h" declline="74" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a07639e60402b3f928078986140d5c122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA setHead</definition>
+        <argsstring>(LISTA l, void *valor)</argsstring>
+        <name>setHead</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>valor</declname>
+        </param>
+        <briefdescription>
+<para>Função que coloca um apontador no campo valor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- lista para inserir </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>*valor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- valor a ser inserido </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo inicio da lista </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="81" column="7" bodyfile="list.c" bodystart="50" bodyend="53" declfile="list.h" declline="81" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1a2e5b441f1105c68977dd980e6222fd70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA getNext</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>getNext</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="82" column="7" bodyfile="list.c" bodystart="62" bodyend="64" declfile="list.h" declline="82" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="list_8h_1ace1c4c45f24919426a1c6c46ee93e031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+        <definition>LISTA setNext</definition>
+        <argsstring>(LISTA l, LISTA x)</argsstring>
+        <name>setNext</name>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structnodo" kindref="compound">LISTA</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="list.h" line="83" column="7" bodyfile="list.c" bodystart="56" bodyend="59" declfile="list.h" declline="83" declcolumn="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Definição do modulo de listas ligadas </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="6"><highlight class="preprocessor">#ifndef<sp/>___LIST_H___</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>___LIST_H___</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;macros/boolean.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="structnodo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnodo" kindref="compound">nodo</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valorNodo;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnodo" kindref="compound">nodo</ref><sp/>*proximo;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}<sp/><ref refid="structnodo" kindref="compound">NODO</ref>,<sp/>*<ref refid="structnodo" kindref="compound">LISTA</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1afeac446323ce0922fec8d04015bcc59f" kindref="member">createList</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1abd58a698d9cbc9bfea706d5c92e3b1fc" kindref="member">insertHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="list_8h_1a581a5a8bb55c742a87cb3eab38dc7bfb" kindref="member">getHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a9cba525d21f684e649d05ffb6344f5bc" kindref="member">tail</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a83597a1719c87863358df50d9dbea96a" kindref="member">deleteHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="list_8h_1a258dee7c10b15d6e8b17210b7c9ff305" kindref="member">isEmpty</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a3339c3e08ff433a32159d194d83d93b6" kindref="member">setValorNodo</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="list_8h_1a87a20a915543f7a57906892954da586e" kindref="member">getValorNodo</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="list_8h_1a07639e60402b3f928078986140d5c122" kindref="member">setHead</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*valor);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>getNext(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>setNext(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structnodo" kindref="compound">LISTA</ref><sp/>x);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="list.h"/>
+  </compounddef>
+</doxygen>
