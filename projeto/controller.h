@@ -14,7 +14,7 @@ Verifica se a coordenada introduzida é vizinha, se está vazia e se está dentr
 Visto isto caso seja o jogador 1 a jogar , coloca a jogada no parametro ultima jogada e troca para o jogador 2.
 Caso seja o jogador 2 coloca também a nova jogada na ultima jogada, troca o jogador e ainda coloca no array de jogadas.
 Caso a jogada não seja possível retorna 1. 
-@param estado Apontador para o estado
+@param e Apontador para o estado
 @param c A coordenada
 @returns 1 no caso de a jogada ser válida e 0 no caso contrário
 */
@@ -26,7 +26,7 @@ Neste sentido verifica se o algum jogador chegou a casa UM ou DOIS.
 Caso chegue retorna True caso contrário falso.
 @param e Apontador para o estado
 @returns True no caso de o jogo ter terminado, False caso contrário
- */
+*/
 Boolean isTerminado(ESTADO *e);
 
 /**
