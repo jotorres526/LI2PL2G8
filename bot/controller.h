@@ -7,8 +7,6 @@ Definição da lógica e controlo do estado
 #include "data.h"
 #include "list.h"
 
-COORDENADA floodFill(ESTADO *e);
-COORDENADA minimax(ESTADO *e, int depth) ;
 /**
 \brief Definição da função que realiza as jogadas. 
 Nesta função são realizadas as seguintes tarefas:
@@ -73,11 +71,25 @@ int winner (ESTADO *e) ;
 Boolean goToPos(ESTADO *e, int n);
 
 /**
-\brief Função que estuda qual a melhor jogada a ser feita pelo jogador utilizando o algoritmo minimax
+\brief Função que faz uma jogada com base em heuristicas
 @param e Apontador para o estado
-@param jogador - Jogador que está a jogar
+@param heuristica que deve ser utilizada caso seja 1 é o floodfill caso 2 é o minimax
 @returns Coordenada que aproxima o jogador da vitorias
 */
 ERROS jog(ESTADO *e, int heuristica);
-#endif
 
+/**
+\brief Função o melhor valor de uma casa a ser jogada através do algoritmo minimax
+@param e Apontador para o estado
+@param depth - profundidade de jogadas a ser analisadas
+@returns coordenada com o melhor valor
+*/
+COORDENADA minimax(ESTADO *e, int depth) ;
+
+/**
+\brief Função o melhor valor de uma casa a ser jogada através do algoritmo floodfill
+@param e Apontador para o estado
+@returns coordenada com o melhor valor
+*/
+COORDENADA floodFill(ESTADO *e);
+#endif

@@ -11,7 +11,6 @@ Definição do modulo de listas ligadas
 
 typedef struct nodo {
    void *valor;
-   int valorNodo;
    struct nodo *proximo;
 } NODO, *LISTA;
 
@@ -59,26 +58,25 @@ LISTA deleteHead(LISTA l);
 int isEmpty(LISTA l);
 
 /**
-\brief Função que insere uma cabeça numa lista. 
-@param l - lista para inserir
-@param x - valor a ser inserido no campo de valornodo
-@returns inicio da lista
-*/ 
-LISTA setValorNodo(LISTA l, int x);
-
-/**
-\brief Função que devolde o valorNodo da lista. 
-@param l - lista para verificar
-@returns novo inicio da lista
-*/ 
-int getValorNodo(LISTA l);
-/**
 \brief Função que coloca um apontador no campo valor. 
 @param l - lista para inserir
 @param *valor - valor a ser inserido
 @returns novo inicio da lista
 */ 
 LISTA setHead(LISTA l, void *valor);
+
+/**
+\brief Função que retorna o elemento seguinte da lista 
+@param l - lista para utilizar
+@returns elemento seguinte da lista 
+*/ 
 LISTA getNext(LISTA l);
+
+/**
+\brief Função que coloca o elemento seguinte da lista igual a uma lista x 
+@param l - lista para utilizar
+@param x - lista a ser adicionada
+@returns lista atualizada  
+*/ 
 LISTA setNext(LISTA l, LISTA x);
 #endif

@@ -36,16 +36,6 @@ int isEmpty(LISTA l) {
     return (l == NULL);
 }
 
-// coloca o valor do nodo
-LISTA setValorNodo(LISTA l, int x) {
-    l->valorNodo = x;
-    return l;
-}
-
-int getValorNodo(LISTA l) {
-    return l->valorNodo;
-}
-
 // insere o apontador no primeiro nodo da lista
 LISTA setHead(LISTA l, void *valor) {
     l->valor = valor;

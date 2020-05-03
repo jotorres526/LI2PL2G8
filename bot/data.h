@@ -75,16 +75,42 @@ typedef struct {
   COORDENADA ultima_jogada;
 } ESTADO;
 
+
+/**
+\brief Tipo de dados para um par que tem uma coordenada e o seu valor
+*/
 typedef struct {
+  /**valor da coordenada*/
     int valor;
+  /** Uma coordenada para ser calculada*/
     COORDENADA c;
 } ParMinMax;
 
-int getValorPar(ParMinMax p);
-COORDENADA getCoordPar(ParMinMax p);
-ParMinMax setPar(int valor, COORDENADA c);
+
 // funcões por documentar:::
 
+/*******************Minimax******************/
+/**
+\brief Função que retorna o valor do par minimax
+@param p strutc ParMiniMax
+@returns Valor do par
+*/ 
+int getValorPar(ParMinMax p);
+
+/**
+\brief Função que dado um par minimax recebe a coordenada que se encontra nesse par
+@param p - par da struct ParMinMax
+@returns Coordenada que esta guardada na struct
+*/ 
+COORDENADA getCoordPar(ParMinMax p);
+
+/**
+\brief Função que coloca um valor e uma coordenada num para minimax
+@param valor - valor a colocar
+@param c - Coordenada a ser introduzida
+@returns Coordenada que esta guardada na struct
+*/ 
+ParMinMax setPar(int valor, COORDENADA c);
 
 
 /**

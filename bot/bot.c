@@ -1,5 +1,5 @@
 
-#include "bot.h"
+#include "controller.h"
 int main(int argc, char **argv) {
     ESTADO *e = inicializar_estado();
     COORDENADA c;
